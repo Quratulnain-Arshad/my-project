@@ -5,3 +5,31 @@ body{
     background-position: center;
     background-attachment: fixed;
 }
+ 
+.lang-switch{
+    position: absolute;
+    background: #2E7D32;
+    color: white;
+    border: none;
+     top: 20px;
+     right: 20px;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor:pointer;
+    font-size: 16px;
+}
+.card{
+    background-color: #ffffffdd;
+    padding: 20px 40px;
+    margin: 10px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    align-items:center ;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.card:hover{
+    transform: scale(1.05);
+}
