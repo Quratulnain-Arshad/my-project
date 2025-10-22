@@ -1,0 +1,59 @@
+
+{
+  "languages": {
+    "en": {
+      "title": "Crop Information",
+      "subtitle": "Crop Varieties",
+      "crops": [
+        {
+          "name": "Rice",
+          "desc": "A staple food crop grown in flooded fields, requiring plenty of water",
+          "image":"https://cdn.britannica.com/89/140889-050-EC3F00BF/Ripening-heads-rice-Oryza-sativa.jpg"
+        },
+        {
+          "name": "Potato",
+          "desc": "A versatile tuber crop grown in well-drained soil",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdFq-FuA8g_OFpM9gHfolOwMppWlOyuPrDjA&s"
+        },
+        {
+          "name": "Wheat",
+          "desc": "A primary cereal crop grown in temperate regions",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRyLD_CD4XW-_ktQUJRrT2kwBPbZKEFH7hrQ&s"
+        },
+        {
+          "name": "Corn",
+          "desc": "A popular crop grown in warm climates, used for food and animal feed",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvsJXY7ZlO8BwoVoqu2eP4lI995BWaUYeExQ&s"
+        }
+      ],
+      "switchLanguage": "اردو"
+    },
+    "ur": {
+      "title": "فصل کی معلومات",
+      "subtitle": "فصلوں کی اقسام",
+      "crops": [
+        {
+          "name": "چاول",
+          "desc": "ایک بنیادی غذائی فصل جو پانی سے بھری زمین میں اگائی جاتی ہے",
+          "image": "images/rice.jpg"
+        },
+        {
+          "name": "آلو",
+          "desc": "ایک قیمتی جڑ والی فصل جو خشک زمین میں اگائی جاتی ہے",
+          "image": "images/potato.jpg"
+        },
+        {
+          "name": "گندم",
+          "desc": "ایک اہم اناجی فصل جو معتدل علاقوں میں اگائی جاتی ہے",
+          "image": "images/wheat.jpg"
+        },
+        {
+          "name": "مکئی",
+          "desc": "ایک مقبول فصل جو گرم علاقوں میں اگائی جاتی ہے اور خوراک کے لیے استعمال ہوتی ہے",
+          "image": "images/corn.jpg"
+        }
+      ],
+      "switchLanguage": "English"
+    }
+  }
+}

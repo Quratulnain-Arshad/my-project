@@ -1,24 +1,24 @@
 {
-    "language":
-    {
-        "en":{
-            "title":"Welcome to FarmEase",
-            "subtitle":"A Billingual Farming Support System",
-        "buttons":{
-            "cropInfo":"Crop Information",
-            "calculator":"Farming Calculator"
-        },
-    "switchLanguage":"اردو"},
-    "ur"{
-        "title":"فارم ایز میں خو ش آ مد ید  ",
-        "subtitle": "د و لسا نی ز ر عی مٖعا و ن نظا م  ",
-        "buttons":{
-            "cropInfo":"فصل کی معلو ما ت ",
-            "calculator":"ز ر عی کیلکو لیٹر"
-        },
-        "switchLanguage":"English"
-        
-        
-        }
+  "languages": {
+    "en": {
+      "title": "Welcome to FarmEase",
+      "subtitle": "A Bilingual Farming Support System",
+      "buttons": {
+        "cropInfo": "Crop Information",
+        "calculator": "Farming Calculator",
+        "video": "Video"
+      },
+      "switchLanguage": "اردو"
+    },
+    "ur": {
+      "title": "فارم ایز میں خوش آمدید",
+      "subtitle": "دو لسانی زرعی معاون نظام",
+      "buttons": {
+        "cropInfo": "فصل کی معلومات",
+        "calculator": "زرعی کیلکولیٹر",
+        "video": "ویڈیو"
+      },
+      "switchLanguage": "English"
     }
+  }
 }

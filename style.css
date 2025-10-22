@@ -1,34 +1,42 @@
-body{
-    background-image: url("https://imgix-prod.sgs.com/-/media/sgscorp/images/temporary/golden-wheat-grass.cdn.en-PK.1.jpg?fit=crop&auto=format&crop=focalpoint&fp-x=0.35&fp-y=0.6&fp-z=1&w=645&h=403");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-.lang-switch{
-    position: absolute;
-    background: #2E7D32;
-    color: white;
-    border: none;
-     top: 20px;
-     right: 20px;
-    padding: 8px 14px;
-    border-radius: 5px;
-    cursor:pointer;
-    font-size: 16px;
-}
-.card{
-    background-color: #ffffffdd;
-    padding: 20px 40px;
-    margin: 10px;
-    border-radius: 16px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    display: flex;
-    align-items:center ;
-    gap: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.card:hover{
-    transform: scale(1.05);
-}
+body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url("https://imgix-prod.sgs.com/-/media/sgscorp/images/temporary/golden-wheat-grass.cdn.en-PK.1.jpg?fit=crop&auto=format&crop=focalpoint&fp-x=0.35&fp-y=0.6&fp-z=1&w=645&h=403");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #1B5E20;
+      text-align: center;
+    }
+    .card {
+      background-color: #ffffffdd;
+      padding: 20px 40px;
+      margin: 10px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
+      z-index: 10;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #2E7D32;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
