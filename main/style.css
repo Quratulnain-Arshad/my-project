@@ -31,7 +31,7 @@ body {
       position: absolute;
       top: 20px;
       right: 20px;
-      background: #2E7D32;
+      background: #043915;
       color: white;
       border: none;
       padding: 8px 14px;
@@ -42,4 +42,9 @@ body {
     .crop-link{
       color: #043915;
       text-decoration: none;
+    }
+    header{
+      text-align: left;
+      margin-left: 20px;
+      margin-top: 10px;
     }
