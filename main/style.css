@@ -1,6 +1,6 @@
 body {
       font-family: 'Poppins', sans-serif;
-      background-image: url("https://imgix-prod.sgs.com/-/media/sgscorp/images/temporary/golden-wheat-grass.cdn.en-PK.1.jpg?fit=crop&auto=format&crop=focalpoint&fp-x=0.35&fp-y=0.6&fp-z=1&w=645&h=403");
+      background-image: url("https://img.freepik.com/free-vector/golden-yellow-wheat-field-summer-sky-background_1284-5445.jpg?semt=ais_hybrid&w=740&q=80");
       background-size: cover;
       background-position: center;
       display: flex;
@@ -8,12 +8,12 @@ body {
       align-items: center;
       justify-content: center;
       height: 100vh;
-      color: #1B5E20;
+      color:#043915;
       text-align: center;
     }
     .card {
       background-color: #ffffffdd;
-      padding: 20px 40px;
+      padding: 20px 60px;
       margin: 10px;
       border-radius: 16px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -22,8 +22,7 @@ body {
       gap: 10px;
       cursor: pointer;
       transition: 0.3s;
-      position: relative;
-      z-index: 10;
+      
     }
     .card:hover {
       transform: scale(1.05);
@@ -39,4 +38,8 @@ body {
       border-radius: 8px;
       cursor: pointer;
       font-size: 16px;
+    }
+    .crop-link{
+      color: #043915;
+      text-decoration: none;
     }

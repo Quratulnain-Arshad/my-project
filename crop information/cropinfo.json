@@ -35,22 +35,22 @@
         {
           "name": "چاول",
           "desc": "ایک بنیادی غذائی فصل جو پانی سے بھری زمین میں اگائی جاتی ہے",
-          "image": "images/rice.jpg"
+          "image": "https://cdn.britannica.com/89/140889-050-EC3F00BF/Ripening-heads-rice-Oryza-sativa.jpg"
         },
         {
           "name": "آلو",
           "desc": "ایک قیمتی جڑ والی فصل جو خشک زمین میں اگائی جاتی ہے",
-          "image": "images/potato.jpg"
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdFq-FuA8g_OFpM9gHfolOwMppWlOyuPrDjA&s"
         },
         {
           "name": "گندم",
           "desc": "ایک اہم اناجی فصل جو معتدل علاقوں میں اگائی جاتی ہے",
-          "image": "images/wheat.jpg"
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRyLD_CD4XW-_ktQUJRrT2kwBPbZKEFH7hrQ&s"
         },
         {
           "name": "مکئی",
           "desc": "ایک مقبول فصل جو گرم علاقوں میں اگائی جاتی ہے اور خوراک کے لیے استعمال ہوتی ہے",
-          "image": "images/corn.jpg"
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvsJXY7ZlO8BwoVoqu2eP4lI995BWaUYeExQ&s"
         }
       ],
       "switchLanguage": "English"

@@ -1,7 +1,7 @@
  body {
       font-family: 'Poppins', sans-serif;
       background-color: #f6f9f4;
-      color: #1B5E20;
+      color: #043915;
       text-align: center;
       margin: 0;
       padding: 0;
@@ -9,10 +9,10 @@
     h1 {
       margin-top: 30px;
       font-size: 2.5em;
-      color: #2E7D32;
+      color: #043915;
     }
     h2 {
-      color: #388E3C;
+      color: #043915;
     }
     .crop-container {
       display: flex;
@@ -47,13 +47,13 @@
     }
     .crop-info h3 {
       margin: 0;
-      color: #2E7D32;
+      color:#043915;
     }
     .lang-switch {
       position: fixed;
       top: 20px;
       right: 20px;
-      background: #2E7D32;
+      background: #043915;
       color: white;
       border: none;
       padding: 8px 14px;

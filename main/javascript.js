@@ -1,8 +1,8 @@
-  let currentLang = "en";
+ let currentLang = "en";
     let data = {};
 
     // Load JSON file
-    fetch("cropData.json")
+    fetch("farmdata.json")
       .then(response => response.json())
       .then(json => {
         data = json.languages;
@@ -14,30 +14,13 @@
       const langData = data[currentLang];
       document.getElementById("title").innerText = langData.title;
       document.getElementById("subtitle").innerText = langData.subtitle;
+      document.getElementById("cropInfo").innerHTML = '<img src="https://thumbs.dreamstime.com/b/clip-art-corn-stalks-image-shows-group-tall-green-corn-stalks-yellow-kernels-lush-leaves-emphasizing-their-368151148.jpg"width="50" height="50">'+ langData.buttons.cropInfo;
+      document.getElementById("calculator").innerHTML =  '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh6W0FZ7j22ge80m7zUrjbBbakVP1N3J6UOg&s width="50" height="50">'+ langData.buttons.calculator;
+      document.getElementById("video").innerHTML = '<img src="">' + langData.buttons.video;
       document.getElementById("langSwitch").innerText = langData.switchLanguage;
 
-      // Clear and rebuild crop list
-      const container = document.getElementById("cropList");
-      container.innerHTML = "";
-
-      langData.crops.forEach(crop => {
-        const card = document.createElement("div");
-        card.className = "crop-card";
-        card.innerHTML = `
-          <img src="${crop.image}" alt="${crop.name}">
-          <div class="crop-info">
-            <h3>${crop.name}</h3>
-            <p>${crop.desc}</p>
-          </div>
-        `;
-        container.appendChild(card);
-      });
-
-      // Urdu layout adjustment
+      // Change text direction for Urdu
       document.body.style.direction = currentLang === "ur" ? "rtl" : "ltr";
-      document.querySelectorAll(".crop-info").forEach(div => {
-        div.style.textAlign = currentLang === "ur" ? "right" : "left";
-      });
     }
 
     document.getElementById("langSwitch").addEventListener("click", () => {
