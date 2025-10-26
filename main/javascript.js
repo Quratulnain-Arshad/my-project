@@ -16,7 +16,6 @@
       document.getElementById("subtitle").innerText = langData.subtitle;
       document.getElementById("cropInfo").innerHTML = '<img src="https://thumbs.dreamstime.com/b/clip-art-corn-stalks-image-shows-group-tall-green-corn-stalks-yellow-kernels-lush-leaves-emphasizing-their-368151148.jpg"width="50" height="50">'+ langData.buttons.cropInfo;
       document.getElementById("calculator").innerHTML =  '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh6W0FZ7j22ge80m7zUrjbBbakVP1N3J6UOg&s width="50" height="50">'+ langData.buttons.calculator;
-      document.getElementById("video").innerHTML = '<img src="">' + langData.buttons.video;
       document.getElementById("langSwitch").innerText = langData.switchLanguage;
 
       // Change text direction for Urdu

@@ -5,8 +5,7 @@
       "subtitle": "A Bilingual Farming Support System",
       "buttons": {
         "cropInfo": "Crop Information",
-        "calculator": "Farming Calculator",
-        "video": "Video"
+        "calculator": "Farming Calculator"
       },
       "switchLanguage": "اردو"
     },
@@ -15,8 +14,7 @@
       "subtitle": "دو لسانی زرعی معاون نظام",
       "buttons": {
         "cropInfo": "فصل کی معلومات",
-        "calculator": "زرعی کیلکولیٹر",
-        "video": "ویڈیو"
+        "calculator": "زرعی کیلکولیٹر"
       },
       "switchLanguage": "English"
     }

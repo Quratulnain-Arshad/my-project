@@ -1,6 +1,6 @@
 body {
       font-family: 'Poppins', sans-serif;
-      background-image: url("https://img.freepik.com/free-vector/golden-yellow-wheat-field-summer-sky-background_1284-5445.jpg?semt=ais_hybrid&w=740&q=80");
+      background-image: url("../assets/image.png.jpeg");
       background-size: cover;
       background-position: center;
       display: flex;
@@ -43,8 +43,12 @@ body {
       color: #043915;
       text-decoration: none;
     }
-    header{
-      text-align: left;
-      margin-left: 20px;
-      margin-top: 10px;
+    .logo{
+      display: block;
+      position: absolute;
+      top: 20px;
+      height: 90px;;
+      width: auto;
+      left: 20px;
+    
     }
