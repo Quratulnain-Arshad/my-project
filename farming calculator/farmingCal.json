@@ -1,0 +1,34 @@
+{
+  "languages": {
+    "en": {
+      "title": "Farming Estimation Calculator",
+      "selectCrop": "Select Crop:",
+      "chooseCrop": "-- Choose Crop --",
+      "landArea": "Land Area (acres):",
+      "seedCost": "Seed Cost (per acre):",
+      "fertilizerCost": "Fertilizer Cost (per acre):",
+      "pesticideCost": "Pesticide Cost (per acre):",
+      "yield": "Expected Yield (kg per acre):",
+      "calculate": "Calculate Estimation",
+      "resultText": "Total Estimated Cost: Rs",
+      "errorText": "Please enter a valid land area",
+      "footer": "Designed for Smart Farmers 🌱",
+      "switchLang": "اردو"
+    },
+    "ur": {
+      "title": "زرعی لاگت کیلکولیٹر",
+      "selectCrop": "فصل منتخب کریں:",
+      "chooseCrop": "-- فصل منتخب کریں --",
+      "landArea": "زمین کا رقبہ (ایکڑ):",
+      "seedCost": "بیج کی لاگت (فی ایکڑ):",
+      "fertilizerCost": "کھاد کی لاگت (فی ایکڑ):",
+      "pesticideCost": "جراثیم کش لاگت (فی ایکڑ):",
+      "yield": "متوقع پیداوار (کلوگرام فی ایکڑ):",
+      "calculate": "حساب لگائیں",
+      "resultText": "کل تخمینی لاگت: روپے",
+      "errorText": "براہ کرم درست رقبہ درج کریں",
+      "footer": "سمارٹ کسانوں کے لیے تیار کردہ 🌾",
+      "switchLang": "English"
+    }
+  }
+}
