@@ -1,52 +1,50 @@
-    let langData;
-    let currentLang = "en";
+   let currentLang = "en";
+let translations = {};
 
-    // Load JSON language file
-    fetch("lang.json")
-      .then((res) => res.json())
-      .then((data) => {
-        langData = data.languages;
-        updateLanguage(currentLang);
-      });
+fetch("farmingCal.json")
+  .then(response => response.json())
+  .then(data => {
+    translations = data;
+    applyTranslations();
+  });
 
-    // Switch language button
-    document.getElementById("switchLang").addEventListener("click", () => {
-      currentLang = currentLang === "en" ? "ur" : "en";
-      updateLanguage(currentLang);
-    });
+document.getElementById("langToggle").addEventListener("click", () => {
+  currentLang = currentLang === "en" ? "ur" : "en";
+  applyTranslations();
+});
 
-    // Update text according to selected language
-    function updateLanguage(lang) {
-      const t = langData[lang];
-      document.getElementById("title").textContent = t.title;
-      document.getElementById("labelCrop").textContent = t.selectCrop;
-      document.getElementById("chooseCrop").textContent = t.chooseCrop;
-      document.getElementById("labelLand").textContent = t.landArea;
-      document.getElementById("labelSeed").textContent = t.seedCost;
-      document.getElementById("labelFertilizer").textContent = t.fertilizerCost;
-      document.getElementById("labelPesticide").textContent = t.pesticideCost;
-      document.getElementById("labelYield").textContent = t.yield;
-      document.getElementById("calculateBtn").textContent = t.calculate;
-      document.getElementById("footer").textContent = t.footer;
-      document.getElementById("switchLang").textContent = t.switchLang;
+function applyTranslations() {
+  const t = translations[currentLang];
+if (!t) return;
+  document.getElementById("title").textContent = t.title;
+  document.getElementById("cropLabel").textContent = t.cropLabel;
+  document.getElementById("landLabel").textContent = t.landLabel;
+  document.getElementById("seedLabel").textContent = t.seedLabel;
+  document.getElementById("fertilizerLabel").textContent = t.fertilizerLabel;
+  document.getElementById("pesticideLabel").textContent = t.pesticideLabel;
+  document.getElementById("yieldLabel").textContent = t.yieldLabel;
+  document.getElementById("calculate").textContent = t.calculate;
+  document.getElementById("footer").textContent = t.footer;
+  document.getElementById("langToggle").textContent = currentLang === "en" ? "اردو" : "English";
+  
+  document.body.dir = currentLang === "ur" ? "rtl" : "ltr";
+}
 
-      // RTL layout for Urdu
-      document.getElementById("calcBox").style.direction = lang === "ur" ? "rtl" : "ltr";
-    }
+// Calculate button
+document.getElementById("calculate").addEventListener("click", () => {
+  const land = parseFloat(document.getElementById("land").value) || 0;
+  const seed = parseFloat(document.getElementById("seed").value) || 0;
+  const fert = parseFloat(document.getElementById("fertilizer").value) || 0;
+  const pest = parseFloat(document.getElementById("pesticide").value) || 0;
+  const yieldPerAcre = parseFloat(document.getElementById("yield").value) || 0;
 
-    // Calculate estimation
-    document.getElementById("calculateBtn").addEventListener("click", () => {
-      const t = langData[currentLang];
-      const area = +document.getElementById("area").value;
-      const seed = +document.getElementById("seedCost").value;
-      const fert = +document.getElementById("fertilizerCost").value;
-      const pest = +document.getElementById("pesticideCost").value;
+  const totalCost = land * (seed + fert + pest);
+  const totalYield = land * yieldPerAcre;
 
-      if (!area) {
-        document.getElementById("result").textContent = t.errorText;
-        return;
-      }
-
-      const total = area * (seed + fert + pest);
-      document.getElementById("result").textContent = ${t.resultText} ${total.toLocaleString()};
-    });
+  const result = document.getElementById("result");
+  result.style.display = "block";
+  result.innerHTML = `
+    <strong>Total Cost:</strong> Rs ${totalCost.toLocaleString()}<br>
+    <strong>Total Expected Yield:</strong> ${totalYield.toLocaleString()} kg
+  `;
+});

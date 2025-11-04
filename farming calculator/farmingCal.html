@@ -7,38 +7,36 @@
   <link rel="stylesheet" href="farmingCal.css">
 </head>
 <body>
-   <div class="calculator" id="calcBox">
-    <button id="switchLang">اردو</button>
-    <h2 id="title">Farming Estimation Calculator</h2>
+   <button id="langToggle">اردو</button>
+   
+  <div class="calculator">
+    <h2 id="title">🌾 Farming Estimation Calculator</h2>
 
-    <label id="labelCrop" for="crop">Select Crop:</label>
+    <label for="crop" id="cropLabel">Select Crop:</label>
     <select id="crop">
-      <option id="chooseCrop">-- Choose Crop --</option>
+      <option value="">-- Choose Crop --</option>
       <option value="wheat">Wheat</option>
       <option value="rice">Rice</option>
-      <option value="corn">Corn</option>
+      <option value="maize">Maize</option>
     </select>
 
-    <label id="labelLand">Land Area (acres):</label>
-    <input type="number" id="area" placeholder="Enter area in acres" />
+    <label for="land" id="landLabel">Land Area (acres):</label>
+    <input type="number" id="land" placeholder="Enter area in acres" />
 
-    <label id="labelSeed">Seed Cost (per acre):</label>
-    <input type="number" id="seedCost" placeholder="Rs" />
+    <label for="seed" id="seedLabel">Seed Cost (per acre):</label>
+    <input type="number" id="seed" placeholder="Rs" />
 
-    <label id="labelFertilizer">Fertilizer Cost (per acre):</label>
-    <input type="number" id="fertilizerCost" placeholder="Rs" />
+    <label for="fertilizer" id="fertilizerLabel">Fertilizer Cost (per acre):</label>
+    <input type="number" id="fertilizer" placeholder="Rs" />
 
-    <label id="labelPesticide">Pesticide Cost (per acre):</label>
-    <input type="number" id="pesticideCost" placeholder="Rs" />
+    <label for="pesticide" id="pesticideLabel">Pesticide Cost (per acre):</label>
+    <input type="number" id="pesticide" placeholder="Rs" />
 
-    <label id="labelYield">Expected Yield (kg per acre):</label>
+    <label for="yield" id="yieldLabel">Expected Yield (kg per acre):</label>
     <input type="number" id="yield" placeholder="e.g. 1200" />
 
-    <button id="calculateBtn">Calculate Estimation</button>
-
-    <p id="result" style="margin-top:1rem; font-weight:bold;"></p>
-
-    <div class="footer" id="footer">Designed for Smart Farmers 🌱</div>
+    <button id="calculate">Calculate Estimation</button>
+    <div id="result"></div>
   </div>
   <script src="farmingCal.js"></script>
 </body>
