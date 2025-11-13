@@ -1,24 +1,23 @@
 {
   "en": {
-    "title": "🌾 Farming Estimation Calculator",
+    "title": " Farming Estimation Calculator",
     "cropLabel": "Select Crop:",
     "landLabel": "Land Area (acres):",
     "seedLabel": "Seed Cost (per acre):",
     "fertilizerLabel": "Fertilizer Cost (per acre):",
     "pesticideLabel": "Pesticide Cost (per acre):",
     "yieldLabel": "Expected Yield (kg per acre):",
-    "calculate": "Calculate Estimation",
-    "footer": "Designed for Smart Farmers 🌿"
+    "calculate": "Calculate Estimation"
   },
+  
   "ur": {
-    "title": "🌾 زراعتی تخمینہ کیلکولیٹر",
+    "title": " زراعتی تخمینہ کیلکولیٹر",
     "cropLabel": "فصل منتخب کریں:",
     "landLabel": "زمین کا رقبہ (ایکڑ):",
     "seedLabel": "بیج کی لاگت (فی ایکڑ):",
     "fertilizerLabel": "کھاد کی لاگت (فی ایکڑ):",
     "pesticideLabel": "ادویات کی لاگت (فی ایکڑ):",
     "yieldLabel": "متوقع پیداوار (کلو فی ایکڑ):",
-    "calculate": "تخمینہ لگائیں",
-    "footer": "سمارٹ کسانوں کے لیے تیار کردہ 🌿"
-  }
+    "calculate": "تخمینہ لگائیں"
+  } 
 }
