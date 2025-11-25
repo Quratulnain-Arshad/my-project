@@ -1,53 +1,45 @@
 let currentLang = "en";
 let translations = {};
 
+// Load JSON language file
 fetch("farmingCal.json")
-  .then(response => response.json())
-  .then(data => {
-    translations = data;
-    applyTranslations();
-  });
+    .then(response => response.json())
+    .then(data => {
+        translations = data;
+        applyLanguage(); // Apply English by default
+    });
 
-document.getElementById("langToggle").addEventListener("click", () => {
-  currentLang = currentLang === "en" ? "ur" : "en";
-  applyTranslations();
+// Switch language button
+document.getElementById("langBtn").addEventListener("click", () => {
+    currentLang = currentLang === "en" ? "ur" : "en";
+    applyLanguage();
 });
 
-function applyTranslations() {
-  const t = translations[currentLang];
-  if (!t) return;
-  document.getElementById("title").textContent = t.title;
-  document.getElementById("cropLabel").textContent = t.cropLabel;
-  document.getElementById("landLabel").textContent = t.landLabel;
-  document.getElementById("seedLabel").textContent = t.seedLabel;
-  document.getElementById("fertilizerLabel").textContent = t.fertilizerLabel;
-  document.getElementById("pesticideLabel").textContent = t.pesticideLabel;
-  document.getElementById("yieldLabel").textContent = t.yieldLabel;
-  document.getElementById("calculate").textContent = t.calculate;
-  const langButton = document.getElementById("langToggle");
-  if (currentLang === "en") {
-    langButton.textContent = "اردو";}
-    else{
-      langButton.textContent="English";
-    }
-    document.body.style.direction = currentLang === "ur" ? "rtl" : "ltr";
-  }
+// Apply language from JSON file
+function applyLanguage() {
+    const t = translations[currentLang];
 
-  // Calculate button
-  document.getElementById("calculate").addEventListener("click", () => {
-    const land = parseFloat(document.getElementById("land").value) || 0;
-    const seed = parseFloat(document.getElementById("seed").value) || 0;
-    const fert = parseFloat(document.getElementById("fertilizer").value) || 0;
-    const pest = parseFloat(document.getElementById("pesticide").value) || 0;
-    const yieldPerAcre = parseFloat(document.getElementById("yield").value) || 0;
+    document.getElementById("title").innerText = t.title;
+    document.getElementById("label1").innerText = t.label1;
+    document.getElementById("label2").innerText = t.label2;
+    document.getElementById("label3").innerText = t.label3;
+    document.getElementById("label4").innerText = t.label4;
+    document.getElementById("label5").innerText = t.label5;
+    document.getElementById("totalBtn").innerText = t.totalBtn;
+    document.getElementById("langBtn").innerText = t.langBtn;
+}
 
-    const totalCost = land * (seed + fert + pest);
-    const totalYield = land * yieldPerAcre;
+// Calculate total cost
+document.getElementById("totalBtn").addEventListener("click", () => {
+    let h = Number(document.getElementById("harvest").value);
+    let p = Number(document.getElementById("pesticide").value);
+    let s = Number(document.getElementById("seed").value);
+    let l = Number(document.getElementById("labour").value);
+    let f = Number(document.getElementById("fertilizer").value);
 
-    const result = document.getElementById("result");
-    result.style.display = "block";
-    result.innerHTML = `
-    <strong>Total Cost:</strong> Rs ${totalCost.toLocaleString()}<br>
-    <strong>Total Expected Yield:</strong> ${totalYield.toLocaleString()} kg
-  `;
-  });
+    let total = h + p + s + l + f;
+
+    document.getElementById("result").innerText =
+        (currentLang === "en" ? "Total Cost: " : "کل خرچ: ") + total;
+});
+

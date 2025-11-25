@@ -7,37 +7,44 @@
   <link rel="stylesheet" href="farmingCal.css">
 </head>
 <body>
-  <div id="langToggle">اردو</div>
-  <div class="calculator">
-    <h2 id="title"> Farming Estimation Calculator</h2>
+   <div class="top-buttons">
+        <button id="langBtn">اردو</button>
+    </div>
+    <div class="container">
 
-    <label for="crop" id="cropLabel">Select Crop:</label>
-    <select id="crop">
-      <option value="">-- Choose Crop --</option>
-      <option value="rice">Rice</option>
-      <option value="potato">Potato</option>
-      <option value="wheat">Wheat</option>
-      <option value="maize">Maize</option>
-    </select>
+    <h1 id="title">Farming Estimation Calculator</h1>
 
-    <label for="land" id="landLabel">Land Area (acres):</label>
-    <input type="number" id="land" placeholder="Enter area in acres" />
+   
 
-    <label for="seed" id="seedLabel">Seed Cost (per acre):</label>
-    <input type="number" id="seed" placeholder="Rs" />
+    <div class="row">
+        <label id="label1">Harvesting Cost</label>
+        <input id="harvest" type="number" value="0">
+    </div>
 
-    <label for="fertilizer" id="fertilizerLabel">Fertilizer Cost (per acre):</label>
-    <input type="number" id="fertilizer" placeholder="Rs" />
+    <div class="row">
+        <label id="label2">Pesticide Cost</label>
+        <input id="pesticide" type="number" value="0">
+    </div>
 
-    <label for="pesticide" id="pesticideLabel">Pesticide Cost (per acre):</label>
-    <input type="number" id="pesticide" placeholder="Rs" />
+    <div class="row">
+        <label id="label3">Seed Cost</label>
+        <input id="seed" type="number" value="0">
+    </div>
 
-    <label for="yield" id="yieldLabel">Expected Yield (kg per acre):</label>
-    <input type="number" id="yield" placeholder="e.g. 1200" />
+    <div class="row">
+        <label id="label4">Labour Cost</label>
+        <input id="labour" type="number" value="0">
+    </div>
 
-    <button id="calculate">Calculate Estimation</button>
+    <div class="row">
+        <label id="label5">Fertilizer Cost</label>
+        <input id="fertilizer" type="number" value="0">
+    </div>
+
+    <button id="totalBtn">Total Cost</button>
+
     <div id="result"></div>
-  </div>
-  <script src="farmingCal.js"></script>
+</div>
+<script src="farmingCal.js"></script>
 </body>
 </html>
