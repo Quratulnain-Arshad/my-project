@@ -1,0 +1,59 @@
+{
+  "en": {
+    "title": "Rice - Complete Crop Guide",
+
+    "intro": "Introduction",
+    "climate": "Climate Requirement",
+    "soil": "Soil Requirement",
+
+    "sowing": "Sowing Time",
+    "fertilizer": "Fertilizer Schedule",
+    "pests": "Weeds, Pests and Diseases",
+
+    "harvest": "Harvesting",
+
+    "next": "Next",
+    "langBtn": "اردو",
+
+    "images": {
+      "intro": "../assets/riceintro.jpeg",
+      "climate": "../assets/climate.jpg",
+      "soil": "../assets/ricesoil.jpeg",
+
+      "sowing": "../assets/ricesowing.jpeg",
+      "fertilizer": "../assets/ricefertilizer.jpeg",
+      "pests": "../assets/ricepests.jpeg",
+
+      "harvest": "../assets/riceharvesting.jpeg"
+    }
+  },
+
+  "ur": {
+    "title": "چاول- مکمل کاشتی رہنمائی",
+
+    "intro": "تعارف",
+    "climate": "آب و ہوا کی ضروریات",
+    "soil": "مٹی کی ضروریات",
+
+    "sowing": "بوائی کا وقت",
+    "fertilizer": "کھاد کا شیڈول",
+    "pests": "جڑی بوٹیاں، کیڑے اور بیماریاں",
+
+    "harvest": "کٹائی",
+
+    "next": "اگلا",
+    "langBtn": "English",
+
+    "images": {
+      "intro": "../assets/riceintro.jpeg",
+      "climate": "../assets/climate.jpg",
+      "soil": "../assets/ricesoil.jpeg",
+
+      "sowing": "../assets/ricesowing.jpeg",
+      "fertilizer": "../assets/ricefertilizer.jpeg",
+      "pests": "../assets/ricepests.jpeg",
+      
+      "harvest": "../assets/riceharvesting.jpeg"
+    }
+  }
+}

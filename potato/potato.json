@@ -1,0 +1,59 @@
+{
+  "en": {
+    "title": "Potato - Complete Crop Guide",
+
+    "intro": "Introduction",
+    "climate": "Climate Requirement",
+    "soil": "Soil Requirement",
+
+    "sowing": "Sowing Time",
+    "fertilizer": "Fertilizer Schedule",
+    "pests": "Weeds, Pests and Diseases",
+
+    "harvest": "Harvesting",
+
+    "next": "Next",
+    "langBtn": "اردو",
+
+    "images": {
+      "intro": "../assets/potatointro.jpeg",
+      "climate": "../assets/climate.jpg",
+      "soil": "../assets/potatosoil.jpeg",
+
+      "sowing": "../assets/potatosowing.jpg",
+      "fertilizer": "../assets/potatofertilizer.jpg",
+      "pests": "../assets/potatopest.jpg",
+
+      "harvest": "../assets/potatoharvesting.jpg"
+    }
+  },
+
+  "ur": {
+    "title": "آلو - مکمل کاشتی رہنمائی",
+
+    "intro": "تعارف",
+    "climate": "آب و ہوا کی ضروریات",
+    "soil": "مٹی کی ضروریات",
+
+    "sowing": "بوائی کا وقت",
+    "fertilizer": "کھاد کا شیڈول",
+    "pests": "جڑی بوٹیاں، کیڑے اور بیماریاں",
+
+    "harvest": "کٹائی",
+
+    "next": "اگلا",
+    "langBtn": "English",
+
+    "images": {
+      "intro": "../assets/potatointro.jpeg",
+      "climate": "../assets/climate.jpg",
+      "soil": "../assets/potatosoil.jpeg",
+
+      "sowing": "../assets/potatosowing.jpg",
+      "fertilizer": "../assets/potatofertilizer.jpg",
+      "pests": "../assets/potatopest.jpg",
+
+      "harvest": "../assets/potatoharvesting.jpg"
+    }
+  }
+}
