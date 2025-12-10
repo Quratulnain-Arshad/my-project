@@ -1,29 +1,59 @@
 {
   "en": {
     "title": "Wheat - Complete Crop Guide",
-    "toggle": "Urdu",
-    "topics": [
-      { "name": "Introduction", "image": "../assets/image.jpeg" },
-      { "name": "Climate Requirement", "image": "../assets/climate.jpg" },
-      { "name": "Soil Requirement", "image": "../assets/soil.jpg" },
-      { "name": "Sowing Time", "image": "../assets/sowing.jpg" },
-      { "name": "Fertilizer Schedule", "image": "../assets/fertilizer.jpg" },
-      { "name": "Weeds, Pests and Diseases", "image": "../assets/pests.jpg" },
-      { "name": "Harvesting", "image": "../assets/harvesting.jpg" }
-    ]
+
+    "intro": "Introduction",
+    "climate": "Climate Requirement",
+    "soil": "Soil Requirement",
+
+    "sowing": "Sowing Time",
+    "fertilizer": "Fertilizer Schedule",
+    "pests": "Weeds, Pests and Diseases",
+
+    "harvest": "Harvesting",
+
+    "next": "Next",
+    "langBtn": "اردو",
+
+    "images": {
+      "intro": "../assets/image.jpeg",
+      "climate": "../assets/climate.jpg",
+      "soil": "../assets/soil.jpg",
+
+      "sowing": "../assets/sowing.jpg",
+      "fertilizer": "../assets/fertilizer.jpg",
+      "pests": "../assets/pests.jpg",
+
+      "harvest": "../assets/harvesting.jpg"
+    }
   },
 
   "ur": {
-    "title": "گندم - مکمل کاشت گائیڈ",
-    "toggle": "English",
-    "topics": [
-      { "name": "تعارف", "image": "../assets/image.jpeg" },
-      { "name": "آب و ہوا کی ضروریات", "image": "../assets/climate.jpg" },
-      { "name": "مٹی کی ضروریات", "image": "../assets/soil.jpg" },
-      { "name": "بوائی کا وقت", "image": "../assets/sowing.jpg" },
-      { "name": "کھاد کا شیڈول", "image": "../assets/fertilizer.jpg" },
-      { "name": "جڑی بوٹیاں، کیڑے اور بیماریاں", "image": "../assets/pests.jpg" },
-      { "name": "کٹائی", "image": "../assets/harvesting.jpg" }
-    ]
+    "title": "گندم - مکمل کاشتی رہنمائی",
+
+    "intro": "تعارف",
+    "climate": "آب و ہوا کی ضروریات",
+    "soil": "مٹی کی ضروریات",
+
+    "sowing": "بوائی کا وقت",
+    "fertilizer": "کھاد کا شیڈول",
+    "pests": "جڑی بوٹیاں، کیڑے اور بیماریاں",
+
+    "harvest": "کٹائی",
+
+    "next": "اگلا",
+    "langBtn": "English",
+
+    "images": {
+      "intro": "../assets/image.jpeg",
+      "climate": "../assets/climate.jpg",
+      "soil": "../assets/soil.jpg",
+
+      "sowing": "../assets/sowing.jpg",
+      "fertilizer": "../assets/fertilizer.jpg",
+      "pests": "../assets/pests.jpg",
+
+      "harvest": "../assets/harvesting.jpg"
+    }
   }
 }

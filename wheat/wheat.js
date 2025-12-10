@@ -1,36 +1,43 @@
 let currentLang = "en";
-let data;
 
-async function loadData() {
-    const response = await fetch("wheat.json");
-    data = await response.json();
-    updateContent();
+async function loadText() {
+    const res = await fetch("wheat.json");
+    const data = await res.json();
+
+    const t = data[currentLang];
+
+    document.getElementById("title").innerText = t.title;
+
+    document.getElementById("intro").innerText = t.intro;
+    document.getElementById("climate").innerText = t.climate;
+    document.getElementById("soil").innerText = t.soil;
+
+    document.getElementById("sowing").innerText = t.sowing;
+    document.getElementById("fertilizer").innerText = t.fertilizer;
+    document.getElementById("pests").innerText = t.pests;
+
+    document.getElementById("harvest").innerText = t.harvest;
+
+    // Images update
+    document.getElementById("img_intro").src = t.images.intro;
+    document.getElementById("img_climate").src = t.images.climate;
+    document.getElementById("img_soil").src = t.images.soil;
+
+    document.getElementById("img_sowing").src = t.images.sowing;
+    document.getElementById("img_fertilizer").src = t.images.fertilizer;
+    document.getElementById("img_pests").src = t.images.pests;
+
+    document.getElementById("img_harvest").src = t.images.harvest;
+
+    document.getElementById("nextBtn").innerText = t.next;
+    document.getElementById("langToggle").innerText = t.langBtn;
+
+    document.body.style.direction = currentLang === "ur" ? "rtl" : "ltr";
 }
 
-function updateContent() {
-    const langData = data[currentLang];
-
-    document.getElementById("pageTitle").innerText = langData.title;
-    document.getElementById("toggleBtn").innerText = langData.toggle;
-
-    const grid = document.getElementById("topicsGrid");
-    grid.innerHTML = "";
-
-    langData.topics.forEach(topic => {
-        grid.innerHTML += `
-            <div class="card">
-                <img src="${topic.image}" alt="">
-                <h3>${topic.name}</h3>
-            </div>
-        `;
-    });
-}
-document.getElementById("toggleBtn").addEventListener("click", () => {
-    currentLang = currentLang === "en" ? "ur" : "en";
-    updateContent();
-});
-document.getElementById("nextbtn").addEventListener("click",function(){
-    window.location.href="nextpage.html";
+document.getElementById("langToggle").addEventListener("click", () => {
+    currentLang = (currentLang === "en") ? "ur" : "en";
+    loadText();
 });
 
-loadData();
+loadText();

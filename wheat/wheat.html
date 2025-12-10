@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="wheat.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="wheat.css">
 </head>
 <body>
-    <div class="container">
-
-    <div class="header">
-        <h1 id="pageTitle">Wheat - Complete Crop Guide</h1>
-        <button id="toggleBtn">اردو</button>
+ <button id="langToggle" class="lang-btn">اردو</button>
+    <h1 id="title">Wheat - Complete Crop Guide</h1>
+    <div class="grid">
+        <!-- Row 1 -->
+        <div class="card">
+            <img id="img_intro"><p id="intro"></p>
+        </div>
+        <div class="card">
+            <img id="img_climate"><p id="climate"></p>
+        </div>
+        <div class="card">
+            <img id="img_soil"><p id="soil"></p>
+        </div>
+        <!-- Row 2 -->
+        <div class="card">
+            <img id="img_sowing"><p id="sowing"></p>
+        </div>
+        <div class="card">
+            <img id="img_fertilizer"><p id="fertilizer"></p>
+        </div>
+        <div class="card">
+            <img id="img_pests"><p id="pests"></p>
+        </div>
+        <!-- Row 3 (centered harvesting) -->
+        <div class="center-row">
+            <div class="card center-card">
+                <img id="img_harvest"><p id="harvest"></p>
+            </div>
+        </div>
     </div>
-
-    <div id="topicsGrid" class="grid"></div>
-</div>
- <button id="nextbtn">Next</button>
+    <button id="nextBtn" class="next-btn">Next</button>
 <script src="wheat.js"></script>
 </body>
 </html>
