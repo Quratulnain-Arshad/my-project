@@ -53,3 +53,15 @@ body {
     margin-top: 10px;
     font-size: 18px;
 }
+#nextbtn{
+position: fixed;
+bottom: 20px;
+right: 20px;
+padding: 12px 22px;
+background: #043915;
+color: white;
+border: none;
+border-radius: 8px;
+font-size: 16px;
+cursor: pointer;
+}

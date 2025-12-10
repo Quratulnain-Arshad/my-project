@@ -29,5 +29,8 @@ document.getElementById("toggleBtn").addEventListener("click", () => {
     currentLang = currentLang === "en" ? "ur" : "en";
     updateContent();
 });
+document.getElementById("nextbtn").addEventListener("click",function(){
+    window.location.href="nextpage.html";
+});
 
 loadData();
