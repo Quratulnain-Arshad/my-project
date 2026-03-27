@@ -21,8 +21,11 @@
       container.innerHTML = "";
 
       langData.crops.forEach(crop => {
-        const card = document.createElement("div");
+        const card = document.createElement("a");
         card.className = "crop-card";
+        card.href=crop.link;
+        card.style.textDecoration="none";
+        card.style.color="inherit"
         card.innerHTML = `
           <img src="${crop.image}" alt="${crop.name}">
           <div class="crop-info">
@@ -44,3 +47,20 @@
       currentLang = currentLang === "en" ? "ur" : "en";
       updateLanguage();
     });
+    langData.crops.forEach(crop => {
+  const card = document.createElement("a");
+  card.className = "crop-card";
+  card.href = crop.link;
+  card.style.textDecoration = "none";
+  card.style.color = "inherit";
+
+  card.innerHTML = `
+    <img src="${crop.image}" alt="${crop.name}">
+    <div class="crop-info">
+      <h3>${crop.name}</h3>
+      <p>${crop.desc}</p>
+    </div>
+  `;
+
+  container.appendChild(card);
+});
