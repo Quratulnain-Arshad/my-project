@@ -1,0 +1,32 @@
+body {
+    font-size:20px;;
+  display: block;
+  clear: both;
+  font-family: Arial, sans-serif; 
+  color: #043915;
+}
+
+#langBtn {
+    float: right;
+    padding: 10px 18px;
+    background:#043915;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+h1 {
+    color: green;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.urdu {
+    direction: rtl;
+    text-align: right;
+    font-family: "Noto Nastaliq Urdu", serif;
+}

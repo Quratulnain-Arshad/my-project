@@ -20,6 +20,13 @@ function render() {
 
     const contentDiv = document.getElementById("content");
     contentDiv.innerHTML = "";
+     if(currentLang==="urdu"){
+        document.body.style.direction="rti";
+        document.body.style.textAlign="right";
+    }else{
+        document.body.style.direction="ltr";
+        document.body.style.textAlign="left";
+    }
 
     langData.sections.forEach(sec => {
         const div = document.createElement("div");
