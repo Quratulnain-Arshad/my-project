@@ -3,66 +3,66 @@
     "title": "Wheat Crop Information",
     "sections": [
       {
-        "heading": "1. Introduction",
-        "content": "Wheat is one of the most important cereal crops in the world. It belongs to the Poaceae family, which includes rice, maize, and barley. Wheat is primarily grown for its grains, which are used to produce flour for bread, chapati, pasta, and many other food products.\n\n✔ Key Characteristics of Wheat\n- Cool-season crop (Rabi crop)\n- Plant height: 60 to 120 cm (varies by variety)\n- Stem: hollow (except nodes)\n- Leaves: long, narrow, and green\n- Root system: fibrous and moderately deep\n- Grain: rich in carbohydrates, protein (gluten), vitamins, and minerals\n\n✔ Global Importance\n- One of the top 3 staple crops (with rice and maize)\n- Annual global production: 750+ million tons\n- Major producers: China, India, Russia, USA, France, Canada\n- Staple food for over 35% of the world population\n\n✔ Importance for Farmers\n- High demand in local and global markets\n- Essential food crop in Pakistan\n- Easy to store compared to vegetables\n- Mechanized farming possible\n- Stable income crop"
+        "heading": "Introduction",
+        "content": "Wheat is one of the most important cereal crops in the world. It belongs to the Poaceae family, which includes rice, maize, and barley. Wheat is primarily grown for its grains, which are used to produce flour for bread, chapati, pasta, and many other food products.\n\n<b><u> Key Characteristics of Wheat</u></b>\n Cool-season crop (Rabi crop)\n Plant height: 60 to 120 cm (varies by variety)\nStem: hollow (except nodes)\n Leaves: long, narrow, and green\nRoot system: fibrous and moderately deep\nGrain: rich in carbohydrates, protein (gluten), vitamins, and minerals\n\n<b><u> Global Importance</u></b>\n One of the top 3 staple crops (with rice and maize)\n Annual global production: 750+ million tons\n Major producers: China, India, Russia, USA, France, Canada\n Staple food for over 35% of the world population\n\n <b><u>Importance for Farmers</u></b>\n High demand in local and global markets\n Essential food crop in Pakistan\nEasy to store compared to vegetables\n Mechanized farming possible\n Stable income crop"
       },
       {
-        "heading": "2. Climate Requirement",
-        "content": "Wheat grows best in cool and dry climates.\n\n✔ Temperature\n- Germination: 12 to 25°C\n- Tillering stage: 16 to 20°C\n- Grain filling: 20 to 25°C\n- Above 30°C during grain filling → reduces yield\n- Frost can damage crop at flowering stage\n\n✔ Rainfall & Moisture\n- Total requirement: 300–500 mm\n- Needs moisture during early growth and grain filling\n- Excess rain → lodging and disease risk\n\n✔ Sunlight\n- Requires bright sunlight\n- Clear weather during grain filling improves grain quality\n\n✔ Wind\n- Strong winds can cause lodging (plants fall down)"
+        "heading": "Climate Requirement",
+        "content": "Wheat grows best in cool and dry climates.\n\n <b><u>Temperature</u></b>\n Germination: 12 to 25°C\n Tillering stage: 16 to 20°C\n Grain filling: 20 to 25°C\n Above 30°C during grain filling → reduces yield\n Frost can damage crop at flowering stage\n\n<b><u> Rainfall & Moisture</u></b>\n Total requirement: 300–500 mm\n Needs moisture during early growth and grain filling\n Excess rain → lodging and disease risk\n\n <b><u>Sunlight</u></b>\n Requires bright sunlight\n Clear weather during grain filling improves grain quality\n\n<b><u> Wind</u></b>\n Strong winds can cause lodging (plants fall down)"
       },
       {
-        "heading": "3. Soil Requirement",
-        "content": "Wheat can grow in various soils but performs best in fertile, well-drained soils.\n\n✔ Best Soil Types\n- Loam (ideal)\n- Clay loam\n- Silt loam\n\n✔ Soil pH\n- Ideal range: 6.0 to 7.5\n\n✔ Important Soil Properties\n- Good drainage (no waterlogging)\n- Moderate water-holding capacity\n- Rich in organic matter\n- Level field for uniform irrigation\n\n✔ Soil Preparation\n- 2 to 3 ploughings for fine seedbed\n- Remove weeds and previous crop residues\n- Apply farmyard manure (5 to 8 tons/acre)\n- Level land properly (laser leveling is best)"
+        "heading": "Soil Requirement",
+        "content": "Wheat can grow in various soils but performs best in fertile, well-drained soils.\n\n<b><u>Best Soil Types</u></b>\nLoam (ideal)\n Clay loam\nSilt loam\n\n<b><u|> Soil pH</u></b>\n Ideal range: 6.0 to 7.5\n\n <b><u>Important Soil Properties</u></b>\n Good drainage (no waterlogging)\n Moderate water-holding capacity\n Rich in organic matter\n Level field for uniform irrigation\n\n<b><u> Soil Preparation</u></b>\n 2 to 3 ploughings for fine seedbed\n Remove weeds and previous crop residues\n Apply farmyard manure (5 to 8 tons/acre)\n Level land properly (laser leveling is best)"
       },
       {
-        "heading": "4. Sowing Time",
-        "content": "✔ Ideal Sowing Time (Pakistan)\n- Punjab & Sindh: 15 October to 30 November (best)\n- Late sowing → lower yield\n\n✔ Seed Selection\n- Use certified, disease-free seeds\n- Popular varieties:\n  Faisalabad-2008\n  Galaxy-2013\n  Punjab-2011\n\n✔ Seed Rate\n- 40 to 50 kg per acre\n\n✔ Sowing Method\n- Drill method (recommended)\n- Row spacing: 9 to 12 inches\n- Depth: 3 to 5 cm"
+        "heading": " Sowing Time",
+        "content": " <b><u>Ideal Sowing Time </u></b>\n Punjab & Sindh: 15 October to 30 November (best)\nLate sowing → lower yield\n\n <b><u>Seed Selection</u></b>\n Use certified, disease-free seeds\n Popular varieties:\n  Faisalabad-2008\n  Galaxy-2013\n  Punjab-2011\n\n <b><u>Seed Rate</u></b>\n 40 to 50 kg per acre\n\n <b><u>Sowing Method</u></b>\n Drill method (recommended)\n Row spacing: 9 to 12 inches\n Depth: 3 to 5 cm"
       },
       {
         "heading": "5. Fertilizer Schedule",
-        "content": "Wheat requires balanced nutrients for high yield.\n\n✔ Recommended Dose (Per Acre)\nFertilizer\n- Urea: 80 to 100 kg\n- DAP: 50 kg\n- Potash (SOP/MOP): 25 to 30 kg\n- Zinc Sulfate: 5 to 10 kg\n- Organic Manure: 5 to 8 tons\n\n✔ Application Schedule\n1. Basal Dose (At Sowing)\n- Full DAP\n- Full Potash\n- Half Urea\n- Zinc\n\n2. First Irrigation (20 to 25 Days)\n- 25% Urea\n\n3. Second Irrigation (40 to 45 Days)\n- Remaining 25% Urea\n\n✔ Nutrient Importance\n- Nitrogen: Leaf growth, tillering\n- Phosphorus: Root development\n- Potassium: Strength, disease resistance\n- Zinc: Better grain formation"
+        "content": "Wheat requires balanced nutrients for high yield.\n\n <b><u>Recommended Dose </u>(Per Acre)</b>\nFertilizer\n Urea: 80 to 100 kg\n DAP: 50 kg\nPotash (SOP/MOP): 25 to 30 kg\n Zinc Sulfate: 5 to 10 kg\n Organic Manure: 5 to 8 tons\n\n <b><u>Application Schedule</u></b>\n1. Basal Dose (At Sowing)\nFull DAP\nFull Potash\n Half Urea\n Zinc\n\n2. First Irrigation (20 to 25 Days)\n 25% Urea\n\n3. Second Irrigation (40 to 45 Days)\n Remaining 25% Urea\n\n<b><u> Nutrient Importance</u></b>\n Nitrogen: Leaf growth, tillering\nPhosphorus: Root development\n Potassium: Strength, disease resistance\n Zinc: Better grain formation"
       },
       {
         "heading": "6. Weeds, Pests and Diseases",
-        "content": "A. Weeds\n✔ Common Weeds\n- Bathu (Chenopodium)\n- Wild oats (Jangli jai)\n- Dela (Cyperus)\n- Broadleaf weeds\n\n✔ Control\n- Weeding at 20 to 30 days\n- Chemical control:\n  Isoproturon\n  Topik\n  Puma Super\n\nB. Pests\n✔ Aphids\n- Damage: Sap sucking → weak plants\n- Control: Imidacloprid\n\n✔ Termites\n- Damage: Attack roots and stems\n- Control: Chlorpyrifos\n\nC. Diseases\n✔ Rust (Zang)\nTypes:\n- Leaf rust\n- Stem rust\n- Stripe rust\n\nCause: Puccinia species\n\nSymptoms:\n- Orange/yellow powder on leaves\n- Reduced grain filling\n\nControl:\n- Resistant varieties\n- Fungicide spray (Tilt, Score)\n\n✔ Smut\n- Black powder in grains\n- Control: Seed treatment before sowing\n\n✔ Powdery Mildew\n- White powder on leaves\n- Control: Fungicide spray"
+        "content": "<b>A.<u> Weeds</u></b>\n Common Weeds\n Bathu (Chenopodium)\nWild oats (Jangli jai)\n Dela (Cyperus)\n Broadleaf weeds\n\n<b><u>Control</u></b>\nWeeding at 20 to 30 days\n Chemical control:\n  Isoproturon\n  Topik\n  Puma Super\n\n<b>B.<u> Pests</u></b>\n Aphids\n Damage: Sap sucking → weak plants\n Control: Imidacloprid\n\n Termites\n Damage: Attack roots and stems\n Control: Chlorpyrifos\n\n<b>C.<u> Diseases</u></b>\n Rust (Zang)\nTypes:\n Leaf rust\n Stem rust\n Stripe rust\n\nCause: Puccinia species\n\nSymptoms:\n Orange/yellow powder on leaves\n Reduced grain filling\n\nControl:\n Resistant varieties\n Fungicide spray (Tilt, Score)\n\n Smut\nBlack powder in grains\nControl: Seed treatment before sowing\n\n Powdery Mildew\n White powder on leaves\nControl: Fungicide spray"
       },
       {
         "heading": "7. Harvesting",
-        "content": "✔ Harvesting Time\n- April – May (Pakistan)\n\n✔ When:\n- Crop turns golden yellow\n- Grains become hard\n- Moisture content ~12 to 14%"
+        "content": " <b><u>Harvesting Time</u></b>\n April – May\n\n <b><u>When:</u></b>\n Crop turns golden yellow\n Grains become hard\n Moisture content ~12 to 14%"
       }
     ]
   },
 
   "urdu": {
-    "title": "گندم کی فصل کی مکمل معلومات",
+    "title": "گندم کی فصل کی معلومات",
     "sections": [
       {
-        "heading": "1. تعارف",
-        "content": "گندم دنیا کی سب سے اہم اناج کی فصلوں میں سے ایک ہے۔ یہ پوئیسی (Poaceae) خاندان سے تعلق رکھتی ہے، جس میں چاول، مکئی اور جو شامل ہیں۔ گندم بنیادی طور پر اس کے دانوں کے لیے اگائی جاتی ہے، جن سے آٹا، روٹی، چپاتی، پاستا اور دیگر غذائی مصنوعات تیار کی جاتی ہیں۔\n\n✔ گندم کی اہم خصوصیات\n- سرد موسم کی فصل (ربیع کی فصل)\n- پودے کی اونچائی: 60 سے 120 سینٹی میٹر (قسم کے مطابق مختلف)\n- تنا: کھوکھلا ہوتا ہے (گرہوں کے علاوہ)\n- پتے: لمبے، باریک اور سبز\n- جڑوں کا نظام: ریشہ دار اور درمیانی گہرائی تک\n- دانہ: کاربوہائیڈریٹس، پروٹین (گلوٹن)، وٹامنز اور معدنیات سے بھرپور\n\n✔ عالمی اہمیت\n- دنیا کی تین بڑی بنیادی غذائی فصلوں میں شامل (چاول اور مکئی کے ساتھ)\n- سالانہ عالمی پیداوار: 750 ملین ٹن سے زیادہ\n- بڑے پیدا کرنے والے ممالک: چین، بھارت، روس، امریکہ، فرانس، کینیڈا\n- دنیا کی 35 فیصد سے زائد آبادی کی بنیادی غذا\n\n✔ کسانوں کے لیے اہمیت\n- مقامی اور عالمی منڈیوں میں زیادہ طلب\n- پاکستان کی بنیادی غذائی فصل\n- سبزیوں کے مقابلے میں ذخیرہ کرنا آسان\n- مشینی کاشت ممکن\n- مستحکم آمدنی دینے والی فصل"
+        "heading": "تعارف",
+        "content": "گندم دنیا کی سب سے اہم اناج کی فصلوں میں سے ایک ہے۔ یہ پوئیسی (Poaceae) خاندان سے تعلق رکھتی ہے، جس میں چاول، مکئی اور جو شامل ہیں۔ گندم بنیادی طور پر اس کے دانوں کے لیے اگائی جاتی ہے، جن سے آٹا، روٹی، چپاتی، پاستا اور دیگر غذائی مصنوعات تیار کی جاتی ہیں۔\n\n گندم کی اہم خصوصیات\n سرد موسم کی فصل (ربیع کی فصل)\nپودے کی اونچائی: 60 سے 120 سینٹی میٹر (قسم کے مطابق مختلف)\nتنا: کھوکھلا ہوتا ہے (گرہوں کے علاوہ)\n پتے: لمبے، باریک اور سبز\nجڑوں کا نظام: ریشہ دار اور درمیانی گہرائی تک\n دانہ: کاربوہائیڈریٹس، پروٹین (گلوٹن)، وٹامنز اور معدنیات سے بھرپور\n\n عالمی اہمیت\n دنیا کی تین بڑی بنیادی غذائی فصلوں میں شامل (چاول اور مکئی کے ساتھ)\n سالانہ عالمی پیداوار: 750 ملین ٹن سے زیادہ\nبڑے پیدا کرنے والے ممالک: چین، بھارت، روس، امریکہ، فرانس، کینیڈا\n- دنیا کی 35 فیصد سے زائد آبادی کی بنیادی غذا\n\n کسانوں کے لیے اہمیت\n مقامی اور عالمی منڈیوں میں زیادہ طلب\n پاکستان کی بنیادی غذائی فصل\n- سبزیوں کے مقابلے میں ذخیرہ کرنا آسان\nمشینی کاشت ممکن\nمستحکم آمدنی دینے والی فصل"
       },
       {
-        "heading": "2. موسمی ضروریات",
-        "content": "گندم ٹھنڈے اور خشک موسم میں بہترین اگتی ہے۔\n\n✔ درجہ حرارت\n- اگاؤ: 12 سے 25 ڈگری سینٹی گریڈ\n- ٹلرنگ مرحلہ: 16 سے 20 ڈگری سینٹی گریڈ\n- دانہ بھرنے کا مرحلہ: 20 سے 25 ڈگری سینٹی گریڈ\n- دانہ بھرنے کے دوران 30 ڈگری سینٹی گریڈ سے زیادہ درجہ حرارت پیداوار کم کر دیتا ہے\n- پھول آنے کے وقت کہر فصل کو نقصان پہنچا سکتی ہے\n\n✔ بارش اور نمی\n- کل ضرورت: 300 سے 500 ملی میٹر\n- ابتدائی بڑھوتری اور دانہ بھرنے کے وقت نمی ضروری ہوتی ہے\n- زیادہ بارش سے فصل گرنے (Lodging) اور بیماریوں کا خطرہ بڑھ جاتا ہے\n\n✔ دھوپ\n- تیز دھوپ ضروری ہے\n- دانہ بھرنے کے دوران صاف موسم دانے کے معیار کو بہتر بناتا ہے\n\n✔ ہوا\n- تیز ہوائیں فصل کو گرا سکتی ہیں (Lodging)"
+        "heading": "موسمی تقاضے",
+        "content": "گندم ٹھنڈے اور خشک موسم میں بہترین اگتی ہے۔\n\n درجہ حرارت\n اگاؤ: 12 سے 25 ڈگری سینٹی گریڈ\n ٹلرنگ مرحلہ: 16 سے 20 ڈگری سینٹی گریڈ\n دانہ بھرنے کا مرحلہ: 20 سے 25 ڈگری سینٹی گریڈ\n- دانہ بھرنے کے دوران 30 ڈگری سینٹی گریڈ سے زیادہ درجہ حرارت پیداوار کم کر دیتا ہے\n پھول آنے کے وقت کہر فصل کو نقصان پہنچا سکتی ہے\n\n بارش اور نمی\n کل ضرورت: 300 سے 500 ملی میٹر\nابتدائی بڑھوتری اور دانہ بھرنے کے وقت نمی ضروری ہوتی ہے\n زیادہ بارش سے فصل گرنے (Lodging) اور بیماریوں کا خطرہ بڑھ جاتا ہے\n\n دھوپ\n تیز دھوپ ضروری ہے\n دانہ بھرنے کے دوران صاف موسم دانے کے معیار کو بہتر بناتا ہے\n\n ہوا\n تیز ہوائیں فصل کو گرا سکتی ہیں (Lodging)"
       },
       {
-        "heading": "3. مٹی کی ضروریات",
-        "content": "گندم مختلف اقسام کی مٹی میں اگ سکتی ہے لیکن زرخیز اور اچھی نکاسی والی مٹی میں بہترین پیداوار دیتی ہے۔\n\n✔ بہترین مٹی کی اقسام\n- میرا (Loam) — سب سے بہتر\n- چکنی میرا (Clay loam)\n- سلٹی میرا (Silt loam)\n\n✔ مٹی کا pH\n- مثالی حد: 6.0 سے 7.5\n\n✔ اہم خصوصیات\n- پانی کے نکاس کا اچھا نظام (پانی کھڑا نہ ہو)\n- درمیانی پانی رکھنے کی صلاحیت\n- نامیاتی مادہ سے بھرپور\n- زمین ہموار ہو تاکہ آبپاشی یکساں ہو\n\n✔ مٹی کی تیاری\n- 2 سے 3 ہل چلا کر نرم بیج بستر تیار کریں\n- جڑی بوٹیاں اور پچھلی فصل کی باقیات ختم کریں\n- 5 سے 8 ٹن فی ایکڑ گوبر کی کھاد ڈالیں\n- زمین کو اچھی طرح ہموار کریں (لیزر لیولنگ بہترین ہے)"
+        "heading":"مٹی کے تقاضے",
+        "content": "گندم مختلف اقسام کی مٹی میں اگ سکتی ہے لیکن زرخیز اور اچھی نکاسی والی مٹی میں بہترین پیداوار دیتی ہے۔\n\n بہترین مٹی کی اقسام\n میرا  — سب سے بہتر\n چکنی میرا \n سلٹی میرا \n\n مٹی کا pH\n مثالی حد: 6.0 سے 7.5\n\n اہم خصوصیات\n- پانی کے نکاس کا اچھا نظام (پانی کھڑا نہ ہو)\nدرمیانی پانی رکھنے کی صلاحیت\n نامیاتی مادہ سے بھرپور\nزمین ہموار ہو تاکہ آبپاشی یکساں ہو\n\n مٹی کی تیاری\n 2 سے 3 ہل چلا کر نرم بیج بستر تیار کریں\n جڑی بوٹیاں اور پچھلی فصل کی باقیات ختم کریں\n 5 سے 8 ٹن فی ایکڑ گوبر کی کھاد ڈالیں\nزمین کو اچھی طرح ہموار کریں (لیزر لیولنگ بہترین ہے)"
       },
       {
-        "heading": "4. کاشت کا وقت",
-        "content": "✔ موزوں کاشت کا وقت (پاکستان)\n- پنجاب اور سندھ: 15 اکتوبر سے 30 نومبر (بہترین)\n- دیر سے کاشت کرنے سے پیداوار کم ہو جاتی ہے\n\n✔ بیج کا انتخاب\n- تصدیق شدہ اور بیماری سے پاک بیج استعمال کریں\n- مشہور اقسام:\n  فیصل آباد-2008\n  گلیکسی-2013\n  پنجاب-2011\n\n✔ بیج کی مقدار\n- 40 سے 50 کلوگرام فی ایکڑ\n\n✔ بوائی کا طریقہ\n- ڈرل طریقہ (سفارش کردہ)\n- قطاروں کا فاصلہ: 9 سے 12 انچ\n- گہرائی: 3 سے 5 سینٹی میٹر"
+        "heading": "بونے کا وقت",
+        "content": " موزوں کاشت کا وقت (پاکستان)\n پنجاب اور سندھ: 15 اکتوبر سے 30 نومبر (بہترین)\n دیر سے کاشت کرنے سے پیداوار کم ہو جاتی ہے\n\nبیج کا انتخاب\n تصدیق شدہ اور بیماری سے پاک بیج استعمال کریں\nمشہور اقسام:\n  فیصل آباد-2008\n  گلیکسی-2013\n  پنجاب-2011\n\n بیج کی مقدار\n 40 سے 50 کلوگرام فی ایکڑ\n\n بوائی کا طریقہ\n ڈرل طریقہ (سفارش کردہ)\nقطاروں کا فاصلہ: 9 سے 12 انچ\nگہرائی: 3 سے 5 سینٹی میٹر"
       },
       {
-        "heading": "5. کھادوں کا شیڈول",
-        "content": "گندم کو زیادہ پیداوار کے لیے متوازن غذائی اجزاء درکار ہوتے ہیں۔\n\n✔ سفارش کردہ مقدار (فی ایکڑ)\nکھاد\n- یوریا: 80 سے 100 کلوگرام\n- ڈی اے پی: 50 کلوگرام\n- پوٹاش (SOP/MOP): 25 سے 30 کلوگرام\n- زنک سلفیٹ: 5 سے 10 کلوگرام\n- نامیاتی کھاد: 5 سے 8 ٹن\n\n✔ استعمال کا شیڈول\n1. بوائی کے وقت (Basal Dose)\n- مکمل ڈی اے پی\n- مکمل پوٹاش\n- آدھی یوریا\n- زنک\n\n2. پہلی آبپاشی (20 سے 25 دن بعد)\n- 25 فیصد یوریا\n\n3. دوسری آبپاشی (40 سے 45 دن بعد)\n- باقی 25 فیصد یوریا\n\n✔ غذائی اجزاء کی اہمیت\n- نائٹروجن: پتوں کی بڑھوتری اور ٹلرنگ\n- فاسفورس: جڑوں کی نشوونما\n- پوٹاشیم: مضبوطی اور بیماریوں کے خلاف مزاحمت\n- زنک: دانے کی بہتر تشکیل"
+        "heading": "کھادوں کا شیڈول",
+        "content": "گندم کو زیادہ پیداوار کے لیے متوازن غذائی اجزاء درکار ہوتے ہیں۔\n\n سفارش کردہ مقدار (فی ایکڑ)\nکھاد\n یوریا: 80 سے 100 کلوگرام\n ڈی اے پی: 50 کلوگرام\n پوٹاش (SOP/MOP): 25 سے 30 کلوگرام\n- زنک سلفیٹ: 5 سے 10 کلوگرام\n نامیاتی کھاد: 5 سے 8 ٹن\n\n استعمال کا شیڈول\n بوائی کے وقت \n- مکمل ڈی اے پی\n مکمل پوٹاش\nآدھی یوریا\n- زنک\n\nپہلی آبپاشی (20 سے 25 دن بعد)\n 25 فیصد یوریا\n\n دوسری آبپاشی (40 سے 45 دن بعد)\n باقی 25 فیصد یوریا\n\n غذائی اجزاء کی اہمیت\nنائٹروجن: پتوں کی بڑھوتری اور ٹلرنگ\n فاسفورس: جڑوں کی نشوونما\nپوٹاشیم: مضبوطی اور بیماریوں کے خلاف مزاحمت\nزنک: دانے کی بہتر تشکیل"
       },
       {
-        "heading": "6. جڑی بوٹیاں، کیڑے اور بیماریاں",
-        "content": "الف) جڑی بوٹیاں\n✔ عام جڑی بوٹیاں\n- باتھو (Chenopodium)\n- جنگلی جئی (Jangli jai)\n- ڈیلا (Cyperus)\n- چوڑی پتوں والی جڑی بوٹیاں\n\n✔ کنٹرول\n- 20 سے 30 دن میں گوڈی کریں\n- کیمیائی کنٹرول:\n  Isoproturon\n  Topik\n  Puma Super\n\nب) کیڑے\n✔ ایفڈز\n- نقصان: رس چوس کر پودوں کو کمزور کرتے ہیں\n- کنٹرول: Imidacloprid\n\n✔ دیمک\n- نقصان: جڑوں اور تنوں پر حملہ کرتے ہیں\n- کنٹرول: Chlorpyrifos\n\nج) بیماریاں\n✔ زنگ (Rust)\nاقسام:\n- لیف رسٹ\n- اسٹیم رسٹ\n- اسٹرائپ رسٹ\n\nوجہ: Puccinia species\n\nعلامات:\n- پتوں پر نارنجی یا پیلے رنگ کا پاؤڈر\n- دانہ بھرنے میں کمی\n\nکنٹرول:\n- مزاحم اقسام استعمال کریں\n- فنگس کش اسپرے (Tilt، Score)\n\n✔ سموٹ (Smut)\n- دانوں میں سیاہ پاؤڈر\n- کنٹرول: بوائی سے پہلے بیج کا ٹریٹمنٹ\n\n✔ پاؤڈری میلڈیو (Powdery Mildew)\n- پتوں پر سفید پاؤڈر\n- کنٹرول: فنگس کش اسپرے"
+        "heading": "جڑی بوٹیاں، کیڑے اور بیماریاں",
+        "content": "الف) جڑی بوٹیاں\n عام جڑی بوٹیاں\n- باتھو \nجنگلی جئی \n- ڈیلا \n- چوڑی پتوں والی جڑی بوٹیاں\n\n کنٹرول\n- 20 سے 30 دن میں گوڈی کریں\nب) کیڑے\n ایفڈز\n- نقصان: رس چوس کر پودوں کو کمزور کرتے ہیں\n دیمک\n- نقصان: جڑوں اور تنوں پر حملہ کرتے ہیں\nج) بیماریاں\n زنگ \nاقسام:\n لیف رسٹ\n اسٹیم رسٹ\nاسٹرائپ رسٹ\nعلامات:\n- پتوں پر نارنجی یا پیلے رنگ کا پاؤڈر\n دانہ بھرنے میں کمی\n\nکنٹرول:\n مزاحم اقسام استعمال کریں\n فنگس کش اسپرے \n\n سموٹ \n دانوں میں سیاہ پاؤڈر\n کنٹرول: بوائی سے پہلے بیج کا ٹریٹمنٹ\n\n پاؤڈری میلڈیو\n پتوں پر سفید پاؤڈر\n کنٹرول: فنگس کش اسپرے"
       },
       {
-        "heading": "7. برداشت",
-        "content": "✔ برداشت کا وقت\n- اپریل سے مئی (پاکستان)\n\n✔ کب برداشت کریں:\n- فصل سنہری پیلی ہو جائے\n- دانے سخت ہو جائیں\n- نمی تقریباً 12 سے 14 فیصد ہو"
+        "heading":"فصل کاٹنے کا وقت", 
+        "content": "  اپریل سے مئی\nفصل سنہری پیلی ہو جائے\nدانے سخت ہو جائیں\n نمی تقریباً 12 سے 14 فیصد ہو"
       }
     ]
   }

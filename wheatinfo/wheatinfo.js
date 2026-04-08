@@ -20,7 +20,13 @@ function render() {
   const title = document.getElementById("title");
 
   contentDiv.innerHTML = "";
-
+if(currentLang==="urdu"){
+        document.body.style.direction="rti";
+        document.body.style.textAlign="right";
+    }else{
+        document.body.style.direction="ltr";
+        document.body.style.textAlign="left";
+    }
   title.innerText = data[currentLang].title;
 
   if (currentLang === "urdu") {

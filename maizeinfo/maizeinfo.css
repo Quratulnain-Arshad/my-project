@@ -5,8 +5,14 @@ body {
   font-family: Arial, sans-serif; 
   color: #043915;
 }
-
-#langBtn {
+  .section {
+     margin-bottom: 20px;
+     background: #fff;
+     padding: 15px;
+     border-radius: 8px;
+     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+     }
+ #langButton {
     float: right;
     padding: 10px 18px;
     background:#043915;
@@ -16,10 +22,3 @@ body {
     cursor: pointer;
     font-size: 16px;
 }
-.section {
-     margin-bottom: 20px;
-     background: #fff;
-     padding: 15px;
-     border-radius: 8px;
-     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-     }
