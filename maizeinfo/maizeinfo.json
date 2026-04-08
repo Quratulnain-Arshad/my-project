@@ -3,32 +3,32 @@
     "title": "Maize Crop Information",
     "sections": [
       {
-        "heading": "1. Introduction",
-        "content": "Maize is one of the most important cereal crops in the world. It belongs to the Poaceae family, which includes wheat, rice, and barley. Maize is primarily grown for its grains, which are used for human food, animal feed, and industrial products like starch, oil, and biofuel.\n\nKey Characteristics of Maize:\n- Warm-season crop (Kharif crop)\n- Plant height: 150 to 300 cm (varies by variety)\n- Stem: solid and thick\n- Leaves: long, broad, and green\n- Root system: fibrous and deep\n- Grain: rich in carbohydrates, oil, protein, vitamins, and minerals\n\nGlobal Importance:\n- One of the top 3 staple crops (with wheat and rice)\n- Annual global production: 1100+ million tons\n- Major producers: USA, China, Brazil, Argentina, India\n- Widely used in food industry and livestock feed\n\nImportance for Farmers:\n- High yield potential\n- Used as food and fodder\n- High demand in poultry feed industry\n- Suitable for mechanized farming\n- Provides stable and profitable income"
+        "heading": " Introduction",
+        "content": "Maize is one of the most important cereal crops in the world. It belongs to the Poaceae family, which includes wheat, rice, and barley. Maize is primarily grown for its grains, which are used for human food, animal feed, and industrial products like starch, oil, and biofuel.\n\n<b><u>Key Characteristics of Maize:</u></b>\n Warm-season crop (Kharif crop)\n Plant height: 150 to 300 cm (varies by variety)\nStem: solid and thick\n Leaves: long, broad, and green\n Root system: fibrous and deep\nGrain: rich in carbohydrates, oil, protein, vitamins, and minerals\n\n<b><u>Global Importance:</u></b>\n One of the top 3 staple crops (with wheat and rice)\nAnnual global production: 1100+ million tons\n Major producers: USA, China, Brazil, Argentina, India\n Widely used in food industry and livestock feed\n\n<b><u>Importance for Farmers:</u></b>\n High yield potential\n Used as food and fodder\nHigh demand in poultry feed industry\n Suitable for mechanized farming\nProvides stable and profitable income"
       },
       {
-        "heading": "2. Climate Requirement",
-        "content": "Maize grows best in warm and moderately humid climates.\n\nTemperature:\n- Germination: 18 to 25°C\n- Vegetative growth: 25 to 30°C\n- Grain filling: 20 to 25°C\n- Below 10°C → poor growth\n- Above 35°C → heat stress and reduced yield\n\nRainfall & Moisture:\n- Total requirement: 500 to 800 mm\n- Needs adequate moisture during germination and flowering\n- Water stress at tasseling stage → severe yield loss\n- Excess water → root damage and diseases\n\nSunlight:\n- Requires full sunlight for optimal growth\n- Low light reduces yield\n\nWind:\n- Strong winds may cause lodging (plants fall over)"
+        "heading": " Climate Requirement",
+        "content": "Maize grows best in warm and moderately humid climates.\n\n<b><u>Temperature:</u></b>\nGermination: 18 to 25°C\n Vegetative growth: 25 to 30°C\n Grain filling: 20 to 25°C\nBelow 10°C → poor growth\n Above 35°C → heat stress and reduced yield\n\n<b><u>Rainfall & Moisture:</u></b>\n Total requirement: 500 to 800 mm\nNeeds adequate moisture during germination and flowering\n Water stress at tasseling stage → severe yield loss\n Excess water → root damage and diseases\n\n<b><u>Sunlight:</u></b>\n Requires full sunlight for optimal growth\n Low light reduces yield\n\n<b><u>Wind:</u></b>\n Strong winds may cause lodging (plants fall over)"
       },
       {
-        "heading": "3. Soil Requirement",
-        "content": "Maize performs best in fertile, well-drained soils.\n\nBest Soil Types:\n- Loam (ideal)\n- Sandy loam\n- Silt loam\n\nSoil pH:\n- Ideal range: 5.5 to 7.5\n\nImportant Soil Properties:\n- Good drainage (avoid waterlogging)\n- High fertility\n- Adequate organic matter\n- Proper soil aeration\n\nSoil Preparation:\n- 2 to 3 ploughings for fine seedbed\n- Remove weeds and crop residues\n- Apply farmyard manure (8 to 10 tons/acre)\n- Level the land properly"
+        "heading": " Soil Requirement",
+        "content": "Maize performs best in fertile, well-drained soils.\n\n<b><u>Best Soil Types:</u></b>\n Loam (ideal)\n Sandy loam\n Silt loam\n\n<b><u>Soil pH:</u></b>\n Ideal range: 5.5 to 7.5\n\n<b><u>Important Soil Properties:</u></b>\nGood drainage (avoid waterlogging)\n High fertility\n Adequate organic matter\n Proper soil aeration\n\n<b><u>Soil Preparation:</u></b>\n 2 to 3 ploughings for fine seedbed\n Remove weeds and crop residues\nApply farmyard manure (8 to 10 tons/acre)\nLevel the land properly"
       },
       {
-        "heading": "4. Sowing Time",
-        "content": "Ideal Sowing Time (Pakistan):\n- Spring crop: January to February\n- Kharif crop: June to July (best season)\n\nSeed Selection:\n- Use certified, hybrid, and disease-free seeds\n- Popular hybrids: Pioneer, Monsanto, Local approved hybrids\n\nSeed Rate:\n- 20 to 25 kg per acre\n\nSowing Method:\n- Drill method (recommended)\n- Row spacing: 60 to 75 cm\n- Plant spacing: 20 to 25 cm\n- Seed depth: 3 to 5 cm"
+        "heading": " Sowing Time",
+        "content": "<b><u>Ideal Sowing Time :</u></b>\n Spring crop: January to February\n Kharif crop: June to July (best season)\n\n<b><u>Seed Selection:</u></b>\nUse certified, hybrid, and disease-free seeds\n Popular hybrids: Pioneer, Monsanto, Local approved hybrids\n\n<b><u>Seed Rate:</u></b>\n 20 to 25 kg per acre\n\n<b><u>Sowing Method:</u></b>\n Drill method (recommended)\nRow spacing: 60 to 75 cm\n Plant spacing: 20 to 25 cm\n Seed depth: 3 to 5 cm"
       },
       {
-        "heading": "5. Fertilizer Schedule",
-        "content": "Recommended Dose (Per Acre):\n- Urea: 2 bags\n- DAP: 1 bag\n- Potash: 1/2 bag\n- Zinc Sulfate: 5 to 10 kg\n- Organic Manure: 8 to 10 tons\n\nApplication Schedule:\n1. Basal Dose (At Sowing): Full DAP, Full Potash, Half Urea, Zinc Sulfate\n2. First Irrigation (20 to 25 Days After Sowing): Apply 25% Urea\n3. Second Irrigation (40 to 45 Days After Sowing): Apply remaining 25% Urea\n\nNutrient Importance:\n- Nitrogen: Promotes leaf growth and yield\n- Phosphorus: Enhances root development\n- Potassium: Improves plant strength and disease resistance\n- Zinc: Helps in better grain formation"
+        "heading": " Fertilizer Schedule",
+        "content": "<b><u>Recommended Dose</u> (Per Acre)</b>:\n Urea: 2 bags\nDAP: 1 bag\n Potash: 1/2 bag\n Zinc Sulfate: 5 to 10 kg\n Organic Manure: 8 to 10 tons\n\n<b><u>Application Schedule:</u></b>\n1. Basal Dose (At Sowing): Full DAP, Full Potash, Half Urea, Zinc Sulfate\n2. First Irrigation (20 to 25 Days After Sowing): Apply 25% Urea\n3. Second Irrigation (40 to 45 Days After Sowing): Apply remaining 25% Urea\n\n<b><u>Nutrient Importance:</u></b>\n Nitrogen: Promotes leaf growth and yield\n Phosphorus: Enhances root development\nPotassium: Improves plant strength and disease resistance\n Zinc: Helps in better grain formation"
       },
       {
-        "heading": "6. Weeds, Pests and Diseases",
-        "content": "A. Weeds:\n- Common Weeds: Grasses, Bathu (Chenopodium), Dela (Cyperus), Broadleaf weeds\n- Control: Manual weeding at 20 to 30 days, Chemical control: Atrazine, Pendimethalin\n\nB. Pests:\n- Stem Borer: Feeds inside the stem, weakens the plant. Control: Chlorantraniliprole spray\n- Fall Armyworm: Feeds on leaves, severe damage. Control: Emamectin Benzoate\n- Aphids: Suck plant sap, reduce growth. Control: Imidacloprid\n\nC. Diseases:\n- Leaf Blight: Brown lesions on leaves. Control: Fungicide application\n- Rust: Orange or brown powder on leaves. Control: Resistant varieties and fungicide spray\n- Downy Mildew: Yellowing and stunted plants. Control: Seed treatment before sowing"
+        "heading": " Weeds, Pests and Diseases",
+        "content": "<b>A.<u> Weeds:</u></b>\n Common Weeds: Grasses, Bathu (Chenopodium), Dela (Cyperus), Broadleaf weeds\n <b><u>Control:</u></b> Manual weeding at 20 to 30 days, Chemical control: Atrazine, Pendimethalin\n\n<b>B. <u>Pests:</u></b>\n Stem Borer: Feeds inside the stem, weakens the plant. <b><u>Control:</u></b> Chlorantraniliprole spray\n Fall Armyworm: Feeds on leaves, severe damage. <b><u>Control:</u></b> Emamectin Benzoate\n Aphids: Suck plant sap, reduce growth. <b><u>Control:</u></b> Imidacloprid\n\n<b>C.<u> Diseases:</u></b>\n Leaf Blight: Brown lesions on leaves. Control: Fungicide application\n Rust: Orange or brown powder on leaves. Control: Resistant varieties and fungicide spray\n Downy Mildew: Yellowing and stunted plants. Control: Seed treatment before sowing"
       },
       {
-        "heading": "7. Harvesting",
-        "content": "Harvesting Time:\n- 90 to 120 days after sowing\n\nWhen to Harvest:\n- Husks turn dry\n- Grains become hard\n- Moisture content around 20 to 25%"
+        "heading": " Harvesting",
+        "content": "<b><u>Harvesting Time:</u></b>\n 90 to 120 days after sowing\n\n<b><U>When to Harvest:</u></b>\nHusks turn dry\nGrains become hard\n Moisture content around 20 to 25%"
       }
     ]
   },
