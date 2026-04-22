@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Crop Information</title>
-<link rel="stylesheet" href="agri.css">
+  <meta charset="UTF-8">
+  <title>Crops Info</title>
+  <link rel="stylesheet" href="agri.css">
 </head>
 <body>
-<h1>AgriCost & Profit Guide</h1>
-
-<div class="box">
-    <button id="toggleBtn">اردو</button>
-    <h2 id="title">Select a Crop</h2>
-    <select id="cropSelect">
-        <option value="">-- Select Crop --</option>
-        <option value="rice">Rice</option>
-        <option value="potato">Potato</option>
-        <option value="wheat">Wheat</option>
-        <option value="maize">Maize</option>
-    </select>
-    <div class="data" id="cropData"></div>
+<div class="container">
+  <div class="sidebar">
+    <h2>Crops</h2>
+    <button onclick="showCrop('wheat')">Wheat</button>
+    <button onclick="showCrop('maize')">Maize</button>
+    <button onclick="showCrop('potato')">Potato</button>
+    <button onclick="showCrop('rice')">Rice</button>
+  </div>
+  <div class="content">
+    <div class="top-bar">
+      <button id="langBtn">اردو</button>
+    </div>
+    <div id="output">
+      <h2> 🌾 Welcome </h2>
+      <p>Select a crop</p>
+    </div>
+  </div>
 </div>
 <script src="agri.js"></script>
 </body>
