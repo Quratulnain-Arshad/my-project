@@ -5,7 +5,8 @@
       "subtitle": "A Bilingual Farming Support System",
       "buttons": {
         "cropInfo": "Crop Information",
-        "calculator": "Farming Calculator"
+        "calculator": "AgriCost and Profit guide",
+        "helpline":"Contact with experts"
       },
       "switchLanguage": "اردو"
     },
@@ -14,7 +15,8 @@
       "subtitle": "دو لسانی زرعی معاون نظام",
       "buttons": {
         "cropInfo": "فصل کی معلومات",
-        "calculator": "زرعی کیلکولیٹر"
+        "calculator": "زرعی لاگت اورمنافع گا ئیڈ",
+        "helpline":"ماہرین سےرابطہ"
       },
       "switchLanguage": "English"
     }
