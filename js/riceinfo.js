@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function loadJSON() {
-    fetch("maizeinfo.json")
+    fetch("json/riceinfo.json")
         .then(res => res.json())
         .then(json => {
             data = json;

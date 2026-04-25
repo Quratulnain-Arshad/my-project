@@ -2,7 +2,7 @@ let isEnglish = true;
 let currentCrop = null;
 let data = {};
 
-fetch("agri.json")
+fetch("json/agri.json")
   .then(res => res.json())
   .then(json => {
     data = json;

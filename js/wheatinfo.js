@@ -1,7 +1,7 @@
 let currentLang = "english";
 let data = {};
 
-fetch("wheatinfo.json")
+fetch("json/wheatinfo.json")
   .then(res => res.json())
   .then(json => {
     data = json;

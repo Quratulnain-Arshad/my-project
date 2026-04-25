@@ -2,41 +2,25 @@ let currentLang = "english";
 let data = {};
 
 document.addEventListener("DOMContentLoaded", () => {
-    loadJSON();
-    document.getElementById("langButton").addEventListener("click", toggleLanguage);
-});
-
-function loadJSON() {
-    fetch("riceinfo.json")
+    fetch("json/potatoinfo.json")
         .then(res => res.json())
         .then(json => {
             data = json;
-            renderPage();
+            render();
         });
-}
 
-function toggleLanguage() {
-    currentLang = currentLang === "english" ? "urdu" : "english";
+    document.getElementById("langButton")
+        .addEventListener("click", toggleLang);
+});
 
-    const btn = document.getElementById("langButton");
-
-    if (currentLang === "english") {
-        btn.innerText = "اردو";
-    } else {
-        btn.innerText = "English";
-    }
-
-    renderPage();
-}
-
-function renderPage() {
+function render() {
     const langData = data[currentLang];
 
     document.getElementById("title").innerText = langData.title;
 
     const contentDiv = document.getElementById("content");
     contentDiv.innerHTML = "";
-    if(currentLang==="urdu"){
+     if(currentLang==="urdu"){
         document.body.style.direction="rti";
         document.body.style.textAlign="right";
     }else{
@@ -49,10 +33,18 @@ function renderPage() {
         div.className = "section";
 
         div.innerHTML = `
-            <h2>${sec.heading}</h2>
-            <p style="white-space: pre-line;">${sec.content}</p>
+            <h3>${sec.heading}</h3>
+            <p>${sec.content.replace(/\n/g, "<br>")}</p>
         `;
 
         contentDiv.appendChild(div);
     });
+
+    document.getElementById("langButton").innerText =
+        currentLang === "english" ? "اردو" : "English";
+}
+
+function toggleLang() {
+    currentLang = currentLang === "english" ? "urdu" : "english";
+    render();
 }

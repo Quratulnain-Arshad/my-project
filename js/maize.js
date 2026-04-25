@@ -1,7 +1,7 @@
 let currentLang = "en";
 
 async function loadText() {
-    const res = await fetch("wheat.json");
+    const res = await fetch("json/maize.json");
     const data = await res.json();
 
     const t = data[currentLang];

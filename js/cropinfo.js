@@ -2,7 +2,7 @@
     let data = {};
 
     // Load JSON file
-    fetch("cropinfo.json")
+    fetch("json/cropinfo.json")
       .then(response => response.json())
       .then(json => {
         data = json.languages;
