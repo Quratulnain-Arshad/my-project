@@ -1,7 +1,5 @@
   let currentLang = "en";
     let data = {};
-
-    // Load JSON file
     fetch("json/cropinfo.json")
       .then(response => response.json())
       .then(json => {
@@ -15,8 +13,6 @@
       document.getElementById("title").innerText = langData.title;
       document.getElementById("subtitle").innerText = langData.subtitle;
       document.getElementById("langSwitch").innerText = langData.switchLanguage;
-
-      // Clear and rebuild crop list
       const container = document.getElementById("cropList");
       container.innerHTML = "";
 
@@ -35,8 +31,6 @@
         `;
         container.appendChild(card);
       });
-
-      // Urdu layout adjustment
       document.body.style.direction = currentLang === "ur" ? "rtl" : "ltr";
       document.querySelectorAll(".crop-info").forEach(div => {
         div.style.textAlign = currentLang === "ur" ? "right" : "left";

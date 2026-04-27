@@ -17,8 +17,6 @@ async function loadText() {
     document.getElementById("pests").innerText = t.pests;
 
     document.getElementById("harvest").innerText = t.harvest;
-
-    // Images update
     document.getElementById("img_intro").src = t.images.intro;
     document.getElementById("img_climate").src = t.images.climate;
     document.getElementById("img_soil").src = t.images.soil;
