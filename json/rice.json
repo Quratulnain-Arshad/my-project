@@ -16,15 +16,15 @@
     "langBtn": "اردو",
 
     "images": {
-      "intro": "../assets/riceintro.jpeg",
-      "climate": "../assets/climate.jpg",
-      "soil": "../assets/ricesoil.jpeg",
+      "intro": "assets/riceintro.jpeg",
+      "climate": "assets/climate.jpg",
+      "soil": "assets/ricesoil.jpeg",
 
-      "sowing": "../assets/ricesowing.jpeg",
-      "fertilizer": "../assets/ricefertilizer.jpeg",
-      "pests": "../assets/ricepests.jpeg",
+      "sowing": "assets/ricesowing.jpeg",
+      "fertilizer": "assets/ricefertilizer.jpeg",
+      "pests": "assets/ricepests.jpeg",
 
-      "harvest": "../assets/riceharvesting.jpeg"
+      "harvest": "assets/riceharvesting.jpeg"
     }
   },
 
@@ -45,15 +45,15 @@
     "langBtn": "English",
 
     "images": {
-      "intro": "../assets/riceintro.jpeg",
-      "climate": "../assets/climate.jpg",
-      "soil": "../assets/ricesoil.jpeg",
+      "intro": "assets/riceintro.jpeg",
+      "climate": "assets/climate.jpg",
+      "soil": "assets/ricesoil.jpeg",
 
-      "sowing": "../assets/ricesowing.jpeg",
-      "fertilizer": "../assets/ricefertilizer.jpeg",
-      "pests": "../assets/ricepests.jpeg",
+      "sowing": "assets/ricesowing.jpeg",
+      "fertilizer": "assets/ricefertilizer.jpeg",
+      "pests": "assets/ricepests.jpeg",
       
-      "harvest": "../assets/riceharvesting.jpeg"
+      "harvest": "assets/riceharvesting.jpeg"
     }
   }
 }

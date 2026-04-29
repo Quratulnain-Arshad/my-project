@@ -16,15 +16,15 @@
     "langBtn": "اردو",
 
     "images": {
-      "intro": "../assets/maizeintro.jpg",
-      "climate": "../assets/climate.jpg",
-      "soil": "../assets/maizesoil.jpg",
+      "intro": "assets/maizeintro.jpg",
+      "climate": "assets/climate.jpg",
+      "soil": "assets/maizesoil.jpg",
 
-      "sowing": "../assets/maizesowing.jpg",
-      "fertilizer": "../assets/maizefertilizer.jpg",
-      "pests": "../assets/maizepest.jpg",
+      "sowing": "assets/maizesowing.jpg",
+      "fertilizer": "assets/maizefertilizer.jpg",
+      "pests": "assets/maizepest.jpg",
 
-      "harvest": "../assets/maizeharvesting.jpg"
+      "harvest": "assets/maizeharvesting.jpg"
     }
   },
 
@@ -45,15 +45,15 @@
     "langBtn": "English",
 
     "images": {
-      "intro": "../assets/maizeintro.jpg",
-      "climate": "../assets/climate.jpg",
-      "soil": "../assets/maizesoil.jpg",
+      "intro": "assets/maizeintro.jpg",
+      "climate": "assets/climate.jpg",
+      "soil": "assets/maizesoil.jpg",
 
-      "sowing": "../assets/maizesowing.jpg",
-      "fertilizer": "../assets/maizefertilizer.jpg",
-      "pests": "../assets/maizepest.jpg",
+      "sowing": "assets/maizesowing.jpg",
+      "fertilizer": "assets/maizefertilizer.jpg",
+      "pests": "assets/maizepest.jpg",
 
-      "harvest": "../assets/maizeharvesting.jpg"
+      "harvest": "assets/maizeharvesting.jpg"
     }
   }
 }

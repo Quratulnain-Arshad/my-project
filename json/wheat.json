@@ -16,15 +16,15 @@
     "langBtn": "اردو",
 
     "images": {
-      "intro": "../assets/image.jpeg",
-      "climate": "../assets/climate.jpg",
-      "soil": "../assets/soil.jpg",
+      "intro": "assets/image.jpeg",
+      "climate": "assets/climate.jpg",
+      "soil": "assets/soil.jpg",
 
-      "sowing": "../assets/sowing.jpg",
-      "fertilizer": "../assets/fertilizer.jpg",
-      "pests": "../assets/pests.jpg",
+      "sowing": "assets/sowing.jpg",
+      "fertilizer": "assets/fertilizer.jpg",
+      "pests": "assets/pests.jpg",
 
-      "harvest": "../assets/harvesting.jpg"
+      "harvest": "assets/harvesting.jpg"
     }
   },
 
@@ -45,15 +45,15 @@
     "langBtn": "English",
 
     "images": {
-      "intro": "../assets/image.jpeg",
-      "climate": "../assets/climate.jpg",
-      "soil": "../assets/soil.jpg",
+      "intro": "assets/image.jpeg",
+      "climate": "assets/climate.jpg",
+      "soil": "assets/soil.jpg",
 
-      "sowing": "../assets/sowing.jpg",
-      "fertilizer": "../assets/fertilizer.jpg",
-      "pests": "../assets/pests.jpg",
+      "sowing": "assets/sowing.jpg",
+      "fertilizer": "assets/fertilizer.jpg",
+      "pests": "assets/pests.jpg",
 
-      "harvest": "../assets/harvesting.jpg"
+      "harvest": "assets/harvesting.jpg"
     }
   }
 }

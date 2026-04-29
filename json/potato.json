@@ -16,15 +16,15 @@
     "langBtn": "اردو",
 
     "images": {
-      "intro": "../assets/potatointro.jpeg",
-      "climate": "../assets/climate.jpg",
-      "soil": "../assets/potatosoil.jpeg",
+      "intro": "assets/potatointro.jpeg",
+      "climate": "assets/climate.jpg",
+      "soil": "assets/potatosoil.jpeg",
 
-      "sowing": "../assets/potatosowing.jpg",
-      "fertilizer": "../assets/potatofertilizer.jpg",
-      "pests": "../assets/potatopest.jpg",
+      "sowing": "assets/potatosowing.jpg",
+      "fertilizer": "assets/potatofertilizer.jpg",
+      "pests": "assets/potatopest.jpg",
 
-      "harvest": "../assets/potatoharvesting.jpg"
+      "harvest": "assets/potatoharvesting.jpg"
     }
   },
 
@@ -45,15 +45,15 @@
     "langBtn": "English",
 
     "images": {
-      "intro": "../assets/potatointro.jpeg",
-      "climate": "../assets/climate.jpg",
-      "soil": "../assets/potatosoil.jpeg",
+      "intro": "assets/potatointro.jpeg",
+      "climate": "assets/climate.jpg",
+      "soil": "assets/potatosoil.jpeg",
 
-      "sowing": "../assets/potatosowing.jpg",
-      "fertilizer": "../assets/potatofertilizer.jpg",
-      "pests": "../assets/potatopest.jpg",
+      "sowing": "assets/potatosowing.jpg",
+      "fertilizer": "assets/potatofertilizer.jpg",
+      "pests": "assets/potatopest.jpg",
 
-      "harvest": "../assets/potatoharvesting.jpg"
+      "harvest": "assets/potatoharvesting.jpg"
     }
   }
 }
