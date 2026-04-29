@@ -9,25 +9,25 @@
           "name": "Rice",
           "desc": "A staple food crop grown in flooded fields, requiring plenty of water",
           "image":"https://cdn.britannica.com/89/140889-050-EC3F00BF/Ripening-heads-rice-Oryza-sativa.jpg",
-          "link":"../rice.html"
+          "link":"rice.html"
         },
         {
           "name": "Potato",
           "desc": "A versatile tuber crop grown in well-drained soil",
           "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdFq-FuA8g_OFpM9gHfolOwMppWlOyuPrDjA&s",
-          "link":"../potato.html"
+          "link":"potato.html"
         },
         {
           "name": "Wheat",
           "desc": "A primary cereal crop grown in temperate regions",
           "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRyLD_CD4XW-_ktQUJRrT2kwBPbZKEFH7hrQ&s",
-          "link":"../wheat.html"
+          "link":"wheat.html"
         },
         {
           "name": "Maize",
           "desc": "A popular maize grown in warm climates, used for food and animal feed",
           "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvsJXY7ZlO8BwoVoqu2eP4lI995BWaUYeExQ&s",
-          "link":"../maize.html"
+          "link":"maize.html"
         }
       ],
       "switchLanguage": "اردو"
@@ -40,25 +40,25 @@
           "name": "چاول",
           "desc": "ایک بنیادی غذائی فصل جو پانی سے بھری زمین میں اگائی جاتی ہے",
           "image": "https://cdn.britannica.com/89/140889-050-EC3F00BF/Ripening-heads-rice-Oryza-sativa.jpg",
-          "link":"../rice.html"
+          "link":"rice.html"
         },
         {
           "name": "آلو",
           "desc": "ایک قیمتی جڑ والی فصل جو خشک زمین میں اگائی جاتی ہے",
           "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdFq-FuA8g_OFpM9gHfolOwMppWlOyuPrDjA&s",
-          "link":"../potato.html"
+          "link":"potato.html"
         },
         {
           "name": "گندم",
           "desc": "ایک اہم اناجی فصل جو معتدل علاقوں میں اگائی جاتی ہے",
           "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRyLD_CD4XW-_ktQUJRrT2kwBPbZKEFH7hrQ&s",
-          "link":"../wheat.html"
+          "link":"wheat.html"
         },
         {
           "name": "مکئی",
           "desc": "ایک مقبول فصل جو گرم علاقوں میں اگائی جاتی ہے اور خوراک کے لیے استعمال ہوتی ہے",
           "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvsJXY7ZlO8BwoVoqu2eP4lI995BWaUYeExQ&s",
-          "link":"../maize.html"
+          "link":"maize.html"
         }
       ],
       "switchLanguage": "English"
