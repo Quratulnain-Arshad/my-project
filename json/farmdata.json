@@ -6,19 +6,31 @@
       "buttons": {
         "cropInfo": "Crop Information",
         "calculator": "AgriCost and Profit guide",
-        "helpline":"Contact with experts"
+        "helpline": "Contact with experts"
       },
-      "switchLanguage": "اردو"
+      "switchLanguage": "اردو",
+      "about": {
+        "heading": "About Us",
+        "p1": "Our project is a user-friendly agricultural platform that provides accurate and organized information about different crops, including costs and farming details. It is designed to help farmers and students easily access important knowledge in one place.",
+        "p2": "With a simple interface and bilingual support, the platform ensures accessibility for a wider audience.",
+        "p3": "This project aims to promote smart farming and improve decision-making through the use of technology."
+      }
     },
     "ur": {
       "title": "فارم ایز میں خوش آمدید",
       "subtitle": "دو لسانی زرعی معاون نظام",
       "buttons": {
         "cropInfo": "فصل کی معلومات",
-        "calculator": "زرعی لاگت اورمنافع گا ئیڈ",
-        "helpline":"ماہرین سےرابطہ"
+        "calculator": "زرعی لاگت اورمنافع گائیڈ",
+        "helpline": "ماہرین سے رابطہ"
       },
-      "switchLanguage": "English"
+      "switchLanguage": "English",
+      "about": {
+        "heading": "ہمارے بارے میں",
+        "p1": "ہمارا پروجیکٹ ایک صارف دوست زرعی پلیٹ فارم ہے جو مختلف فصلوں کے بارے میں درست اور منظم معلومات فراہم کرتا ہے، جیسے کہ اخراجات اور کاشتکاری کی تفصیلات۔ یہ کسانوں اور طلباء کو ایک جگہ پر اہم معلومات آسانی سے حاصل کرنے میں مدد کے لیے بنایا گیا ہے۔",
+        "p2": "سادہ انٹرفیس اور دو لسانی سہولت کے ساتھ، یہ پلیٹ فارم وسیع تر سامعین کے لیے قابل رسائی ہے۔",
+        "p3": "یہ پروجیکٹ ٹیکنالوجی کے استعمال سے ذہین زراعت کو فروغ دینے اور بہتر فیصلہ سازی کا مقصد رکھتا ہے۔"
+      }
     }
   }
 }

@@ -1,15 +1,13 @@
-<!DOCTYPE html>
+<?php ?><!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgriGuide - Smart Farming Platform</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriGuide - Smart Farming Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
 
   <!-- Hero Section -->
@@ -30,7 +28,7 @@
       <a href="agricost.html" class="link">
         <div class="card" id="calculator">
           <i class="fa-solid fa-calculator"></i>
-          <span>AgriCost &amp; Profit Guide</span>
+          <span>AgriCost & Profit Guide</span>
         </div>
       </a>
       <a href="contact.html" class="link">
@@ -54,13 +52,9 @@
           </div>
         </div>
         <div class="about-text-block">
-          <p id="about-p1">Our project is a user-friendly agricultural platform that provides accurate and organized
-            information about different crops, including costs and farming details. It is designed to help farmers and
-            students easily access important knowledge in one place.</p>
-          <p id="about-p2">With a simple interface and bilingual support, the platform ensures accessibility for a wider
-            audience.</p>
-          <p id="about-p3">This project aims to promote smart farming and improve decision-making through the use of
-            technology.</p>
+          <p id="about-p1">Our project is a user-friendly agricultural platform that provides accurate and organized information about different crops, including costs and farming details. It is designed to help farmers and students easily access important knowledge in one place.</p>
+          <p id="about-p2">With a simple interface and bilingual support, the platform ensures accessibility for a wider audience.</p>
+          <p id="about-p3">This project aims to promote smart farming and improve decision-making through the use of technology.</p>
         </div>
         <img src="Assets/about-bottom-img.png" alt="About Bottom" class="about-bottom-full-img">
       </div>
@@ -156,27 +150,8 @@
   </section>
 
   <!-- Footer Section -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
-          <path d="M12 2C8 2 5 6 5 10C5 15 12 22 12 22C12 22 19 15 19 10C19 6 16 2 12 2Z" fill="#4CAF50" />
-          <line x1="12" y1="12" x2="12" y2="22" stroke="#4CAF50" stroke-width="2" />
-        </svg>
-        <span>AgriGuide</span>
-      </div>
-      <p class="footer-tagline">Empowering farmers with smart, accessible knowledge.</p>
-      <nav class="footer-nav">
-        <a href="index.html">Home</a>
-        <a href="cropinfo.html">Crop Info</a>
-        <a href="agricost.html">AgriCost</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <p class="footer-copy">&copy; 2024 AgriGuide. All rights reserved.</p>
-    </div>
-  </footer>
+  <?php include 'includes/footer.php'; ?>
 
   <script src="js/javascript.js"></script>
 </body>
-
 </html>
