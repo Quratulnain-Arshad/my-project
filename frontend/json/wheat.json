@@ -1,0 +1,59 @@
+{
+  "en": {
+    "title": "Wheat - Complete Crop Guide",
+
+    "intro": "Introduction",
+    "climate": "Climate Requirement",
+    "soil": "Soil Requirement",
+
+    "sowing": "Sowing Time",
+    "fertilizer": "Fertilizer Schedule",
+    "pests": "Weeds, Pests and Diseases",
+
+    "harvest": "Harvesting",
+
+    "next": "View Detail",
+    "langBtn": "اردو",
+
+    "images": {
+      "intro": "assets/image.jpeg",
+      "climate": "assets/climate.jpg",
+      "soil": "assets/soil.jpg",
+
+      "sowing": "assets/sowing.jpg",
+      "fertilizer": "assets/fertilizer.jpg",
+      "pests": "assets/pests.jpg",
+
+      "harvest": "assets/harvesting.jpg"
+    }
+  },
+
+  "ur": {
+    "title": "گندم - مکمل کاشتی رہنمائی",
+
+    "intro": "تعارف",
+    "climate": "آب و ہوا کی ضروریات",
+    "soil": "مٹی کی ضروریات",
+
+    "sowing": "بوائی کا وقت",
+    "fertilizer": "کھاد کا شیڈول",
+    "pests": "جڑی بوٹیاں، کیڑے اور بیماریاں",
+
+    "harvest": "کٹائی",
+
+    "next": "تفصیل",
+    "langBtn": "English",
+
+    "images": {
+      "intro": "assets/image.jpeg",
+      "climate": "assets/climate.jpg",
+      "soil": "assets/soil.jpg",
+
+      "sowing": "assets/sowing.jpg",
+      "fertilizer": "assets/fertilizer.jpg",
+      "pests": "assets/pests.jpg",
+
+      "harvest": "assets/harvesting.jpg"
+    }
+  }
+}

@@ -1,0 +1,131 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 0px !important;
+  background: #f2f2f2;
+  color: #043915;
+  font-size: 18px;
+  margin: 0;
+}
+.container {
+  display: flex;
+  height: 100vh;
+}
+.sidebar {
+  width: 220px;
+  background: linear-gradient(#043915, #66bb6a);
+  color: white;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.sidebar h2 {
+  text-align: center;
+}
+
+.sidebar button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #a5d6a7;
+  cursor: pointer;
+  font-size: 16px;
+  color: #043915;
+}
+
+.sidebar button:hover {
+  background: #c8e6c9;
+}
+
+.sidebar button.active {
+  background: #ffffff;
+  color: #043915;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.content {
+  flex: 1;
+  background: #f5f5f5;
+  padding: 20px;
+  overflow-y: auto;
+}
+.top-bar {
+  text-align: right;
+}
+
+#langBtn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #043915;
+  color: white;
+  cursor: pointer;
+}
+#output {
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 12px;
+}
+
+#output[dir="rtl"] {
+  text-align: right;
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+#output[dir="rtl"] h2,
+#output[dir="rtl"] p {
+  text-align: right;
+}
+
+.cost-pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.7;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+#output[dir="rtl"] .cost-pre {
+  text-align: right;
+  direction: rtl;
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    text-align: center;
+  }
+
+  .sidebar button {
+    width: 90%;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .sidebar {
+    padding: 15px;
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  #langBtn {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
