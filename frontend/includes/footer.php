@@ -20,14 +20,14 @@
         <img src="assets/about-bottom-img.png" alt="FarmEase" width="30" height="30" style="object-fit:contain">
         FarmEase
     </div>
-    <p class="footer-tagline">Empowering farmers with smart, accessible knowledge.</p>
+    <p class="footer-tagline" id="footer-tagline">Empowering farmers with smart, accessible knowledge.</p>
     <nav class="footer-nav">
-        <a href="index.php">Home</a>
-        <a href="crop-info.php">Crop Info</a>
-        <a href="agri-cost.php">AgriCost</a>
-        <a href="contact.php">Contact</a>
+        <a href="index.php"><span id="footer-nav-home">Home</span></a>
+        <a href="crop-info.php"><span id="footer-nav-crop-info">Crop Info</span></a>
+        <a href="agri-cost.php"><span id="footer-nav-agri-cost">AgriCost</span></a>
+        <a href="contact.php"><span id="footer-nav-contact">Contact</span></a>
     </nav>
-    <p class="footer-copy">&copy; <?= date('Y') ?> FarmEase. All rights reserved.</p>
+    <p class="footer-copy" id="footer-copy">&copy; <?= date('Y') ?> FarmEase. All rights reserved.</p>
     <p style="margin-top:10px">
         <a href="../backend/login.php" style="font-size:.72rem;color:#4caf5066;text-decoration:none;transition:color .2s"
            onmouseover="this.style.color='#4caf50'" onmouseout="this.style.color='#4caf5066'">
@@ -41,6 +41,7 @@
     <button class="modal-close" onclick="event.stopPropagation();document.getElementById('imgModal').classList.remove('open')">&times;</button>
     <img id="modalImg" src="" alt="preview" onclick="event.stopPropagation()">
 </div>
+<script src="js/lang-shared.js"></script>
 <script>
 function openImgModal(src) {
     document.getElementById('modalImg').src = src;

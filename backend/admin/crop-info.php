@@ -16,8 +16,11 @@ $conn->query("CREATE TABLE IF NOT EXISTS crop_images (
   crop_id INT NOT NULL,
   image_path VARCHAR(300) NOT NULL,
   caption VARCHAR(200) DEFAULT '',
+  caption_ur VARCHAR(200) DEFAULT '',
   sort_order INT DEFAULT 0
 )");
+// Add caption_ur to existing tables if missing
+@$conn->query("ALTER TABLE crop_images ADD COLUMN caption_ur VARCHAR(200) DEFAULT '' AFTER caption");
 $conn->query("CREATE TABLE IF NOT EXISTS crop_sections (
   id INT AUTO_INCREMENT PRIMARY KEY,
   crop_id INT NOT NULL,
@@ -91,6 +94,7 @@ if ($action === 'create') {
     $cid     = (int)$_POST['crop_id'];
     $sort    = (int)($_POST['sort_order'] ?? 0);
     $cap     = $conn->real_escape_string($_POST['caption'] ?? '');
+    $capUr   = $conn->real_escape_string($_POST['caption_ur'] ?? '');
     $added   = 0;
     $files   = $_FILES['image_file'] ?? [];
     $count   = is_array($files['name']) ? count($files['name']) : 0;
@@ -102,7 +106,7 @@ if ($action === 'create') {
         $name = uniqid('img_') . '.' . $ext;
         if (move_uploaded_file($files['tmp_name'][$i], $dir . DIRECTORY_SEPARATOR . $name)) {
             $pEsc = $conn->real_escape_string('assets/uploads/' . $name);
-            $conn->query("INSERT INTO crop_images (crop_id,image_path,caption,sort_order) VALUES ($cid,'$pEsc','$cap'," . ($sort + $added) . ")");
+            $conn->query("INSERT INTO crop_images (crop_id,image_path,caption,caption_ur,sort_order) VALUES ($cid,'$pEsc','$cap','$capUr'," . ($sort + $added) . ")");
             $added++;
         }
     }
@@ -325,7 +329,8 @@ document.getElementById('slugInput').addEventListener('input', function(){ this.
     <?php foreach ($images as $img): ?>
     <div class="img-card">
       <img src="<?= htmlspecialchars(imgUrl($img['image_path'])) ?>" alt="">
-      <div class="cap"><?= htmlspecialchars($img['caption'] ?: 'No caption') ?></div>
+      <div class="cap">EN: <?= htmlspecialchars($img['caption'] ?: '—') ?></div>
+      <div class="cap" dir="rtl" style="text-align:right;color:#1a5276">UR: <?= htmlspecialchars($img['caption_ur'] ?: '—') ?></div>
       <form method="POST" style="display:inline" onsubmit="return confirm('Delete this image?')">
         <input type="hidden" name="_action" value="del_image">
         <input type="hidden" name="image_id" value="<?= $img['id'] ?>">
@@ -355,8 +360,12 @@ document.getElementById('slugInput').addEventListener('input', function(){ this.
     <div id="previewGrid" style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px"></div>
     <div class="form-grid" style="margin-bottom:12px">
       <div class="form-group">
-        <label>Caption <span style="color:#888;font-size:.8rem;font-weight:400">(applied to all selected)</span></label>
+        <label>Caption (English) <span style="color:#888;font-size:.8rem;font-weight:400">(applied to all selected)</span></label>
         <input type="text" name="caption" placeholder="e.g. Wheat harvesting">
+      </div>
+      <div class="form-group">
+        <label>Caption (اردو) <span style="color:#888;font-size:.8rem;font-weight:400">(اردو عنوان)</span></label>
+        <input type="text" name="caption_ur" dir="rtl" placeholder="مثلاً گندم کی کٹائی">
       </div>
       <div class="form-group">
         <label>Start Sort Order</label>

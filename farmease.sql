@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2026 at 12:58 PM
+-- Generation Time: Jun 06, 2026 at 09:39 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -233,6 +233,7 @@ CREATE TABLE `crop_images` (
   `crop_id` int(11) NOT NULL,
   `image_path` varchar(300) NOT NULL,
   `caption` varchar(200) DEFAULT '',
+  `caption_ur` varchar(200) DEFAULT '',
   `sort_order` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -240,35 +241,35 @@ CREATE TABLE `crop_images` (
 -- Dumping data for table `crop_images`
 --
 
-INSERT INTO `crop_images` (`id`, `crop_id`, `image_path`, `caption`, `sort_order`) VALUES
-(1, 1, 'assets/rice-intro.jpeg', 'Introduction', 0),
-(2, 1, 'assets/climate.jpg', 'Climate Requirement', 1),
-(3, 1, 'assets/rice-soil.jpeg', 'Soil Requirement', 2),
-(4, 1, 'assets/rice-sowing.jpeg', 'Sowing Time', 3),
-(5, 1, 'assets/rice-fertilizer.jpeg', 'Fertilizer Schedule', 4),
-(6, 1, 'assets/rice-pests.jpeg', 'Weeds, Pests and Diseases', 5),
-(7, 1, 'assets/rice-harvesting.jpeg', 'Harvesting', 6),
-(8, 2, 'assets/potato-intro.jpeg', 'Introduction', 0),
-(9, 2, 'assets/climate.jpg', 'Climate Requirement', 1),
-(10, 2, 'assets/potato-soil.jpeg', 'Soil Requirement', 2),
-(11, 2, 'assets/potato-sowing.jpg', 'Sowing Time', 3),
-(12, 2, 'assets/potato-fertilizer.jpg', 'Fertilizer Schedule', 4),
-(13, 2, 'assets/potato-pest.jpg', 'Weeds, Pests and Diseases', 5),
-(14, 2, 'assets/potato-harvesting.jpg', 'Harvesting', 6),
-(15, 3, 'assets/image.jpeg', 'Introduction', 0),
-(16, 3, 'assets/climate.jpg', 'Climate Requirement', 1),
-(17, 3, 'assets/soil.jpg', 'Soil Requirement', 2),
-(18, 3, 'assets/sowing.jpg', 'Sowing Time', 3),
-(19, 3, 'assets/fertilizer.jpg', 'Fertilizer Schedule', 4),
-(20, 3, 'assets/pests.jpg', 'Weeds, Pests and Diseases', 5),
-(21, 3, 'assets/harvesting.jpg', 'Harvesting', 6),
-(22, 4, 'assets/maize-intro.jpg', 'Introduction', 0),
-(23, 4, 'assets/climate.jpg', 'Climate Requirement', 1),
-(24, 4, 'assets/maize-soil.jpg', 'Soil Requirement', 2),
-(25, 4, 'assets/maize-sowing.jpg', 'Sowing Time', 3),
-(26, 4, 'assets/maize-fertilizer.jpg', 'Fertilizer Schedule', 4),
-(27, 4, 'assets/maize-pest.jpg', 'Weeds, Pests and Diseases', 5),
-(28, 4, 'assets/maize-harvesting.jpg', 'Harvesting', 6);
+INSERT INTO `crop_images` (`id`, `crop_id`, `image_path`, `caption`, `caption_ur`, `sort_order`) VALUES
+(1, 1, 'assets/rice-intro.jpeg', 'Introduction', 'تعارف', 0),
+(2, 1, 'assets/climate.jpg', 'Climate Requirement', 'آب و ہوا کی ضروریات', 1),
+(3, 1, 'assets/rice-soil.jpeg', 'Soil Requirement', 'مٹی کی ضروریات', 2),
+(4, 1, 'assets/rice-sowing.jpeg', 'Sowing Time', 'بوائی کا وقت', 3),
+(5, 1, 'assets/rice-fertilizer.jpeg', 'Fertilizer Schedule', 'کھاد کا شیڈول', 4),
+(6, 1, 'assets/rice-pests.jpeg', 'Weeds, Pests and Diseases', 'جڑی بوٹیاں، کیڑے اور بیماریاں', 5),
+(7, 1, 'assets/rice-harvesting.jpeg', 'Harvesting', 'کٹائی', 6),
+(8, 2, 'assets/potato-intro.jpeg', 'Introduction', 'تعارف', 0),
+(9, 2, 'assets/climate.jpg', 'Climate Requirement', 'آب و ہوا کی ضروریات', 1),
+(10, 2, 'assets/potato-soil.jpeg', 'Soil Requirement', 'مٹی کی ضروریات', 2),
+(11, 2, 'assets/potato-sowing.jpg', 'Sowing Time', 'بوائی کا وقت', 3),
+(12, 2, 'assets/potato-fertilizer.jpg', 'Fertilizer Schedule', 'کھاد کا شیڈول', 4),
+(13, 2, 'assets/potato-pest.jpg', 'Weeds, Pests and Diseases', 'جڑی بوٹیاں، کیڑے اور بیماریاں', 5),
+(14, 2, 'assets/potato-harvesting.jpg', 'Harvesting', 'کٹائی', 6),
+(15, 3, 'assets/image.jpeg', 'Introduction', 'تعارف', 0),
+(16, 3, 'assets/climate.jpg', 'Climate Requirement', 'آب و ہوا کی ضروریات', 1),
+(17, 3, 'assets/soil.jpg', 'Soil Requirement', 'مٹی کی ضروریات', 2),
+(18, 3, 'assets/sowing.jpg', 'Sowing Time', 'بوائی کا وقت', 3),
+(19, 3, 'assets/fertilizer.jpg', 'Fertilizer Schedule', 'کھاد کا شیڈول', 4),
+(20, 3, 'assets/pests.jpg', 'Weeds, Pests and Diseases', 'جڑی بوٹیاں، کیڑے اور بیماریاں', 5),
+(21, 3, 'assets/harvesting.jpg', 'Harvesting', 'کٹائی', 6),
+(22, 4, 'assets/maize-intro.jpg', 'Introduction', 'تعارف', 0),
+(23, 4, 'assets/climate.jpg', 'Climate Requirement', 'آب و ہوا کی ضروریات', 1),
+(24, 4, 'assets/maize-soil.jpg', 'Soil Requirement', 'مٹی کی ضروریات', 2),
+(25, 4, 'assets/maize-sowing.jpg', 'Sowing Time', 'بوائی کا وقت', 3),
+(26, 4, 'assets/maize-fertilizer.jpg', 'Fertilizer Schedule', 'کھاد کا شیڈول', 4),
+(27, 4, 'assets/maize-pest.jpg', 'Weeds, Pests and Diseases', 'جڑی بوٹیاں، کیڑے اور بیماریاں', 5),
+(28, 4, 'assets/maize-harvesting.jpg', 'Harvesting', 'کٹائی', 6);
 
 -- --------------------------------------------------------
 

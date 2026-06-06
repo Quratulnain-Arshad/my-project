@@ -56,51 +56,51 @@
 
   <!-- How It Works Section -->
   <section class="how-it-works">
-    <h2>How It Works</h2>
-    <p class="section-subtitle">Three simple steps to smart farming</p>
+    <h2 id="hiw-heading">How It Works</h2>
+    <p class="section-subtitle" id="hiw-subtitle">Three simple steps to smart farming</p>
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-number">01</div>
-        <h3>Choose a Crop</h3>
-        <p>Browse our database of crops and select the one you are interested in growing.</p>
+        <h3 id="hiw-step1-title">Choose a Crop</h3>
+        <p id="hiw-step1-desc">Browse our database of crops and select the one you are interested in growing.</p>
       </div>
       <div class="step-card">
         <div class="step-number">02</div>
-        <h3>View Details</h3>
-        <p>Access detailed information on soil type, watering needs, seasonal cycles, and more.</p>
+        <h3 id="hiw-step2-title">View Details</h3>
+        <p id="hiw-step2-desc">Access detailed information on soil type, watering needs, seasonal cycles, and more.</p>
       </div>
       <div class="step-card">
         <div class="step-number">03</div>
-        <h3>Calculate Costs</h3>
-        <p>Use our AgriCost tool to estimate your investment and projected profit accurately.</p>
+        <h3 id="hiw-step3-title">Calculate Costs</h3>
+        <p id="hiw-step3-desc">Use our AgriCost tool to estimate your investment and projected profit accurately.</p>
       </div>
     </div>
   </section>
 
   <!-- Features Section -->
   <section class="features">
-    <h2>Why Choose FarmEase</h2>
-    <p class="section-subtitle">Everything a modern farmer needs in one place</p>
+    <h2 id="feat-heading">Why Choose FarmEase</h2>
+    <p class="section-subtitle" id="feat-subtitle">Everything a modern farmer needs in one place</p>
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon"><i class="fa-solid fa-wheat-awn"></i></div>
-        <h3>Crop Details</h3>
-        <p>Learn about soil requirements, watering schedules, and the full lifecycle of each crop.</p>
+        <h3 id="feat1-title">Crop Details</h3>
+        <p id="feat1-desc">Learn about soil requirements, watering schedules, and the full lifecycle of each crop.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="fa-solid fa-coins"></i></div>
-        <h3>Cost Estimator</h3>
-        <p>Get accurate insights into the investment needed and projected profits for your farm.</p>
+        <h3 id="feat2-title">Cost Estimator</h3>
+        <p id="feat2-desc">Get accurate insights into the investment needed and projected profits for your farm.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="fa-solid fa-language"></i></div>
-        <h3>Bilingual Support</h3>
-        <p>Toggle seamlessly between English and Urdu for a wider range of users.</p>
+        <h3 id="feat3-title">Bilingual Support</h3>
+        <p id="feat3-desc">Toggle seamlessly between English and Urdu for a wider range of users.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-        <h3>Easy Access</h3>
-        <p>Use the platform on any device, anywhere, anytime without any installation.</p>
+        <h3 id="feat4-title">Easy Access</h3>
+        <p id="feat4-desc">Use the platform on any device, anywhere, anytime without any installation.</p>
       </div>
     </div>
   </section>

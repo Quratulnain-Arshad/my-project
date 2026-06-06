@@ -1,5 +1,5 @@
 const slug = window._cropSlug;
-let currentLang = 'en';
+let currentLang = getLang(); // restored from localStorage
 let cropData = null;
 
 fetch('../backend/api/crop.php?slug=' + encodeURIComponent(slug), { cache: 'no-store' })
@@ -60,7 +60,6 @@ function render() {
     detailWrap.className = 'detail-section';
 
     if (hasImages) {
-      // Hide behind a toggle button when there are also gallery images
       detailWrap.style.display = 'none';
       const btnRow = document.createElement('div');
       btnRow.className = 'btn-row';
@@ -93,7 +92,6 @@ function render() {
     content.appendChild(detailWrap);
 
   } else if (!hasImages) {
-    // No images and no sections — show placeholder
     content.innerHTML = `
       <div style="text-align:center;padding:60px 20px;color:#bbb">
         <div style="font-size:3rem;margin-bottom:12px">🌱</div>
@@ -117,9 +115,13 @@ function render() {
     vidSection.appendChild(vidGrid);
     content.appendChild(vidSection);
   }
+
+  // Update shared header nav + footer
+  updateNavFooter(isRtl);
 }
 
 document.getElementById('langToggle').addEventListener('click', () => {
   currentLang = currentLang === 'en' ? 'ur' : 'en';
+  setLang(currentLang); // persist choice
   render();
 });

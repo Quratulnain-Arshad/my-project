@@ -28,9 +28,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     FarmEase
   </a>
   <ul class="nav-links">
-    <li><a href="index.php" <?= $currentPage==='index.php'?'class="active"':'' ?>>Home</a></li>
-    <li><a href="crop-info.php" <?= $currentPage==='crop-info.php'?'class="active"':'' ?>>Crop Info</a></li>
-    <li><a href="agri-cost.php" <?= $currentPage==='agri-cost.php'?'class="active"':'' ?>>AgriCost</a></li>
-    <li><a href="contact.php" <?= $currentPage==='contact.php'?'class="active"':'' ?>>Contact</a></li>
+    <li><a href="index.php" <?= $currentPage==='index.php'?'class="active"':'' ?>><span id="nav-home">Home</span></a></li>
+    <li><a href="crop-info.php" <?= $currentPage==='crop-info.php'?'class="active"':'' ?>><span id="nav-crop-info">Crop Info</span></a></li>
+    <li><a href="agri-cost.php" <?= $currentPage==='agri-cost.php'?'class="active"':'' ?>><span id="nav-agri-cost">AgriCost</span></a></li>
+    <li><a href="contact.php" <?= $currentPage==='contact.php'?'class="active"':'' ?>><span id="nav-contact">Contact</span></a></li>
   </ul>
 </nav>

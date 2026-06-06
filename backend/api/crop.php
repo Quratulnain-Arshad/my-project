@@ -20,8 +20,11 @@ $conn->query("CREATE TABLE IF NOT EXISTS crop_images (
   crop_id INT NOT NULL,
   image_path VARCHAR(300) NOT NULL,
   caption VARCHAR(200) DEFAULT '',
+  caption_ur VARCHAR(200) DEFAULT '',
   sort_order INT DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+
+$conn->query("ALTER TABLE crop_images ADD COLUMN IF NOT EXISTS caption_ur VARCHAR(200) DEFAULT ''");
 
 $conn->query("CREATE TABLE IF NOT EXISTS crop_sections (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -43,24 +46,27 @@ $cid = (int)$crop['id'];
 
 // Image gallery — becomes the guide sections shown as cards
 $images = $conn->query("SELECT * FROM crop_images WHERE crop_id=$cid ORDER BY sort_order")->fetch_all(MYSQLI_ASSOC);
-$imgSections = array_map(fn($img) => [
-    'key'   => 'img_' . $img['id'],
-    'label' => $img['caption'] ?: '',
-    'image' => $img['image_path'],
-], $images);
 
 $guideData = [
     'en' => [
         'title'    => $crop['name_en'] ?? '',
         'lang_btn' => 'اردو',
         'next_btn' => 'View Details',
-        'sections' => $imgSections,
+        'sections' => array_map(fn($img) => [
+            'key'   => 'img_' . $img['id'],
+            'label' => $img['caption'] ?: '',
+            'image' => $img['image_path'],
+        ], $images),
     ],
     'ur' => [
         'title'    => $crop['name_ur'] ?? '',
         'lang_btn' => 'English',
         'next_btn' => 'تفصیل دیکھیں',
-        'sections' => $imgSections,
+        'sections' => array_map(fn($img) => [
+            'key'   => 'img_' . $img['id'],
+            'label' => $img['caption_ur'] ?: $img['caption'],
+            'image' => $img['image_path'],
+        ], $images),
     ],
 ];
 
@@ -69,7 +75,7 @@ $detailData = [];
 foreach (['en' => 'english', 'ur' => 'urdu'] as $lang => $key) {
     $rows = $conn->query("SELECT * FROM crop_sections WHERE crop_id=$cid AND lang='$lang' ORDER BY sort_order")->fetch_all(MYSQLI_ASSOC);
     $detailData[$key] = [
-        'title'    => $crop['name_en'] ?? '',
+        'title'    => ($lang == 'en' ? $crop['name_en'] : $crop['name_ur']) ?? '',
         'sections' => array_map(fn($r) => [
             'order'   => (int)$r['sort_order'],
             'heading' => $r['heading'],

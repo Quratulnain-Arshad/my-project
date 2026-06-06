@@ -4,7 +4,7 @@ function stripHtml(html) {
   return tmp.textContent || tmp.innerText || '';
 }
 
-let isEnglish = true;
+let isEnglish = getLang() === 'en'; // restored from localStorage
 let currentCrop = null;
 let data = {};
 
@@ -13,7 +13,6 @@ fetch("../backend/api/agri-cost.php", { cache: 'no-store' })
   .then(json => {
     data = json;
     buildSidebar();
-    // Auto-select first crop
     const keys = Object.keys(data);
     if (keys.length > 0) showCrop(keys[0]);
   });
@@ -71,9 +70,17 @@ function updateUI() {
   }
 }
 
+// Apply correct lang button label on load
+document.getElementById('langBtn').innerText = isEnglish ? 'اردو' : 'English';
+document.body.style.direction = isEnglish ? 'ltr' : 'rtl';
+updateNavFooter(!isEnglish);
+
 document.getElementById('langBtn').onclick = () => {
   isEnglish = !isEnglish;
+  setLang(isEnglish ? 'en' : 'ur'); // persist choice
   document.getElementById('langBtn').innerText = isEnglish ? 'اردو' : 'English';
+  document.body.style.direction = isEnglish ? 'ltr' : 'rtl';
   buildSidebar();
   updateUI();
+  updateNavFooter(!isEnglish);
 };

@@ -14,6 +14,21 @@
         "p1": "Our project is a user-friendly agricultural platform that provides accurate and organized information about different crops, including costs and farming details. It is designed to help farmers and students easily access important knowledge in one place.",
         "p2": "With a simple interface and bilingual support, the platform ensures accessibility for a wider audience.",
         "p3": "This project aims to promote smart farming and improve decision-making through the use of technology."
+      },
+      "howItWorks": {
+        "heading": "How It Works",
+        "subtitle": "Three simple steps to smart farming",
+        "step1": { "title": "Choose a Crop", "desc": "Browse our database of crops and select the one you are interested in growing." },
+        "step2": { "title": "View Details", "desc": "Access detailed information on soil type, watering needs, seasonal cycles, and more." },
+        "step3": { "title": "Calculate Costs", "desc": "Use our AgriCost tool to estimate your investment and projected profit accurately." }
+      },
+      "features": {
+        "heading": "Why Choose FarmEase",
+        "subtitle": "Everything a modern farmer needs in one place",
+        "feat1": { "title": "Crop Details", "desc": "Learn about soil requirements, watering schedules, and the full lifecycle of each crop." },
+        "feat2": { "title": "Cost Estimator", "desc": "Get accurate insights into the investment needed and projected profits for your farm." },
+        "feat3": { "title": "Bilingual Support", "desc": "Toggle seamlessly between English and Urdu for a wider range of users." },
+        "feat4": { "title": "Easy Access", "desc": "Use the platform on any device, anywhere, anytime without any installation." }
       }
     },
     "ur": {
@@ -30,6 +45,21 @@
         "p1": "ہمارا پروجیکٹ ایک صارف دوست زرعی پلیٹ فارم ہے جو مختلف فصلوں کے بارے میں درست اور منظم معلومات فراہم کرتا ہے، جیسے کہ اخراجات اور کاشتکاری کی تفصیلات۔ یہ کسانوں اور طلباء کو ایک جگہ پر اہم معلومات آسانی سے حاصل کرنے میں مدد کے لیے بنایا گیا ہے۔",
         "p2": "سادہ انٹرفیس اور دو لسانی سہولت کے ساتھ، یہ پلیٹ فارم وسیع تر سامعین کے لیے قابل رسائی ہے۔",
         "p3": "یہ پروجیکٹ ٹیکنالوجی کے استعمال سے ذہین زراعت کو فروغ دینے اور بہتر فیصلہ سازی کا مقصد رکھتا ہے۔"
+      },
+      "howItWorks": {
+        "heading": "یہ کیسے کام کرتا ہے",
+        "subtitle": "ذہین زراعت کے تین آسان اقدامات",
+        "step1": { "title": "فصل منتخب کریں", "desc": "ہمارے فصلوں کے ڈیٹا بیس کو براؤز کریں اور وہ فصل چنیں جسے آپ اگانا چاہتے ہیں۔" },
+        "step2": { "title": "تفصیلات دیکھیں", "desc": "مٹی کی قسم، آبپاشی کی ضروریات، موسمی چکر اور مزید تفصیلات حاصل کریں۔" },
+        "step3": { "title": "اخراجات حساب کریں", "desc": "ہمارے زرعی لاگت کے ٹول سے اپنی سرمایہ کاری اور متوقع منافع کا درست اندازہ لگائیں۔" }
+      },
+      "features": {
+        "heading": "فارم ایز کیوں منتخب کریں",
+        "subtitle": "جدید کسان کی ہر ضرورت ایک جگہ",
+        "feat1": { "title": "فصل کی تفصیلات", "desc": "ہر فصل کی مٹی کی ضروریات، آبپاشی کے شیڈول اور مکمل زندگی کے بارے میں جانیں۔" },
+        "feat2": { "title": "لاگت کا تخمینہ", "desc": "اپنی کھیتی کے لیے درکار سرمایہ کاری اور متوقع منافع کے بارے میں درست معلومات حاصل کریں۔" },
+        "feat3": { "title": "دو لسانی سہولت", "desc": "وسیع تر صارفین کے لیے انگریزی اور اردو کے درمیان آسانی سے سوئچ کریں۔" },
+        "feat4": { "title": "آسان رسائی", "desc": "کسی بھی ڈیوائس پر، کہیں بھی، کسی بھی وقت بغیر انسٹالیشن کے پلیٹ فارم استعمال کریں۔" }
       }
     }
   }
