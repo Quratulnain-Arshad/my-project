@@ -21,6 +21,11 @@ $conn->query("CREATE TABLE IF NOT EXISTS crop_images (
 )");
 // Add caption_ur to existing tables if missing
 @$conn->query("ALTER TABLE crop_images ADD COLUMN caption_ur VARCHAR(200) DEFAULT '' AFTER caption");
+// Add video columns to crops if missing
+@$conn->query("ALTER TABLE crops ADD COLUMN video_1 VARCHAR(100) DEFAULT ''");
+@$conn->query("ALTER TABLE crops ADD COLUMN video_2 VARCHAR(100) DEFAULT ''");
+@$conn->query("ALTER TABLE crops ADD COLUMN video_3 VARCHAR(100) DEFAULT ''");
+@$conn->query("ALTER TABLE crops ADD COLUMN video_4 VARCHAR(100) DEFAULT ''");
 $conn->query("CREATE TABLE IF NOT EXISTS crop_sections (
   id INT AUTO_INCREMENT PRIMARY KEY,
   crop_id INT NOT NULL,
@@ -147,6 +152,30 @@ if ($action === 'create') {
     $conn->query("DELETE FROM crops WHERE id=$cid");
     header("Location: crop-info.php?msg=deleted");
     exit;
+
+} elseif ($action === 'save_videos') {
+    $cid = (int)$_POST['crop_id'];
+    // Helper: extract 11-char YouTube ID from URL or raw ID
+    function getYoutubeId($url) {
+        $url = trim($url);
+        if (!$url) return '';
+        // youtu.be/ID
+        if (preg_match('~youtu\.be/([A-Za-z0-9_-]{11})~', $url, $m)) return $m[1];
+        // ?v=ID or &v=ID
+        if (preg_match('~[?&]v=([A-Za-z0-9_-]{11})~', $url, $m)) return $m[1];
+        // embed/ID
+        if (preg_match('~/embed/([A-Za-z0-9_-]{11})~', $url, $m)) return $m[1];
+        // Raw 11-char ID
+        if (preg_match('~^[A-Za-z0-9_-]{11}$~', $url)) return $url;
+        return '';
+    }
+    $v1 = $conn->real_escape_string(getYoutubeId($_POST['video_1'] ?? ''));
+    $v2 = $conn->real_escape_string(getYoutubeId($_POST['video_2'] ?? ''));
+    $v3 = $conn->real_escape_string(getYoutubeId($_POST['video_3'] ?? ''));
+    $v4 = $conn->real_escape_string(getYoutubeId($_POST['video_4'] ?? ''));
+    $conn->query("UPDATE crops SET video_1='$v1', video_2='$v2', video_3='$v3', video_4='$v4' WHERE id=$cid");
+    header("Location: crop-info.php?view=edit&id=$cid&msg=videos_saved&tab=videos");
+    exit;
 }
 
 $view = $_GET['view'] ?? '';
@@ -174,6 +203,7 @@ $msgMap = [
     'img_added'     => 'Image uploaded.',
     'img_deleted'   => 'Image deleted.',
     'sections_saved'=> 'Sections saved.',
+    'videos_saved'  => 'YouTube videos saved.',
     'deleted'       => 'Crop deleted.',
     'slug_taken'    => 'Slug already taken — choose a different one.',
 ];
@@ -269,6 +299,7 @@ document.getElementById('slugInput').addEventListener('input', function(){ this.
   <button class="<?= $tab==='images'?'active':'' ?>" onclick="showTab('images')">Images (<?= count($images) ?>)</button>
   <button class="<?= $tab==='en'?'active':'' ?>" onclick="showTab('en')">Sections EN (<?= count($secEn) ?>)</button>
   <button class="<?= $tab==='ur'?'active':'' ?>" onclick="showTab('ur')">Sections UR (<?= count($secUr) ?>)</button>
+  <button class="<?= $tab==='videos'?'active':'' ?>" onclick="showTab('videos')">📹 Videos</button>
 </div>
 
 <!-- TAB: Basic Info -->
@@ -474,6 +505,47 @@ document.getElementById('slugInput').addEventListener('input', function(){ this.
     <div class="btn-group" style="margin-top:12px">
       <button type="button" class="btn btn-outline" onclick="addSec('secs-ur','ur')">+ Add Section</button>
       <button type="submit" class="btn btn-primary">💾 Save Urdu Sections</button>
+    </div>
+  </form>
+</div>
+</div>
+
+<!-- TAB: Videos -->
+<div id="tab-videos" class="tab-pane <?= $tab==='videos'?'show':'' ?>">
+<div class="card">
+  <h2>📹 YouTube Videos</h2>
+  <p style="color:#666;font-size:.88rem;margin-bottom:16px">Paste full YouTube URLs or just the 11-character video IDs. Up to 4 videos per crop.</p>
+  <form method="POST">
+    <input type="hidden" name="_action" value="save_videos">
+    <input type="hidden" name="crop_id" value="<?= $crop['id'] ?>">
+    <?php
+    $vidLabels = ['Video 1','Video 2','Video 3','Video 4'];
+    $vidFields = ['video_1','video_2','video_3','video_4'];
+    foreach ($vidFields as $i => $field):
+        $val = htmlspecialchars($crop[$field] ?? '');
+        $youtubePreview = $val ? 'https://img.youtube.com/vi/' . $val . '/mqdefault.jpg' : '';
+    ?>
+    <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:18px;padding:14px;background:#f9fdf9;border:1px solid #c8e6c9;border-radius:8px">
+      <?php if ($youtubePreview): ?>
+      <a href="https://youtu.be/<?= $val ?>" target="_blank" style="flex-shrink:0">
+        <img src="<?= $youtubePreview ?>" alt="thumbnail" style="width:120px;height:68px;object-fit:cover;border-radius:6px;border:1px solid #ccc">
+      </a>
+      <?php else: ?>
+      <div style="width:120px;height:68px;background:#e8f5e9;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#a5d6a7;font-size:1.8rem;flex-shrink:0">▶</div>
+      <?php endif; ?>
+      <div style="flex:1">
+        <label style="font-weight:600;font-size:.9rem;color:#333"><?= $vidLabels[$i] ?></label>
+        <input type="text" name="<?= $field ?>" value="<?= $val ?>"
+               placeholder="e.g. https://youtu.be/NbR-b39dtnY  or  NbR-b39dtnY"
+               style="margin-top:6px;width:100%;padding:8px 10px;border:1px solid #c8e6c9;border-radius:6px;font-size:.9rem">
+        <?php if ($val): ?>
+        <small style="color:#4caf50">✔ ID: <code><?= $val ?></code></small>
+        <?php endif; ?>
+      </div>
+    </div>
+    <?php endforeach; ?>
+    <div class="btn-group" style="margin-top:8px">
+      <button type="submit" class="btn btn-primary">💾 Save Videos</button>
     </div>
   </form>
 </div>

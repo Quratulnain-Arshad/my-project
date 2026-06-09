@@ -88,7 +88,12 @@ echo json_encode([
     'slug'      => $crop['slug'],
     'name'      => ['en' => $crop['name_en'], 'ur' => $crop['name_ur']],
     'thumbnail' => $crop['thumbnail'],
-    'videos'    => [],
+    'videos'    => array_values(array_filter([
+        $crop['video_1'] ?? '',
+        $crop['video_2'] ?? '',
+        $crop['video_3'] ?? '',
+        $crop['video_4'] ?? ''
+    ])),
     'guide'     => $guideData,
     'details'   => $detailData,
 ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);

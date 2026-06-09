@@ -25,10 +25,6 @@
       <i class="fa-solid fa-coins"></i> AgriCost Data
     </a>
 
-    <div class="sidebar-section-label" style="padding-top:10px">Tools</div>
-    <a href="migrate.php" class="<?= $cur==='migrate.php' ? 'active' : '' ?>">
-      <i class="fa-solid fa-rotate"></i> Migrate Old Data
-    </a>
   </nav>
 
   <div class="sidebar-footer">

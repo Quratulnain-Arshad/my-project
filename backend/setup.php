@@ -170,6 +170,10 @@ $tables = [
   `name_en` VARCHAR(200) NOT NULL,
   `name_ur` VARCHAR(200) DEFAULT '',
   `thumbnail` VARCHAR(300) DEFAULT '',
+  `video_1` VARCHAR(100) DEFAULT '',
+  `video_2` VARCHAR(100) DEFAULT '',
+  `video_3` VARCHAR(100) DEFAULT '',
+  `video_4` VARCHAR(100) DEFAULT '',
   `sort_order` INT DEFAULT 0,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
@@ -301,14 +305,25 @@ if (file_exists($cropInfoFile)) {
         ];
         
         // Insert into crops table
-        $stmtCrops = $conn->prepare("INSERT INTO `crops` (slug, name_en, name_ur, thumbnail, sort_order) VALUES (?, ?, ?, ?, ?)");
-        $stmtCrops->bind_param('ssssi', $slug, $name_en, $name_ur, $thumbnail, $sort_order);
+        $stmtCrops = $conn->prepare("INSERT INTO `crops` (slug, name_en, name_ur, thumbnail, video_1, video_2, video_3, video_4, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmtCrops->bind_param('ssssssssi', $slug, $name_en, $name_ur, $thumbnail, $v1, $v2, $v3, $v4, $sort_order);
+        
+        $localVids = [
+            'maize'  => ['Ar0OQZ-eVy0', 'XNmATrP8b9Q', 'Xu8DMz8LBx0', '5KQDwCdKytY'],
+            'potato' => ['U4ELFalfACQ', 'f7UeErCV7NU', '8_TQet5wYCo', 'kPNFH4pqx5w'],
+            'rice'   => ['Viwf1t9fPnE', '7b11tw1_Cwc', 'jipf6SHHbgo', '8dhOfYHTd3c'],
+            'wheat'  => ['NbR-b39dtnY', '6Lq-WHw0lWo', 'U0AHbKHYBnA', 'qS6BSCaUhyo'],
+        ];
         
         foreach ($cropsMap as $slug => $c) {
             $name_en = $c['name_en'];
             $name_ur = $c['name_ur'];
             $thumbnail = $localThumbs[$slug] ?? $c['thumbnail'];
             $sort_order = $c['sort_order'];
+            $v1 = $localVids[$slug][0] ?? '';
+            $v2 = $localVids[$slug][1] ?? '';
+            $v3 = $localVids[$slug][2] ?? '';
+            $v4 = $localVids[$slug][3] ?? '';
             if ($stmtCrops->execute()) {
                 $success[] = "OK: Seed crops table (slug=$slug) from cropinfo.json";
             } else {

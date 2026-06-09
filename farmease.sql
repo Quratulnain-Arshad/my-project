@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2026 at 09:39 PM
+-- Generation Time: Jun 09, 2026 at 07:46 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,7 +38,7 @@ CREATE TABLE `admin_users` (
 --
 
 INSERT INTO `admin_users` (`id`, `username`, `password_hash`) VALUES
-(5, 'admin', '$2y$10$uxmzqC4pM1S/UZ7JZVkj.uqiMA0U7h8oAB7xI5ZIhlOj5iXlyOp82');
+(6, 'admin', '$2y$10$1u5yU18.iVkBqPK0SXxi4OZUuiK80vptF3hNrrT61TIdxNSeLc0bi');
 
 -- --------------------------------------------------------
 
@@ -93,10 +93,10 @@ CREATE TABLE `crops` (
 --
 
 INSERT INTO `crops` (`id`, `slug`, `name_en`, `name_ur`, `desc_en`, `desc_ur`, `thumbnail`, `video_1`, `video_2`, `video_3`, `video_4`, `sort_order`) VALUES
-(1, 'rice', 'Rice', 'چاول', NULL, NULL, 'assets/rice-intro.jpeg', '', '', '', '', 1),
-(2, 'potato', 'Potato', 'آلو', NULL, NULL, 'assets/potato-intro.jpeg', '', '', '', '', 2),
-(3, 'wheat', 'Wheat', 'گندم', NULL, NULL, 'assets/image.jpeg', '', '', '', '', 3),
-(4, 'maize', 'Maize', 'مکئی', NULL, NULL, 'assets/maize-intro.jpg', '', '', '', '', 4);
+(1, 'rice', 'Rice', 'چاول', NULL, NULL, 'assets/rice-intro.jpeg', 'Viwf1t9fPnE', '7b11tw1_Cwc', 'jipf6SHHbgo', '8dhOfYHTd3c', 1),
+(2, 'potato', 'Potato', 'آلو', NULL, NULL, 'assets/potato-intro.jpeg', 'U4ELFalfACQ', 'f7UeErCV7NU', '8_TQet5wYCo', 'kPNFH4pqx5w', 2),
+(3, 'wheat', 'Wheat', 'گندم', NULL, NULL, 'assets/image.jpeg', 'NbR-b39dtnY', '6Lq-WHw0lWo', 'U0AHbKHYBnA', 'qS6BSCaUhyo', 3),
+(4, 'maize', 'Maize', 'مکئی', NULL, NULL, 'assets/maize-intro.jpg', 'Ar0OQZ-eVy0', 'XNmATrP8b9Q', 'Xu8DMz8LBx0', '5KQDwCdKytY', 4);
 
 -- --------------------------------------------------------
 
@@ -242,34 +242,33 @@ CREATE TABLE `crop_images` (
 --
 
 INSERT INTO `crop_images` (`id`, `crop_id`, `image_path`, `caption`, `caption_ur`, `sort_order`) VALUES
-(1, 1, 'assets/rice-intro.jpeg', 'Introduction', 'تعارف', 0),
-(2, 1, 'assets/climate.jpg', 'Climate Requirement', 'آب و ہوا کی ضروریات', 1),
-(3, 1, 'assets/rice-soil.jpeg', 'Soil Requirement', 'مٹی کی ضروریات', 2),
-(4, 1, 'assets/rice-sowing.jpeg', 'Sowing Time', 'بوائی کا وقت', 3),
-(5, 1, 'assets/rice-fertilizer.jpeg', 'Fertilizer Schedule', 'کھاد کا شیڈول', 4),
-(6, 1, 'assets/rice-pests.jpeg', 'Weeds, Pests and Diseases', 'جڑی بوٹیاں، کیڑے اور بیماریاں', 5),
-(7, 1, 'assets/rice-harvesting.jpeg', 'Harvesting', 'کٹائی', 6),
-(8, 2, 'assets/potato-intro.jpeg', 'Introduction', 'تعارف', 0),
-(9, 2, 'assets/climate.jpg', 'Climate Requirement', 'آب و ہوا کی ضروریات', 1),
-(10, 2, 'assets/potato-soil.jpeg', 'Soil Requirement', 'مٹی کی ضروریات', 2),
-(11, 2, 'assets/potato-sowing.jpg', 'Sowing Time', 'بوائی کا وقت', 3),
-(12, 2, 'assets/potato-fertilizer.jpg', 'Fertilizer Schedule', 'کھاد کا شیڈول', 4),
-(13, 2, 'assets/potato-pest.jpg', 'Weeds, Pests and Diseases', 'جڑی بوٹیاں، کیڑے اور بیماریاں', 5),
-(14, 2, 'assets/potato-harvesting.jpg', 'Harvesting', 'کٹائی', 6),
-(15, 3, 'assets/image.jpeg', 'Introduction', 'تعارف', 0),
-(16, 3, 'assets/climate.jpg', 'Climate Requirement', 'آب و ہوا کی ضروریات', 1),
-(17, 3, 'assets/soil.jpg', 'Soil Requirement', 'مٹی کی ضروریات', 2),
-(18, 3, 'assets/sowing.jpg', 'Sowing Time', 'بوائی کا وقت', 3),
-(19, 3, 'assets/fertilizer.jpg', 'Fertilizer Schedule', 'کھاد کا شیڈول', 4),
-(20, 3, 'assets/pests.jpg', 'Weeds, Pests and Diseases', 'جڑی بوٹیاں، کیڑے اور بیماریاں', 5),
-(21, 3, 'assets/harvesting.jpg', 'Harvesting', 'کٹائی', 6),
-(22, 4, 'assets/maize-intro.jpg', 'Introduction', 'تعارف', 0),
-(23, 4, 'assets/climate.jpg', 'Climate Requirement', 'آب و ہوا کی ضروریات', 1),
-(24, 4, 'assets/maize-soil.jpg', 'Soil Requirement', 'مٹی کی ضروریات', 2),
-(25, 4, 'assets/maize-sowing.jpg', 'Sowing Time', 'بوائی کا وقت', 3),
-(26, 4, 'assets/maize-fertilizer.jpg', 'Fertilizer Schedule', 'کھاد کا شیڈول', 4),
-(27, 4, 'assets/maize-pest.jpg', 'Weeds, Pests and Diseases', 'جڑی بوٹیاں، کیڑے اور بیماریاں', 5),
-(28, 4, 'assets/maize-harvesting.jpg', 'Harvesting', 'کٹائی', 6);
+(1, 1, 'assets/rice-intro.jpeg', 'Introduction', '', 0),
+(2, 1, 'assets/climate.jpg', 'Climate Requirement', '', 1),
+(3, 1, 'assets/rice-soil.jpeg', 'Soil Requirement', '', 2),
+(4, 1, 'assets/rice-sowing.jpeg', 'Sowing Time', '', 3),
+(5, 1, 'assets/rice-fertilizer.jpeg', 'Fertilizer Schedule', '', 4),
+(6, 1, 'assets/rice-pests.jpeg', 'Weeds, Pests and Diseases', '', 5),
+(8, 2, 'assets/potato-intro.jpeg', 'Introduction', '', 0),
+(9, 2, 'assets/climate.jpg', 'Climate Requirement', '', 1),
+(10, 2, 'assets/potato-soil.jpeg', 'Soil Requirement', '', 2),
+(11, 2, 'assets/potato-sowing.jpg', 'Sowing Time', '', 3),
+(12, 2, 'assets/potato-fertilizer.jpg', 'Fertilizer Schedule', '', 4),
+(13, 2, 'assets/potato-pest.jpg', 'Weeds, Pests and Diseases', '', 5),
+(14, 2, 'assets/potato-harvesting.jpg', 'Harvesting', '', 6),
+(15, 3, 'assets/image.jpeg', 'Introduction', '', 0),
+(16, 3, 'assets/climate.jpg', 'Climate Requirement', '', 1),
+(17, 3, 'assets/soil.jpg', 'Soil Requirement', '', 2),
+(18, 3, 'assets/sowing.jpg', 'Sowing Time', '', 3),
+(19, 3, 'assets/fertilizer.jpg', 'Fertilizer Schedule', '', 4),
+(20, 3, 'assets/pests.jpg', 'Weeds, Pests and Diseases', '', 5),
+(21, 3, 'assets/harvesting.jpg', 'Harvesting', '', 6),
+(22, 4, 'assets/maize-intro.jpg', 'Introduction', '', 0),
+(23, 4, 'assets/climate.jpg', 'Climate Requirement', '', 1),
+(24, 4, 'assets/maize-soil.jpg', 'Soil Requirement', '', 2),
+(25, 4, 'assets/maize-sowing.jpg', 'Sowing Time', '', 3),
+(26, 4, 'assets/maize-fertilizer.jpg', 'Fertilizer Schedule', '', 4),
+(27, 4, 'assets/maize-pest.jpg', 'Weeds, Pests and Diseases', '', 5),
+(28, 4, 'assets/maize-harvesting.jpg', 'Harvesting', '', 6);
 
 -- --------------------------------------------------------
 
@@ -479,7 +478,7 @@ ALTER TABLE `farm_data`
 -- AUTO_INCREMENT for table `admin_users`
 --
 ALTER TABLE `admin_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `agri_cost`
@@ -491,7 +490,7 @@ ALTER TABLE `agri_cost`
 -- AUTO_INCREMENT for table `crops`
 --
 ALTER TABLE `crops`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `crop_details`
