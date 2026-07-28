@@ -2,27 +2,6 @@
 require_once __DIR__ . '/../config.php';
 requireLogin();
 
-$conn->query("CREATE TABLE IF NOT EXISTS agri_cost (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  crop_key VARCHAR(100) NOT NULL UNIQUE,
-  name_en VARCHAR(200) DEFAULT '',
-  name_ur VARCHAR(200) DEFAULT '',
-  desc_en TEXT,
-  desc_ur TEXT,
-  details_en TEXT,
-  details_ur TEXT
-)");
-
-// Strip legacy <b> / </b> tags left over from old rich-text editor
-$conn->query("UPDATE agri_cost SET
-    name_en    = REPLACE(REPLACE(REPLACE(name_en,   '<b>',''),'</b>',''),'<b ',''),
-    name_ur    = REPLACE(REPLACE(REPLACE(name_ur,   '<b>',''),'</b>',''),'<b ',''),
-    details_en = REPLACE(REPLACE(REPLACE(details_en,'<b>',''),'</b>',''),'<b ',''),
-    details_ur = REPLACE(REPLACE(REPLACE(details_ur,'<b>',''),'</b>',''),'<b ',''),
-    desc_en    = REPLACE(REPLACE(REPLACE(desc_en,   '<b>',''),'</b>',''),'<b ',''),
-    desc_ur    = REPLACE(REPLACE(REPLACE(desc_ur,   '<b>',''),'</b>',''),'<b ','')
-    WHERE name_en LIKE '%<b%' OR details_en LIKE '%<b%' OR desc_en LIKE '%<b%'");
-
 $action = $_POST['_action'] ?? '';
 
 if ($action === 'save') {

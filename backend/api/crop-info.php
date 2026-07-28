@@ -1,47 +1,73 @@
 <?php
+// Crop list API — returns all crops for Crop Info page
 require_once __DIR__ . '/../conn.php';
+
 header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
-header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
-header('Pragma: no-cache');
 
-$conn->query("CREATE TABLE IF NOT EXISTS crops (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  slug VARCHAR(100) NOT NULL UNIQUE,
-  name_en VARCHAR(200) DEFAULT '',
-  name_ur VARCHAR(200) DEFAULT '',
-  thumbnail VARCHAR(300) DEFAULT '',
-  sort_order INT DEFAULT 0,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+// Page title/subtitle (use fixed labels — farm_data is for Home page)
+$meta = [
+    'en' => [
+        'title'          => 'Crop Information',
+        'subtitle'       => 'Select a crop to learn more',
+        'switch_language'=> 'اردو',
+    ],
+    'ur' => [
+        'title'          => 'فصل کی معلومات',
+        'subtitle'       => 'مزید جاننے کے لیے فصل منتخب کریں',
+        'switch_language'=> 'English',
+    ],
+];
 
-$metaRows = [];
-$meta = $conn->query("SELECT lang, title, subtitle, switch_language FROM farm_data ORDER BY lang ASC");
-if ($meta) {
-    while ($r = $meta->fetch_assoc()) {
-        $metaRows[$r['lang']] = $r;
+// Prefer switch label from farm_data if available
+$sw = $conn->query("SELECT lang, switch_language FROM farm_data");
+if ($sw) {
+    while ($row = $sw->fetch_assoc()) {
+        if (!empty($row['switch_language'])) {
+            $meta[$row['lang']]['switch_language'] = $row['switch_language'];
+        }
     }
 }
 
-$cropsList = $conn->query("SELECT * FROM crops ORDER BY sort_order, name_en")->fetch_all(MYSQLI_ASSOC);
+// Crops + description (from crops table, fallback to old crop_info table)
+$sql = "SELECT c.*,
+            ci_en.description AS info_desc_en,
+            ci_ur.description AS info_desc_ur
+        FROM crops c
+        LEFT JOIN crop_info ci_en
+            ON ci_en.lang = 'en' AND ci_en.link_page LIKE CONCAT(c.slug, '%')
+        LEFT JOIN crop_info ci_ur
+            ON ci_ur.lang = 'ur' AND ci_ur.link_page LIKE CONCAT(c.slug, '%')
+        ORDER BY c.sort_order, c.name_en";
+
+$cropsList = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
 $output = ['languages' => []];
+
 foreach (['en', 'ur'] as $lang) {
-    $isUr = ($lang === 'ur');
+    $isUrdu = ($lang === 'ur');
     $crops = [];
+
     foreach ($cropsList as $c) {
+        // Use crops.desc_* first; if empty, use crop_info.description
+        if ($isUrdu) {
+            $desc = $c['desc_ur'] ?: ($c['info_desc_ur'] ?: ($c['desc_en'] ?: ($c['info_desc_en'] ?: '')));
+        } else {
+            $desc = $c['desc_en'] ?: ($c['info_desc_en'] ?: '');
+        }
+
         $crops[] = [
-            'name'  => $isUr ? ($c['name_ur'] ?: $c['name_en']) : $c['name_en'],
-            'desc'  => '',
+            'name'  => $isUrdu ? ($c['name_ur'] ?: $c['name_en']) : $c['name_en'],
+            'desc'  => $desc,
             'image' => $c['thumbnail'],
             'link'  => 'crop.php?slug=' . urlencode($c['slug']),
         ];
     }
+
     $output['languages'][$lang] = [
-        'title'          => $metaRows[$lang]['title']           ?? 'Crop Information',
-        'subtitle'       => $metaRows[$lang]['subtitle']        ?? 'Select a crop to learn more',
+        'title'          => $meta[$lang]['title'],
+        'subtitle'       => $meta[$lang]['subtitle'],
         'crops'          => $crops,
-        'switchLanguage' => $metaRows[$lang]['switch_language'] ?? ($isUr ? 'English' : 'اردو'),
+        'switchLanguage' => $meta[$lang]['switch_language'],
     ];
 }
 

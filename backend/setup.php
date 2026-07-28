@@ -169,6 +169,8 @@ $tables = [
   `slug` VARCHAR(100) NOT NULL UNIQUE,
   `name_en` VARCHAR(200) NOT NULL,
   `name_ur` VARCHAR(200) DEFAULT '',
+  `desc_en` TEXT DEFAULT NULL,
+  `desc_ur` TEXT DEFAULT NULL,
   `thumbnail` VARCHAR(300) DEFAULT '',
   `video_1` VARCHAR(100) DEFAULT '',
   `video_2` VARCHAR(100) DEFAULT '',
@@ -305,8 +307,8 @@ if (file_exists($cropInfoFile)) {
         ];
         
         // Insert into crops table
-        $stmtCrops = $conn->prepare("INSERT INTO `crops` (slug, name_en, name_ur, thumbnail, video_1, video_2, video_3, video_4, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmtCrops->bind_param('ssssssssi', $slug, $name_en, $name_ur, $thumbnail, $v1, $v2, $v3, $v4, $sort_order);
+        $stmtCrops = $conn->prepare("INSERT INTO `crops` (slug, name_en, name_ur, desc_en, desc_ur, thumbnail, video_1, video_2, video_3, video_4, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmtCrops->bind_param('ssssssssssi', $slug, $name_en, $name_ur, $desc_en, $desc_ur, $thumbnail, $v1, $v2, $v3, $v4, $sort_order);
         
         $localVids = [
             'maize'  => ['Ar0OQZ-eVy0', 'XNmATrP8b9Q', 'Xu8DMz8LBx0', '5KQDwCdKytY'],
@@ -314,10 +316,19 @@ if (file_exists($cropInfoFile)) {
             'rice'   => ['Viwf1t9fPnE', '7b11tw1_Cwc', 'jipf6SHHbgo', '8dhOfYHTd3c'],
             'wheat'  => ['NbR-b39dtnY', '6Lq-WHw0lWo', 'U0AHbKHYBnA', 'qS6BSCaUhyo'],
         ];
+
+        $defaultDesc = [
+            'rice'   => ['A staple food crop grown in flooded fields, requiring plenty of water', 'ایک بنیادی غذائی فصل جو پانی سے بھری زمین میں اگائی جاتی ہے'],
+            'potato' => ['A versatile tuber crop grown in well-drained soil', 'ایک قیمتی جڑ والی فصل جو خشک زمین میں اگائی جاتی ہے'],
+            'wheat'  => ['A primary cereal crop grown in temperate regions', 'ایک اہم اناجی فصل جو معتدل علاقوں میں اگائی جاتی ہے'],
+            'maize'  => ['A popular maize grown in warm climates, used for food and animal feed', 'ایک مقبول فصل جو گرم علاقوں میں اگائی جاتی ہے اور خوراک کے لیے استعمال ہوتی ہے'],
+        ];
         
         foreach ($cropsMap as $slug => $c) {
             $name_en = $c['name_en'];
             $name_ur = $c['name_ur'];
+            $desc_en = $defaultDesc[$slug][0] ?? '';
+            $desc_ur = $defaultDesc[$slug][1] ?? '';
             $thumbnail = $localThumbs[$slug] ?? $c['thumbnail'];
             $sort_order = $c['sort_order'];
             $v1 = $localVids[$slug][0] ?? '';

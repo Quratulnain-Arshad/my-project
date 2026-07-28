@@ -1,44 +1,42 @@
 <?php
+// Home / header content API — farm_data + static How It Works / Features from JSON
 require_once __DIR__ . '/../conn.php';
+
 header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
-header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
-header('Pragma: no-cache');
 
-// Load static translations from JSON (for sections not stored in DB)
-$jsonPath = __DIR__ . '/../../frontend/json/farm-data.json';
-$staticData = [];
-if (file_exists($jsonPath)) {
-    $staticData = json_decode(file_get_contents($jsonPath), true)['languages'] ?? [];
+// Static parts (How It Works, Features) from JSON file
+$jsonFile = __DIR__ . '/../../frontend/json/farm-data.json';
+$static = [];
+if (file_exists($jsonFile)) {
+    $json = json_decode(file_get_contents($jsonFile), true);
+    $static = $json['languages'] ?? [];
 }
 
+// Dynamic parts from database
 $result = $conn->query("SELECT * FROM farm_data ORDER BY lang ASC");
-$rows = [];
-while ($row = $result->fetch_assoc()) {
-    $rows[$row['lang']] = $row;
-}
-
 $output = ['languages' => []];
-foreach ($rows as $lang => $r) {
-    $static = $staticData[$lang] ?? [];
+
+while ($row = $result->fetch_assoc()) {
+    $lang = $row['lang'];
+    $extra = $static[$lang] ?? [];
+
     $output['languages'][$lang] = [
-        'title'          => $r['title'],
-        'subtitle'       => $r['subtitle'],
+        'title'          => $row['title'],
+        'subtitle'       => $row['subtitle'],
         'buttons'        => [
-            'cropInfo'   => $r['btn_crop_info'],
-            'calculator' => $r['btn_calculator'],
-            'helpline'   => $r['btn_helpline'],
+            'cropInfo'   => $row['btn_crop_info'],
+            'calculator' => $row['btn_calculator'],
+            'helpline'   => $row['btn_helpline'],
         ],
-        'switchLanguage' => $r['switch_language'],
+        'switchLanguage' => $row['switch_language'],
         'about'          => [
-            'heading'    => $r['about_heading'],
-            'p1'         => $r['about_p1'],
-            'p2'         => $r['about_p2'],
-            'p3'         => $r['about_p3'],
+            'heading' => $row['about_heading'],
+            'p1'      => $row['about_p1'],
+            'p2'      => $row['about_p2'],
+            'p3'      => $row['about_p3'],
         ],
-        // Static sections from JSON
-        'howItWorks'     => $static['howItWorks'] ?? [],
-        'features'       => $static['features'] ?? [],
+        'howItWorks'     => $extra['howItWorks'] ?? [],
+        'features'       => $extra['features'] ?? [],
     ];
 }
 

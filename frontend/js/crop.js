@@ -24,6 +24,7 @@ function render() {
   const detailKey = currentLang === 'en' ? 'english' : 'urdu';
 
   document.body.style.direction = isRtl ? 'rtl' : 'ltr';
+  document.body.setAttribute('dir', isRtl ? 'rtl' : 'ltr');
 
   const guide   = d.guide[currentLang] || {};
   const details = d.details[detailKey] || {};
@@ -103,7 +104,8 @@ function render() {
   if (d.videos && d.videos.length > 0) {
     const vidSection = document.createElement('div');
     vidSection.className = 'video-section';
-    vidSection.innerHTML = `<h2 class="section-heading"><i class="fa-brands fa-youtube"></i> Videos</h2>`;
+    const vidTitle = isRtl ? 'ویڈیوز' : 'Videos';
+    vidSection.innerHTML = `<h2 class="section-heading"><i class="fa-brands fa-youtube"></i> ${vidTitle}</h2>`;
     const vidGrid = document.createElement('div');
     vidGrid.className = 'video-grid';
     d.videos.forEach(vid => {

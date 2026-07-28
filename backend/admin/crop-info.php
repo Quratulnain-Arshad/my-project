@@ -2,39 +2,6 @@
 require_once __DIR__ . '/../config.php';
 requireLogin();
 
-$conn->query("CREATE TABLE IF NOT EXISTS crops (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  slug VARCHAR(100) NOT NULL UNIQUE,
-  name_en VARCHAR(200) NOT NULL,
-  name_ur VARCHAR(200) DEFAULT '',
-  thumbnail VARCHAR(300) DEFAULT '',
-  sort_order INT DEFAULT 0,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)");
-$conn->query("CREATE TABLE IF NOT EXISTS crop_images (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  crop_id INT NOT NULL,
-  image_path VARCHAR(300) NOT NULL,
-  caption VARCHAR(200) DEFAULT '',
-  caption_ur VARCHAR(200) DEFAULT '',
-  sort_order INT DEFAULT 0
-)");
-// Add caption_ur to existing tables if missing
-@$conn->query("ALTER TABLE crop_images ADD COLUMN caption_ur VARCHAR(200) DEFAULT '' AFTER caption");
-// Add video columns to crops if missing
-@$conn->query("ALTER TABLE crops ADD COLUMN video_1 VARCHAR(100) DEFAULT ''");
-@$conn->query("ALTER TABLE crops ADD COLUMN video_2 VARCHAR(100) DEFAULT ''");
-@$conn->query("ALTER TABLE crops ADD COLUMN video_3 VARCHAR(100) DEFAULT ''");
-@$conn->query("ALTER TABLE crops ADD COLUMN video_4 VARCHAR(100) DEFAULT ''");
-$conn->query("CREATE TABLE IF NOT EXISTS crop_sections (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  crop_id INT NOT NULL,
-  lang CHAR(2) DEFAULT 'en',
-  heading VARCHAR(300) DEFAULT '',
-  content TEXT,
-  sort_order INT DEFAULT 0
-)");
-
 function ciDir() {
     $d = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'frontend'
        . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'uploads';
@@ -67,9 +34,11 @@ if ($action === 'create') {
     $slug  = $conn->real_escape_string(preg_replace('/[^a-z0-9_-]/', '-', strtolower(trim($_POST['slug']))));
     $nEn   = $conn->real_escape_string($_POST['name_en']);
     $nUr   = $conn->real_escape_string($_POST['name_ur'] ?? '');
+    $dEn   = $conn->real_escape_string($_POST['desc_en'] ?? '');
+    $dUr   = $conn->real_escape_string($_POST['desc_ur'] ?? '');
     $sort  = (int)($_POST['sort_order'] ?? 0);
     $thumb = $conn->real_escape_string(ciUp('thumbnail') ?? '');
-    if ($conn->query("INSERT INTO crops (slug,name_en,name_ur,thumbnail,sort_order) VALUES ('$slug','$nEn','$nUr','$thumb',$sort)")) {
+    if ($conn->query("INSERT INTO crops (slug,name_en,name_ur,desc_en,desc_ur,thumbnail,sort_order) VALUES ('$slug','$nEn','$nUr','$dEn','$dUr','$thumb',$sort)")) {
         $newId = $conn->insert_id;
         header("Location: crop-info.php?view=edit&id=$newId&msg=created");
     } else {
@@ -82,15 +51,17 @@ if ($action === 'create') {
     $slug  = $conn->real_escape_string(preg_replace('/[^a-z0-9_-]/', '-', strtolower(trim($_POST['slug']))));
     $nEn   = $conn->real_escape_string($_POST['name_en']);
     $nUr   = $conn->real_escape_string($_POST['name_ur'] ?? '');
+    $dEn   = $conn->real_escape_string($_POST['desc_en'] ?? '');
+    $dUr   = $conn->real_escape_string($_POST['desc_ur'] ?? '');
     $sort  = (int)($_POST['sort_order'] ?? 0);
     $thumb = ciUp('thumbnail');
     if ($thumb) {
         $cur = $conn->query("SELECT thumbnail FROM crops WHERE id=$cid")->fetch_assoc();
         ciDel($cur['thumbnail'] ?? '');
         $tEsc = $conn->real_escape_string($thumb);
-        $conn->query("UPDATE crops SET slug='$slug',name_en='$nEn',name_ur='$nUr',thumbnail='$tEsc',sort_order=$sort WHERE id=$cid");
+        $conn->query("UPDATE crops SET slug='$slug',name_en='$nEn',name_ur='$nUr',desc_en='$dEn',desc_ur='$dUr',thumbnail='$tEsc',sort_order=$sort WHERE id=$cid");
     } else {
-        $conn->query("UPDATE crops SET slug='$slug',name_en='$nEn',name_ur='$nUr',sort_order=$sort WHERE id=$cid");
+        $conn->query("UPDATE crops SET slug='$slug',name_en='$nEn',name_ur='$nUr',desc_en='$dEn',desc_ur='$dUr',sort_order=$sort WHERE id=$cid");
     }
     header("Location: crop-info.php?view=edit&id=$cid&msg=saved");
     exit;
@@ -265,6 +236,14 @@ $msgMap = [
         <label>Sort Order</label>
         <input type="number" name="sort_order" value="0">
       </div>
+      <div class="form-group">
+        <label>Short Description (English)</label>
+        <textarea name="desc_en" rows="2" placeholder="e.g. A staple food crop grown in flooded fields, requiring plenty of water"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Short Description (اردو)</label>
+        <textarea name="desc_ur" rows="2" dir="rtl" placeholder="مثلاً ایک اہم غذائی فصل جو سیلابی کھیتوں میں اگائی جاتی ہے..."></textarea>
+      </div>
     </div>
     <div class="form-group" style="margin-top:12px">
       <label>Thumbnail Image</label>
@@ -326,6 +305,14 @@ document.getElementById('slugInput').addEventListener('input', function(){ this.
       <div class="form-group">
         <label>Sort Order</label>
         <input type="number" name="sort_order" value="<?= (int)$crop['sort_order'] ?>">
+      </div>
+      <div class="form-group">
+        <label>Short Description (English)</label>
+        <textarea name="desc_en" rows="2" placeholder="e.g. A staple food crop grown in flooded fields, requiring plenty of water"><?= htmlspecialchars($crop['desc_en'] ?? '') ?></textarea>
+      </div>
+      <div class="form-group">
+        <label>Short Description (اردو)</label>
+        <textarea name="desc_ur" rows="2" dir="rtl" placeholder="مثلاً ایک اہم غذائی فصل جو سیلابی کھیتوں میں اگائی جاتی ہے..."><?= htmlspecialchars($crop['desc_ur'] ?? '') ?></textarea>
       </div>
     </div>
     <div class="form-group" style="margin-top:12px">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2026 at 07:46 PM
+-- Generation Time: Jul 28, 2026 at 06:47 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -93,10 +93,10 @@ CREATE TABLE `crops` (
 --
 
 INSERT INTO `crops` (`id`, `slug`, `name_en`, `name_ur`, `desc_en`, `desc_ur`, `thumbnail`, `video_1`, `video_2`, `video_3`, `video_4`, `sort_order`) VALUES
-(1, 'rice', 'Rice', 'چاول', NULL, NULL, 'assets/rice-intro.jpeg', 'Viwf1t9fPnE', '7b11tw1_Cwc', 'jipf6SHHbgo', '8dhOfYHTd3c', 1),
-(2, 'potato', 'Potato', 'آلو', NULL, NULL, 'assets/potato-intro.jpeg', 'U4ELFalfACQ', 'f7UeErCV7NU', '8_TQet5wYCo', 'kPNFH4pqx5w', 2),
-(3, 'wheat', 'Wheat', 'گندم', NULL, NULL, 'assets/image.jpeg', 'NbR-b39dtnY', '6Lq-WHw0lWo', 'U0AHbKHYBnA', 'qS6BSCaUhyo', 3),
-(4, 'maize', 'Maize', 'مکئی', NULL, NULL, 'assets/maize-intro.jpg', 'Ar0OQZ-eVy0', 'XNmATrP8b9Q', 'Xu8DMz8LBx0', '5KQDwCdKytY', 4);
+(1, 'rice', 'Rice', 'چاول', 'A staple food crop grown in flooded fields, requiring plenty of water', 'ایک بنیادی غذائی فصل جو پانی سے بھری زمین میں اگائی جاتی ہے', 'assets/rice-intro.jpeg', 'Viwf1t9fPnE', '7b11tw1_Cwc', 'jipf6SHHbgo', '8dhOfYHTd3c', 1),
+(2, 'potato', 'Potato', 'آلو', 'A versatile tuber crop grown in well-drained soil', 'ایک قیمتی جڑ والی فصل جو خشک زمین میں اگائی جاتی ہے', 'assets/potato-intro.jpeg', 'U4ELFalfACQ', 'f7UeErCV7NU', '8_TQet5wYCo', 'kPNFH4pqx5w', 2),
+(3, 'wheat', 'Wheat', 'گندم', 'A primary cereal crop grown in temperate regions', 'ایک اہم اناجی فصل جو معتدل علاقوں میں اگائی جاتی ہے', 'assets/image.jpeg', 'NbR-b39dtnY', '6Lq-WHw0lWo', 'U0AHbKHYBnA', 'qS6BSCaUhyo', 3),
+(4, 'maize', 'Maize', 'مکئی', 'A popular maize grown in warm climates, used for food and animal feed', 'ایک مقبول فصل جو گرم علاقوں میں اگائی جاتی ہے اور خوراک کے لیے استعمال ہوتی ہے', 'assets/maize-intro.jpg', 'Ar0OQZ-eVy0', 'XNmATrP8b9Q', 'Xu8DMz8LBx0', '5KQDwCdKytY', 4);
 
 -- --------------------------------------------------------
 
@@ -242,33 +242,33 @@ CREATE TABLE `crop_images` (
 --
 
 INSERT INTO `crop_images` (`id`, `crop_id`, `image_path`, `caption`, `caption_ur`, `sort_order`) VALUES
-(1, 1, 'assets/rice-intro.jpeg', 'Introduction', '', 0),
-(2, 1, 'assets/climate.jpg', 'Climate Requirement', '', 1),
-(3, 1, 'assets/rice-soil.jpeg', 'Soil Requirement', '', 2),
-(4, 1, 'assets/rice-sowing.jpeg', 'Sowing Time', '', 3),
-(5, 1, 'assets/rice-fertilizer.jpeg', 'Fertilizer Schedule', '', 4),
-(6, 1, 'assets/rice-pests.jpeg', 'Weeds, Pests and Diseases', '', 5),
-(8, 2, 'assets/potato-intro.jpeg', 'Introduction', '', 0),
-(9, 2, 'assets/climate.jpg', 'Climate Requirement', '', 1),
-(10, 2, 'assets/potato-soil.jpeg', 'Soil Requirement', '', 2),
-(11, 2, 'assets/potato-sowing.jpg', 'Sowing Time', '', 3),
-(12, 2, 'assets/potato-fertilizer.jpg', 'Fertilizer Schedule', '', 4),
-(13, 2, 'assets/potato-pest.jpg', 'Weeds, Pests and Diseases', '', 5),
-(14, 2, 'assets/potato-harvesting.jpg', 'Harvesting', '', 6),
-(15, 3, 'assets/image.jpeg', 'Introduction', '', 0),
-(16, 3, 'assets/climate.jpg', 'Climate Requirement', '', 1),
-(17, 3, 'assets/soil.jpg', 'Soil Requirement', '', 2),
-(18, 3, 'assets/sowing.jpg', 'Sowing Time', '', 3),
-(19, 3, 'assets/fertilizer.jpg', 'Fertilizer Schedule', '', 4),
-(20, 3, 'assets/pests.jpg', 'Weeds, Pests and Diseases', '', 5),
-(21, 3, 'assets/harvesting.jpg', 'Harvesting', '', 6),
-(22, 4, 'assets/maize-intro.jpg', 'Introduction', '', 0),
-(23, 4, 'assets/climate.jpg', 'Climate Requirement', '', 1),
-(24, 4, 'assets/maize-soil.jpg', 'Soil Requirement', '', 2),
-(25, 4, 'assets/maize-sowing.jpg', 'Sowing Time', '', 3),
-(26, 4, 'assets/maize-fertilizer.jpg', 'Fertilizer Schedule', '', 4),
-(27, 4, 'assets/maize-pest.jpg', 'Weeds, Pests and Diseases', '', 5),
-(28, 4, 'assets/maize-harvesting.jpg', 'Harvesting', '', 6);
+(1, 1, 'assets/rice-intro.jpeg', 'Introduction', 'تعارف', 0),
+(2, 1, 'assets/climate.jpg', 'Climate Requirement', 'موسمی تقاضے', 1),
+(3, 1, 'assets/rice-soil.jpeg', 'Soil Requirement', 'مٹی کے تقاضے', 2),
+(4, 1, 'assets/rice-sowing.jpeg', 'Sowing Time', 'بونے کا وقت', 3),
+(5, 1, 'assets/rice-fertilizer.jpeg', 'Fertilizer Schedule', 'کھادوں کا شیڈول', 4),
+(6, 1, 'assets/rice-pests.jpeg', 'Weeds, Pests and Diseases', 'جڑی بوٹیاں، کیڑے اور بیماریاں', 5),
+(8, 2, 'assets/potato-intro.jpeg', 'Introduction', 'تعارف', 0),
+(9, 2, 'assets/climate.jpg', 'Climate Requirement', 'موسمی تقاضے', 1),
+(10, 2, 'assets/potato-soil.jpeg', 'Soil Requirement', 'مٹی کے تقاضے', 2),
+(11, 2, 'assets/potato-sowing.jpg', 'Sowing Time', 'بونے کا وقت', 3),
+(12, 2, 'assets/potato-fertilizer.jpg', 'Fertilizer Schedule', 'کھادوں کا شیڈول', 4),
+(13, 2, 'assets/potato-pest.jpg', 'Weeds, Pests and Diseases', 'جڑی بوٹیاں، کیڑے اور بیماریاں', 5),
+(14, 2, 'assets/potato-harvesting.jpg', 'Harvesting', 'فصل کاٹنے کا وقت', 6),
+(15, 3, 'assets/image.jpeg', 'Introduction', 'تعارف', 0),
+(16, 3, 'assets/climate.jpg', 'Climate Requirement', 'موسمی تقاضے', 1),
+(17, 3, 'assets/soil.jpg', 'Soil Requirement', 'مٹی کے تقاضے', 2),
+(18, 3, 'assets/sowing.jpg', 'Sowing Time', 'بونے کا وقت', 3),
+(19, 3, 'assets/fertilizer.jpg', 'Fertilizer Schedule', 'کھادوں کا شیڈول', 4),
+(20, 3, 'assets/pests.jpg', 'Weeds, Pests and Diseases', 'جڑی بوٹیاں، کیڑے اور بیماریاں', 5),
+(21, 3, 'assets/harvesting.jpg', 'Harvesting', 'فصل کاٹنے کا وقت', 6),
+(22, 4, 'assets/maize-intro.jpg', 'Introduction', 'تعارف', 0),
+(23, 4, 'assets/climate.jpg', 'Climate Requirement', 'موسمی تقاضے', 1),
+(24, 4, 'assets/maize-soil.jpg', 'Soil Requirement', 'مٹی کے تقاضے', 2),
+(25, 4, 'assets/maize-sowing.jpg', 'Sowing Time', 'بونے کا وقت', 3),
+(26, 4, 'assets/maize-fertilizer.jpg', 'Fertilizer Schedule', 'کھادوں کا شیڈول', 4),
+(27, 4, 'assets/maize-pest.jpg', 'Weeds, Pests and Diseases', 'جڑی بوٹیاں، کیڑے اور بیماریاں', 5),
+(28, 4, 'assets/maize-harvesting.jpg', 'Harvesting', 'فصل کاٹنے کا وقت', 6);
 
 -- --------------------------------------------------------
 

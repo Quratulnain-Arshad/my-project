@@ -2,10 +2,6 @@
 require_once __DIR__ . '/../config.php';
 requireLogin();
 
-foreach (['crop_images','crop_sections'] as $tbl) {
-    $conn->query("CREATE TABLE IF NOT EXISTS $tbl (id INT AUTO_INCREMENT PRIMARY KEY, crop_id INT NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
-}
-
 $counts = [];
 foreach (['crops', 'agri_cost'] as $t) {
     $r = $conn->query("SELECT COUNT(*) FROM `$t`");
