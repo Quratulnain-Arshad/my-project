@@ -26,6 +26,14 @@ function imgUrl($path) {
     if (!$path) return '';
     return str_starts_with($path, 'http') ? $path : '../../frontend/' . $path;
 }
+function cropJsonDecode($raw) {
+    $arr = json_decode($raw ?? '[]', true);
+    return is_array($arr) ? $arr : [];
+}
+function cropSaveJson($conn, $cid, $field, $data) {
+    $json = $conn->real_escape_string(json_encode(array_values($data), JSON_UNESCAPED_UNICODE));
+    $conn->query("UPDATE crops SET `$field`='$json' WHERE id=" . (int)$cid);
+}
 
 global $conn;
 $action = $_POST['_action'] ?? '';
@@ -38,11 +46,18 @@ if ($action === 'create') {
     $dUr   = $conn->real_escape_string($_POST['desc_ur'] ?? '');
     $sort  = (int)($_POST['sort_order'] ?? 0);
     $thumb = $conn->real_escape_string(ciUp('thumbnail') ?? '');
-    if ($conn->query("INSERT INTO crops (slug,name_en,name_ur,desc_en,desc_ur,thumbnail,sort_order) VALUES ('$slug','$nEn','$nUr','$dEn','$dUr','$thumb',$sort)")) {
+    $sql = "INSERT INTO crops (slug,name_en,name_ur,desc_en,desc_ur,thumbnail,sort_order,images,sections_en,sections_ur)
+            VALUES ('$slug','$nEn','$nUr','$dEn','$dUr','$thumb',$sort,'[]','[]','[]')";
+    if ($conn->query($sql)) {
         $newId = $conn->insert_id;
         header("Location: crop-info.php?view=edit&id=$newId&msg=created");
     } else {
-        header("Location: crop-info.php?view=new&msg=slug_taken");
+        // Fallback if JSON columns not migrated yet
+        if ($conn->query("INSERT INTO crops (slug,name_en,name_ur,desc_en,desc_ur,thumbnail,sort_order) VALUES ('$slug','$nEn','$nUr','$dEn','$dUr','$thumb',$sort)")) {
+            header("Location: crop-info.php?view=edit&id=" . $conn->insert_id . "&msg=created");
+        } else {
+            header("Location: crop-info.php?view=new&msg=slug_taken");
+        }
     }
     exit;
 
@@ -67,76 +82,82 @@ if ($action === 'create') {
     exit;
 
 } elseif ($action === 'add_image') {
-    $cid     = (int)$_POST['crop_id'];
-    $sort    = (int)($_POST['sort_order'] ?? 0);
-    $cap     = $conn->real_escape_string($_POST['caption'] ?? '');
-    $capUr   = $conn->real_escape_string($_POST['caption_ur'] ?? '');
-    $added   = 0;
-    $files   = $_FILES['image_file'] ?? [];
-    $count   = is_array($files['name']) ? count($files['name']) : 0;
-    $dir     = ciDir();
+    $cid   = (int)$_POST['crop_id'];
+    $cap   = $_POST['caption'] ?? '';
+    $capUr = $_POST['caption_ur'] ?? '';
+    $row   = $conn->query("SELECT images FROM crops WHERE id=$cid")->fetch_assoc();
+    $images = cropJsonDecode($row['images'] ?? '[]');
+    $files = $_FILES['image_file'] ?? [];
+    $count = is_array($files['name']) ? count($files['name']) : 0;
+    $dir   = ciDir();
     for ($i = 0; $i < $count; $i++) {
         if ($files['error'][$i] !== UPLOAD_ERR_OK) continue;
         $ext = strtolower(pathinfo($files['name'][$i], PATHINFO_EXTENSION));
         if (!in_array($ext, ['jpg','jpeg','png','gif','webp'])) continue;
         $name = uniqid('img_') . '.' . $ext;
         if (move_uploaded_file($files['tmp_name'][$i], $dir . DIRECTORY_SEPARATOR . $name)) {
-            $pEsc = $conn->real_escape_string('assets/uploads/' . $name);
-            $conn->query("INSERT INTO crop_images (crop_id,image_path,caption,caption_ur,sort_order) VALUES ($cid,'$pEsc','$cap','$capUr'," . ($sort + $added) . ")");
-            $added++;
+            $images[] = [
+                'image'      => 'assets/uploads/' . $name,
+                'caption'    => $cap,
+                'caption_ur' => $capUr,
+            ];
         }
     }
+    cropSaveJson($conn, $cid, 'images', $images);
     header("Location: crop-info.php?view=edit&id=$cid&msg=img_added&tab=images");
     exit;
 
 } elseif ($action === 'del_image') {
-    $imgId = (int)$_POST['image_id'];
     $cid   = (int)$_POST['crop_id'];
-    $row   = $conn->query("SELECT image_path FROM crop_images WHERE id=$imgId")->fetch_assoc();
-    if ($row) ciDel($row['image_path']);
-    $conn->query("DELETE FROM crop_images WHERE id=$imgId");
+    $index = (int)$_POST['image_index'];
+    $row   = $conn->query("SELECT images FROM crops WHERE id=$cid")->fetch_assoc();
+    $images = cropJsonDecode($row['images'] ?? '[]');
+    if (isset($images[$index])) {
+        ciDel($images[$index]['image'] ?? '');
+        array_splice($images, $index, 1);
+        cropSaveJson($conn, $cid, 'images', $images);
+    }
     header("Location: crop-info.php?view=edit&id=$cid&msg=img_deleted&tab=images");
     exit;
 
 } elseif ($action === 'save_sections') {
     $cid  = (int)$_POST['crop_id'];
     $lang = ($_POST['lang'] ?? 'en') === 'ur' ? 'ur' : 'en';
-    $conn->query("DELETE FROM crop_sections WHERE crop_id=$cid AND lang='$lang'");
+    $field = $lang === 'ur' ? 'sections_ur' : 'sections_en';
     $headings = $_POST['heading'] ?? [];
     $contents = $_POST['content'] ?? [];
+    $sections = [];
     foreach ($headings as $i => $h) {
-        $h = $conn->real_escape_string($h);
-        $c = $conn->real_escape_string($contents[$i] ?? '');
-        $conn->query("INSERT INTO crop_sections (crop_id,lang,heading,content,sort_order) VALUES ($cid,'$lang','$h','$c',$i)");
+        $sections[] = [
+            'heading' => $h,
+            'content' => $contents[$i] ?? '',
+        ];
     }
+    cropSaveJson($conn, $cid, $field, $sections);
     header("Location: crop-info.php?view=edit&id=$cid&msg=sections_saved&tab=$lang");
     exit;
 
 } elseif ($action === 'delete_crop') {
-    $cid  = (int)$_POST['crop_id'];
-    $imgs = $conn->query("SELECT image_path FROM crop_images WHERE crop_id=$cid")->fetch_all(MYSQLI_ASSOC);
-    foreach ($imgs as $img) ciDel($img['image_path']);
-    $cur = $conn->query("SELECT thumbnail FROM crops WHERE id=$cid")->fetch_assoc();
-    if ($cur) ciDel($cur['thumbnail'] ?? '');
-    $conn->query("DELETE FROM crop_images WHERE crop_id=$cid");
-    $conn->query("DELETE FROM crop_sections WHERE crop_id=$cid");
+    $cid = (int)$_POST['crop_id'];
+    $cur = $conn->query("SELECT thumbnail, images FROM crops WHERE id=$cid")->fetch_assoc();
+    if ($cur) {
+        ciDel($cur['thumbnail'] ?? '');
+        foreach (cropJsonDecode($cur['images'] ?? '[]') as $img) {
+            ciDel($img['image'] ?? '');
+        }
+    }
     $conn->query("DELETE FROM crops WHERE id=$cid");
     header("Location: crop-info.php?msg=deleted");
     exit;
 
 } elseif ($action === 'save_videos') {
     $cid = (int)$_POST['crop_id'];
-    // Helper: extract 11-char YouTube ID from URL or raw ID
     function getYoutubeId($url) {
         $url = trim($url);
         if (!$url) return '';
-        // youtu.be/ID
         if (preg_match('~youtu\.be/([A-Za-z0-9_-]{11})~', $url, $m)) return $m[1];
-        // ?v=ID or &v=ID
         if (preg_match('~[?&]v=([A-Za-z0-9_-]{11})~', $url, $m)) return $m[1];
-        // embed/ID
         if (preg_match('~/embed/([A-Za-z0-9_-]{11})~', $url, $m)) return $m[1];
-        // Raw 11-char ID
         if (preg_match('~^[A-Za-z0-9_-]{11}$~', $url)) return $url;
         return '';
     }
@@ -159,11 +180,11 @@ $images = [];
 $secEn = [];
 $secUr = [];
 if ($view === 'edit' && $id) {
-    $crop   = $conn->query("SELECT * FROM crops WHERE id=$id")->fetch_assoc();
+    $crop = $conn->query("SELECT * FROM crops WHERE id=$id")->fetch_assoc();
     if (!$crop) { header("Location: crop-info.php"); exit; }
-    $images = $conn->query("SELECT * FROM crop_images WHERE crop_id=$id ORDER BY sort_order")->fetch_all(MYSQLI_ASSOC);
-    $secEn  = $conn->query("SELECT * FROM crop_sections WHERE crop_id=$id AND lang='en' ORDER BY sort_order")->fetch_all(MYSQLI_ASSOC);
-    $secUr  = $conn->query("SELECT * FROM crop_sections WHERE crop_id=$id AND lang='ur' ORDER BY sort_order")->fetch_all(MYSQLI_ASSOC);
+    $images = cropJsonDecode($crop['images'] ?? '[]');
+    $secEn  = cropJsonDecode($crop['sections_en'] ?? '[]');
+    $secUr  = cropJsonDecode($crop['sections_ur'] ?? '[]');
 }
 
 $allCrops = $conn->query("SELECT * FROM crops ORDER BY sort_order, name_en")->fetch_all(MYSQLI_ASSOC);
@@ -344,14 +365,14 @@ document.getElementById('slugInput').addEventListener('input', function(){ this.
 <div class="card">
   <h2>Image Gallery</h2>
   <div class="img-grid">
-    <?php foreach ($images as $img): ?>
+    <?php foreach ($images as $idx => $img): ?>
     <div class="img-card">
-      <img src="<?= htmlspecialchars(imgUrl($img['image_path'])) ?>" alt="">
-      <div class="cap">EN: <?= htmlspecialchars($img['caption'] ?: '—') ?></div>
-      <div class="cap" dir="rtl" style="text-align:right;color:#1a5276">UR: <?= htmlspecialchars($img['caption_ur'] ?: '—') ?></div>
+      <img src="<?= htmlspecialchars(imgUrl($img['image'] ?? '')) ?>" alt="">
+      <div class="cap">EN: <?= htmlspecialchars(($img['caption'] ?? '') ?: '—') ?></div>
+      <div class="cap" dir="rtl" style="text-align:right;color:#1a5276">UR: <?= htmlspecialchars(($img['caption_ur'] ?? '') ?: '—') ?></div>
       <form method="POST" style="display:inline" onsubmit="return confirm('Delete this image?')">
         <input type="hidden" name="_action" value="del_image">
-        <input type="hidden" name="image_id" value="<?= $img['id'] ?>">
+        <input type="hidden" name="image_index" value="<?= (int)$idx ?>">
         <input type="hidden" name="crop_id" value="<?= $crop['id'] ?>">
         <button class="del-btn" title="Delete">✕</button>
       </form>

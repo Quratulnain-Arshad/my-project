@@ -2,24 +2,43 @@
 require_once __DIR__ . '/../config.php';
 requireLogin();
 
+function jsonCount($raw) {
+    $arr = json_decode($raw ?? '[]', true);
+    return is_array($arr) ? count($arr) : 0;
+}
+
 $counts = [];
 foreach (['crops', 'agri_cost'] as $t) {
     $r = $conn->query("SELECT COUNT(*) FROM `$t`");
     $counts[$t] = $r ? (int)$r->fetch_row()[0] : 0;
 }
-$r = $conn->query("SELECT COUNT(*) FROM crop_images"); $counts['crop_images'] = $r ? (int)$r->fetch_row()[0] : 0;
-$r = $conn->query("SELECT COUNT(*) FROM crop_sections"); $counts['crop_sections'] = $r ? (int)$r->fetch_row()[0] : 0;
 
-$liveCards = $conn->query("SELECT id, slug, name_en AS name, thumbnail AS image_url FROM crops ORDER BY sort_order, name_en")->fetch_all(MYSQLI_ASSOC);
-$dynCrops  = $conn->query("SELECT id, slug, name_en FROM crops ORDER BY sort_order, name_en")->fetch_all(MYSQLI_ASSOC);
+$allCropRows = $conn->query("SELECT id, slug, name_en, thumbnail, images, sections_en, sections_ur FROM crops ORDER BY sort_order, name_en")->fetch_all(MYSQLI_ASSOC);
 
+$totalImages = 0;
+$totalSections = 0;
 $imgCounts = [];
-$ir = $conn->query("SELECT crop_id, COUNT(*) as cnt FROM crop_images GROUP BY crop_id");
-if ($ir) while ($row = $ir->fetch_assoc()) { $imgCounts[$row['crop_id']] = (int)$row['cnt']; }
-
 $secCounts = [];
-$sr = $conn->query("SELECT crop_id, COUNT(*) as cnt FROM crop_sections GROUP BY crop_id");
-if ($sr) while ($row = $sr->fetch_assoc()) { $secCounts[$row['crop_id']] = (int)$row['cnt']; }
+foreach ($allCropRows as $c) {
+    $ic = jsonCount($c['images'] ?? '[]');
+    $sc = jsonCount($c['sections_en'] ?? '[]') + jsonCount($c['sections_ur'] ?? '[]');
+    $imgCounts[$c['id']] = $ic;
+    $secCounts[$c['id']] = $sc;
+    $totalImages += $ic;
+    $totalSections += $sc;
+}
+$counts['crop_images'] = $totalImages;
+$counts['crop_sections'] = $totalSections;
+
+$liveCards = array_map(function ($c) {
+    return [
+        'id' => $c['id'],
+        'slug' => $c['slug'],
+        'name' => $c['name_en'],
+        'image_url' => $c['thumbnail'],
+    ];
+}, $allCropRows);
+$dynCrops = $allCropRows;
 
 $admin = $_SESSION['admin_user'] ?? 'Admin';
 ?>

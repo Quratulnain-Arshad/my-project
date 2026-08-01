@@ -110,16 +110,6 @@ $tables = [
   `about_p3` TEXT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
 
-'crop_info' => "CREATE TABLE IF NOT EXISTS `crop_info` (
-  `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `lang` VARCHAR(5) NOT NULL,
-  `name` VARCHAR(100),
-  `description` TEXT,
-  `image_url` TEXT,
-  `link_page` VARCHAR(100),
-  `sort_order` INT DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-
 'agri_cost' => "CREATE TABLE IF NOT EXISTS `agri_cost` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `crop_key` VARCHAR(20) NOT NULL UNIQUE,
@@ -129,39 +119,6 @@ $tables = [
   `desc_ur` VARCHAR(255),
   `details_en` TEXT,
   `details_ur` TEXT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-
-'crop_guides' => "CREATE TABLE IF NOT EXISTS `crop_guides` (
-  `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `crop` VARCHAR(20) NOT NULL,
-  `lang` VARCHAR(5) NOT NULL,
-  `title` VARCHAR(255),
-  `section_intro` VARCHAR(255),
-  `section_climate` VARCHAR(255),
-  `section_soil` VARCHAR(255),
-  `section_sowing` VARCHAR(255),
-  `section_fertilizer` VARCHAR(255),
-  `section_pests` VARCHAR(255),
-  `section_harvest` VARCHAR(255),
-  `img_intro` VARCHAR(255),
-  `img_climate` VARCHAR(255),
-  `img_soil` VARCHAR(255),
-  `img_sowing` VARCHAR(255),
-  `img_fertilizer` VARCHAR(255),
-  `img_pests` VARCHAR(255),
-  `img_harvest` VARCHAR(255),
-  `lang_btn` VARCHAR(50),
-  `next_btn` VARCHAR(50)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-
-'crop_details' => "CREATE TABLE IF NOT EXISTS `crop_details` (
-  `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `crop` VARCHAR(20) NOT NULL,
-  `lang` VARCHAR(20) NOT NULL,
-  `title` VARCHAR(255),
-  `section_order` INT DEFAULT 0,
-  `heading` VARCHAR(255),
-  `content` LONGTEXT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
 
 'crops' => "CREATE TABLE IF NOT EXISTS `crops` (
@@ -177,24 +134,10 @@ $tables = [
   `video_3` VARCHAR(100) DEFAULT '',
   `video_4` VARCHAR(100) DEFAULT '',
   `sort_order` INT DEFAULT 0,
+  `images` LONGTEXT NULL,
+  `sections_en` LONGTEXT NULL,
+  `sections_ur` LONGTEXT NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-
-'crop_images' => "CREATE TABLE IF NOT EXISTS `crop_images` (
-  `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `crop_id` INT NOT NULL,
-  `image_path` VARCHAR(300) NOT NULL,
-  `caption` VARCHAR(200) DEFAULT '',
-  `sort_order` INT DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
-
-'crop_sections' => "CREATE TABLE IF NOT EXISTS `crop_sections` (
-  `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `crop_id` INT NOT NULL,
-  `lang` CHAR(2) DEFAULT 'en',
-  `heading` VARCHAR(300) DEFAULT '',
-  `content` TEXT,
-  `sort_order` INT DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
 
 ];
@@ -203,7 +146,15 @@ foreach ($tables as $name => $sql) {
     run($conn, $sql, $errors, $success, "Create table $name");
 }
 
-// Set up directory path to old-code JSON files
+// Ensure JSON columns exist on older crops tables
+foreach (['images','sections_en','sections_ur'] as $col) {
+    $chk = $conn->query("SHOW COLUMNS FROM crops LIKE '$col'");
+    if ($chk && $chk->num_rows === 0) {
+        run($conn, "ALTER TABLE crops ADD COLUMN `$col` LONGTEXT NULL", $errors, $success, "Add crops.$col");
+    }
+}
+
+// Set up directory path to old-code JSON files (optional seed source)
 $jsonDir = __DIR__ . '/../old-code/json/';
 
 // ─────────────────────────────────────────────
@@ -262,116 +213,33 @@ if (file_exists($farmDataFile)) {
 }
 
 // ─────────────────────────────────────────────
-// 4. SEED CROP INFO & CROPS
+// 4. SEED CROPS (single table with JSON columns)
 // ─────────────────────────────────────────────
 
-$conn->query("TRUNCATE TABLE `crop_info`");
 $conn->query("TRUNCATE TABLE `crops`");
 
-$cropInfoFile = $jsonDir . 'cropinfo.json';
-if (file_exists($cropInfoFile)) {
-    $cropInfoData = json_decode(file_get_contents($cropInfoFile), true);
-    if (isset($cropInfoData['languages'])) {
-        // Collect crops combined by slug for crops table
-        $cropsMap = [];
-        if (isset($cropInfoData['languages']['en']['crops'])) {
-            foreach ($cropInfoData['languages']['en']['crops'] as $idx => $c) {
-                $link = $c['link'] ?? '';
-                $slug = str_replace('.html', '', basename($link));
-                $cropsMap[$slug] = [
-                    'slug' => $slug,
-                    'name_en' => $c['name'] ?? '',
-                    'name_ur' => '',
-                    'thumbnail' => $c['image'] ?? '',
-                    'sort_order' => $idx + 1
-                ];
-            }
-        }
-        
-        if (isset($cropInfoData['languages']['ur']['crops'])) {
-            foreach ($cropInfoData['languages']['ur']['crops'] as $c) {
-                $link = $c['link'] ?? '';
-                $slug = str_replace('.html', '', basename($link));
-                if (isset($cropsMap[$slug])) {
-                    $cropsMap[$slug]['name_ur'] = $c['name'] ?? '';
-                }
-            }
-        }
-        
-        // Match standard local thumbnails
-        $localThumbs = [
-            'wheat'  => 'assets/image.jpeg',
-            'rice'   => 'assets/rice-intro.jpeg',
-            'potato' => 'assets/potato-intro.jpeg',
-            'maize'  => 'assets/maize-intro.jpg',
-        ];
-        
-        // Insert into crops table
-        $stmtCrops = $conn->prepare("INSERT INTO `crops` (slug, name_en, name_ur, desc_en, desc_ur, thumbnail, video_1, video_2, video_3, video_4, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmtCrops->bind_param('ssssssssssi', $slug, $name_en, $name_ur, $desc_en, $desc_ur, $thumbnail, $v1, $v2, $v3, $v4, $sort_order);
-        
-        $localVids = [
-            'maize'  => ['Ar0OQZ-eVy0', 'XNmATrP8b9Q', 'Xu8DMz8LBx0', '5KQDwCdKytY'],
-            'potato' => ['U4ELFalfACQ', 'f7UeErCV7NU', '8_TQet5wYCo', 'kPNFH4pqx5w'],
-            'rice'   => ['Viwf1t9fPnE', '7b11tw1_Cwc', 'jipf6SHHbgo', '8dhOfYHTd3c'],
-            'wheat'  => ['NbR-b39dtnY', '6Lq-WHw0lWo', 'U0AHbKHYBnA', 'qS6BSCaUhyo'],
-        ];
+$seedCrops = [
+    ['rice','Rice','چاول','A staple food crop grown in flooded fields, requiring plenty of water','ایک بنیادی غذائی فصل جو پانی سے بھری زمین میں اگائی جاتی ہے','assets/rice-intro.jpeg','Viwf1t9fPnE','7b11tw1_Cwc','jipf6SHHbgo','8dhOfYHTd3c',1],
+    ['potato','Potato','آلو','A versatile tuber crop grown in well-drained soil','ایک قیمتی جڑ والی فصل جو خشک زمین میں اگائی جاتی ہے','assets/potato-intro.jpeg','U4ELFalfACQ','f7UeErCV7NU','8_TQet5wYCo','kPNFH4pqx5w',2],
+    ['wheat','Wheat','گندم','A primary cereal crop grown in temperate regions','ایک اہم اناجی فصل جو معتدل علاقوں میں اگائی جاتی ہے','assets/image.jpeg','NbR-b39dtnY','6Lq-WHw0lWo','U0AHbKHYBnA','qS6BSCaUhyo',3],
+    ['maize','Maize','مکئی','A popular maize grown in warm climates, used for food and animal feed','ایک مقبول فصل جو گرم علاقوں میں اگائی جاتی ہے اور خوراک کے لیے استعمال ہوتی ہے','assets/maize-intro.jpg','Ar0OQZ-eVy0','XNmATrP8b9Q','Xu8DMz8LBx0','5KQDwCdKytY',4],
+];
 
-        $defaultDesc = [
-            'rice'   => ['A staple food crop grown in flooded fields, requiring plenty of water', 'ایک بنیادی غذائی فصل جو پانی سے بھری زمین میں اگائی جاتی ہے'],
-            'potato' => ['A versatile tuber crop grown in well-drained soil', 'ایک قیمتی جڑ والی فصل جو خشک زمین میں اگائی جاتی ہے'],
-            'wheat'  => ['A primary cereal crop grown in temperate regions', 'ایک اہم اناجی فصل جو معتدل علاقوں میں اگائی جاتی ہے'],
-            'maize'  => ['A popular maize grown in warm climates, used for food and animal feed', 'ایک مقبول فصل جو گرم علاقوں میں اگائی جاتی ہے اور خوراک کے لیے استعمال ہوتی ہے'],
-        ];
-        
-        foreach ($cropsMap as $slug => $c) {
-            $name_en = $c['name_en'];
-            $name_ur = $c['name_ur'];
-            $desc_en = $defaultDesc[$slug][0] ?? '';
-            $desc_ur = $defaultDesc[$slug][1] ?? '';
-            $thumbnail = $localThumbs[$slug] ?? $c['thumbnail'];
-            $sort_order = $c['sort_order'];
-            $v1 = $localVids[$slug][0] ?? '';
-            $v2 = $localVids[$slug][1] ?? '';
-            $v3 = $localVids[$slug][2] ?? '';
-            $v4 = $localVids[$slug][3] ?? '';
-            if ($stmtCrops->execute()) {
-                $success[] = "OK: Seed crops table (slug=$slug) from cropinfo.json";
-            } else {
-                $errors[] = "FAIL (crops table slug=$slug): " . $stmtCrops->error;
-            }
-        }
-        $stmtCrops->close();
-        
-        // Insert into crop_info (legacy table)
-        $stmtCropInfo = $conn->prepare("INSERT INTO `crop_info` (lang, name, description, image_url, link_page, sort_order) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmtCropInfo->bind_param('sssssi', $lang, $name, $desc, $img, $lnk, $ord);
-        
-        foreach (['en', 'ur'] as $lang) {
-            if (isset($cropInfoData['languages'][$lang]['crops'])) {
-                foreach ($cropInfoData['languages'][$lang]['crops'] as $idx => $c) {
-                    $name = $c['name'] ?? '';
-                    $desc = $c['desc'] ?? '';
-                    $link = $c['link'] ?? '';
-                    $slug = str_replace('.html', '', basename($link));
-                    $img = $localThumbs[$slug] ?? $c['image'] ?? '';
-                    $lnk = str_replace('.html', '.php', $link);
-                    $ord = $idx + 1;
-                    if ($stmtCropInfo->execute()) {
-                        $success[] = "OK: Seed crop_info $lang $name from cropinfo.json";
-                    } else {
-                        $errors[] = "FAIL (crop_info $lang $name): " . $stmtCropInfo->error;
-                    }
-                }
-            }
-        }
-        $stmtCropInfo->close();
+$stmtCrops = $conn->prepare("INSERT INTO `crops`
+  (slug,name_en,name_ur,desc_en,desc_ur,thumbnail,video_1,video_2,video_3,video_4,sort_order,images,sections_en,sections_ur)
+  VALUES (?,?,?,?,?,?,?,?,?,?,?,'[]','[]','[]')");
+$stmtCrops->bind_param('ssssssssssi', $slug,$name_en,$name_ur,$desc_en,$desc_ur,$thumbnail,$v1,$v2,$v3,$v4,$sort_order);
+
+foreach ($seedCrops as $row) {
+    [$slug,$name_en,$name_ur,$desc_en,$desc_ur,$thumbnail,$v1,$v2,$v3,$v4,$sort_order] = $row;
+    if ($stmtCrops->execute()) {
+        $success[] = "OK: Seed crop $slug";
     } else {
-        $errors[] = "FAIL: cropinfo.json has invalid structure.";
+        $errors[] = "FAIL (crop $slug): " . $stmtCrops->error;
     }
-} else {
-    $errors[] = "FAIL: cropinfo.json not found in old-code.";
 }
+$stmtCrops->close();
+$success[] = "NOTE: For full gallery/sections data, import farmease.sql then run docs/migrate_crops_single_table.php";
 
 // ─────────────────────────────────────────────
 // 5. SEED AGRI COST
@@ -386,7 +254,6 @@ if (file_exists($agriFile)) {
         $stmt->bind_param('sssssss', $ck,$ne,$nu,$de,$du,$den,$dur);
         
         foreach ($agriData as $ck => $d) {
-            // Strip HTML <b> tags to keep formatting clean
             $ne = str_replace(['<b>', '</b>'], '', $d['name_en'] ?? '');
             $nu = str_replace(['<b>', '</b>'], '', $d['name_ur'] ?? '');
             $de = str_replace(['<b>', '</b>'], '', $d['desc_en'] ?? '');
@@ -405,170 +272,7 @@ if (file_exists($agriFile)) {
         $errors[] = "FAIL: agri.json has invalid structure.";
     }
 } else {
-    $errors[] = "FAIL: agri.json not found in old-code.";
-}
-
-// ─────────────────────────────────────────────
-// 6. SEED CROP GUIDES & CROP IMAGES
-// ─────────────────────────────────────────────
-
-$conn->query("TRUNCATE TABLE `crop_guides`");
-$conn->query("TRUNCATE TABLE `crop_images`");
-
-$cropsList = ['rice', 'potato', 'wheat', 'maize'];
-foreach ($cropsList as $crop) {
-    $cropFile = $jsonDir . $crop . '.json';
-    if (file_exists($cropFile)) {
-        $cropData = json_decode(file_get_contents($cropFile), true);
-        if (is_array($cropData)) {
-            // Seed crop_guides
-            $stmtGuide = $conn->prepare("INSERT INTO `crop_guides`
-                (crop,lang,title,section_intro,section_climate,section_soil,section_sowing,section_fertilizer,section_pests,section_harvest,
-                 img_intro,img_climate,img_soil,img_sowing,img_fertilizer,img_pests,img_harvest,lang_btn,next_btn)
-                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            $stmtGuide->bind_param('sssssssssssssssssss',
-                $crop,$lang,$title,$si,$scl,$sso,$ssw,$sf,$sp,$sh,
-                $ii,$icl,$iso,$isw,$ife,$ip,$iha,$lb,$nb);
-            
-            foreach (['en', 'ur'] as $lang) {
-                if (isset($cropData[$lang])) {
-                    $d = $cropData[$lang];
-                    $title = $d['title'] ?? '';
-                    $si = $d['intro'] ?? '';
-                    $scl = $d['climate'] ?? '';
-                    $sso = $d['soil'] ?? '';
-                    $ssw = $d['sowing'] ?? '';
-                    $sf = $d['fertilizer'] ?? '';
-                    $sp = $d['pests'] ?? '';
-                    $sh = $d['harvest'] ?? '';
-                    
-                    // Map paths to standard assets/... paths
-                    $ii  = isset($d['images']['intro'])  ? mapAssetPath($d['images']['intro'])  : '';
-                    $icl = isset($d['images']['climate'])? mapAssetPath($d['images']['climate']): '';
-                    $iso = isset($d['images']['soil'])   ? mapAssetPath($d['images']['soil'])   : '';
-                    $isw = isset($d['images']['sowing']) ? mapAssetPath($d['images']['sowing']) : '';
-                    $ife = isset($d['images']['fertilizer'])? mapAssetPath($d['images']['fertilizer']): '';
-                    $ip  = isset($d['images']['pests'])  ? mapAssetPath($d['images']['pests'])  : '';
-                    $iha = isset($d['images']['harvest'])? mapAssetPath($d['images']['harvest']): '';
-                    
-                    $lb = $d['langBtn'] ?? '';
-                    $nb = $d['next'] ?? '';
-                    
-                    if ($stmtGuide->execute()) {
-                        $success[] = "OK: Seed crop_guides $crop/$lang from $crop.json";
-                    } else {
-                        $errors[] = "FAIL (crop_guides $crop/$lang): " . $stmtGuide->error;
-                    }
-                }
-            }
-            $stmtGuide->close();
-            
-            // Seed crop_images (new normalized table)
-            $sEsc = $conn->real_escape_string($crop);
-            $cropRow = $conn->query("SELECT id FROM crops WHERE slug='$sEsc'")->fetch_assoc();
-            if ($cropRow) {
-                $cid = (int)$cropRow['id'];
-                
-                $stmtImg = $conn->prepare("INSERT INTO `crop_images` (crop_id, image_path, caption, sort_order) VALUES (?, ?, ?, ?)");
-                $stmtImg->bind_param('issi', $cid, $image_path, $caption, $sort_order);
-                
-                $keys = ['intro', 'climate', 'soil', 'sowing', 'fertilizer', 'pests', 'harvest'];
-                $sort = 0;
-                foreach ($keys as $k) {
-                    $img = $cropData['en']['images'][$k] ?? '';
-                    $caption = $cropData['en'][$k] ?? ucfirst($k);
-                    if (!$img) continue;
-                    
-                    $image_path = mapAssetPath($img);
-                    $sort_order = $sort;
-                    if ($stmtImg->execute()) {
-                        $success[] = "OK: Seed crop_images for $crop ($k) from $crop.json";
-                        $sort++;
-                    } else {
-                        $errors[] = "FAIL (crop_images $crop $k): " . $stmtImg->error;
-                    }
-                }
-                $stmtImg->close();
-            } else {
-                $errors[] = "WARN: Slug '$crop' not found in crops table — cannot seed crop_images.";
-            }
-            
-        } else {
-            $errors[] = "FAIL: $crop.json has invalid structure.";
-        }
-    } else {
-        $errors[] = "FAIL: $crop.json not found in old-code.";
-    }
-}
-
-// ─────────────────────────────────────────────
-// 7. SEED CROP DETAILS & CROP SECTIONS
-// ─────────────────────────────────────────────
-
-$conn->query("TRUNCATE TABLE `crop_details`");
-$conn->query("TRUNCATE TABLE `crop_sections`");
-
-foreach ($cropsList as $crop) {
-    $infoFile = $jsonDir . $crop . 'info.json';
-    if (file_exists($infoFile)) {
-        $infoData = json_decode(file_get_contents($infoFile), true);
-        if (is_array($infoData)) {
-            // Seed crop_details
-            $stmtDetails = $conn->prepare("INSERT INTO `crop_details` (crop,lang,title,section_order,heading,content) VALUES (?,?,?,?,?,?)");
-            $stmtDetails->bind_param('sssiss', $crop,$lang,$title,$ord,$heading,$content);
-            
-            foreach (['english', 'urdu'] as $lang) {
-                if (isset($infoData[$lang])) {
-                    $group = $infoData[$lang];
-                    $title = $group['title'] ?? '';
-                    foreach ($group['sections'] as $idx => $sec) {
-                        $ord = $idx + 1;
-                        $heading = $sec['heading'] ?? '';
-                        $content = $sec['content'] ?? '';
-                        if ($stmtDetails->execute()) {
-                            $success[] = "OK: Seed crop_details $crop/$lang section " . ($idx+1) . " from {$crop}info.json";
-                        } else {
-                            $errors[] = "FAIL (crop_details $crop/$lang s".($idx+1)."): " . $stmtDetails->error;
-                        }
-                    }
-                }
-            }
-            $stmtDetails->close();
-            
-            // Seed crop_sections (new normalized table)
-            $sEsc = $conn->real_escape_string($crop);
-            $cropRow = $conn->query("SELECT id FROM crops WHERE slug='$sEsc'")->fetch_assoc();
-            if ($cropRow) {
-                $cid = (int)$cropRow['id'];
-                
-                $stmtSec = $conn->prepare("INSERT INTO `crop_sections` (crop_id, lang, heading, content, sort_order) VALUES (?, ?, ?, ?, ?)");
-                $stmtSec->bind_param('isssi', $cid, $langCode, $heading, $content, $sort_order);
-                
-                foreach (['english' => 'en', 'urdu' => 'ur'] as $langName => $langCode) {
-                    if (isset($infoData[$langName])) {
-                        foreach ($infoData[$langName]['sections'] as $idx => $sec) {
-                            $heading = $sec['heading'] ?? '';
-                            $content = $sec['content'] ?? '';
-                            $sort_order = $idx;
-                            if ($stmtSec->execute()) {
-                                $success[] = "OK: Seed crop_sections $crop/$langCode section " . ($idx+1) . " from {$crop}info.json";
-                            } else {
-                                $errors[] = "FAIL (crop_sections $crop/$langCode s".($idx+1)."): " . $stmtSec->error;
-                            }
-                        }
-                    }
-                }
-                $stmtSec->close();
-            } else {
-                $errors[] = "WARN: Slug '$crop' not found in crops table — cannot seed crop_sections.";
-            }
-            
-        } else {
-            $errors[] = "FAIL: {$crop}info.json has invalid structure.";
-        }
-    } else {
-        $errors[] = "FAIL: {$crop}info.json not found in old-code.";
-    }
+    $errors[] = "INFO: agri.json not found — seed AgriCost from farmease.sql if needed.";
 }
 
 // ─────────────────────────────────────────────
